@@ -370,6 +370,7 @@ h2 {
   font-weight: 600;
   transition: background 0.3s ease;
 }
+
 /* ==== EDUCATION ==== */
 .education-container {
   display: flex;
@@ -465,4 +466,124 @@ footer {
   .resume-btn {
     margin-top: 10px;
   }
+}
+/* ==== SKILLS SECTION ==== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.skill-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(233, 30, 99, 0.3);
+  border-radius: 12px;
+  padding: 25px 20px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.1);
+}
+
+.skill-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(233, 30, 99, 0.5);
+  border-color: rgba(233, 30, 99, 0.6);
+}
+
+/* Headings + pulsing icons */
+.skill-card h3 {
+  color: #e91e63;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-card h3 i {
+  font-size: 1.3rem;
+  color: #ff80ab;
+  text-shadow: 0 0 10px rgba(233, 30, 99, 0.8), 0 0 20px rgba(233, 30, 99, 0.4);
+  animation: pulseGlow 2.5s infinite ease-in-out;
+  transition: transform 0.4s ease, text-shadow 0.4s ease;
+}
+
+/* Hover glow + tilt */
+.skill-card:hover h3 i {
+  transform: rotate(10deg) scale(1.2);
+  text-shadow: 0 0 25px rgba(255, 128, 171, 1), 0 0 50px rgba(233, 30, 99, 0.9);
+}
+
+/* Neon pulse */
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 8px rgba(233, 30, 99, 0.6), 0 0 16px rgba(233, 30, 99, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(233, 30, 99, 0.9), 0 0 40px rgba(255, 128, 171, 0.7);
+    transform: scale(1.05);
+  }
+}
+
+/* Skill item */
+.skill {
+  margin-bottom: 15px;
+}
+
+.skill p {
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ==== Skill Bars ==== */
+.skill-bar {
+  position: relative;
+  height: 10px;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Neon glow on hover */
+.skill-card:hover .skill-bar {
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+}
+
+.skill-bar span {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #e91e63, #ff80ab);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
+  transition: width 1.8s ease-in-out;
+}
+
+/* === Spark trail effect === */
+.skill-bar span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 100%;
+  background: radial-gradient(circle, #fff 0%, rgba(255,255,255,0) 80%);
+  opacity: 0.9;
+  border-radius: 50%;
+  animation: sparkTrail 2.5s infinite linear;
+}
+
+/* Animated "light pulse" running along bar */
+@keyframes sparkTrail {
+  0% { transform: translateX(-100%); opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0.8; }
 }
