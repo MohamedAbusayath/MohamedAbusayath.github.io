@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,11 +12,9 @@
 
 <body>
 
-  <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">Port<span>folio</span></div>
-    
-    <!-- Hamburger Icon -->
+
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
       <span></span>
@@ -28,11 +27,12 @@
       <a href="#Certificates">Certificates</a>
       <a href="#Skills">Skills</a>
       <a href="#Education">Education</a>
+      <!-- NEW: Internships link -->
+      <a href="#Internships">Internships</a>
       <a href="#Contact">Contact</a>
-      <a href="resume/MOHAMED_ABUSAYATH_S_RESUME_.pdf" download class="resume-btn">Download Resume</a>
+      <a href="resume/MOHAMED_ABUSAYATH_S.pdf" download class="resume-btn">Download Resume</a>
     </nav>
   </header>
-
 
   <!-- ===== MAIN CONTENT ===== -->
   <main id="main">
@@ -41,14 +41,16 @@
     <section id="About">
       <div class="hero">
         <div class="hero-text">
-          <h1><p style="font-size: large;">Hi, I'm </p><span>Mohamed Abusayath</span></h1>
+          <h1>
+            <p style="font-size: large;">Hi, I'm </p><span>Mohamed Abusayath</span>
+          </h1>
           <h2>Full-stack Developer | Java Developer</h2>
           <p>
-            I'm a <strong>Computer Science and Engineering</strong> graduate with a strong interest in 
-            <strong>Software Development</strong>. I enjoy creating clean, efficient, and user-friendly 
+            I'm a <strong>Computer Science and Engineering</strong> graduate with a strong interest in
+            <strong>Software Development</strong>. I enjoy creating clean, efficient, and user-friendly
             applications using <strong>Java, Spring Boot, and SQL</strong>.
             <br><br>
-            As a fresher, I'm eager to apply my technical knowledge, explore innovative ideas, 
+            As a fresher, I'm eager to apply my technical knowledge, explore innovative ideas,
             and grow as a professional developer through continuous learning and teamwork.
           </p>
 
@@ -77,7 +79,6 @@
       </div>
     </section>
 
-
     <!-- ===== PROJECTS ===== -->
     <section id="Projects">
       <h2>Projects</h2>
@@ -87,9 +88,11 @@
           <img src="img/heritage.png" alt="AI-Based Heritage Tourism Guide">
           <div class="project-content">
             <h3>AI-Based Heritage Tourism Guide</h3>
-            <p>A multilingual AI-powered tourism assistant providing GPS-based suggestions, voice/text interaction, and intelligent audio responses.</p>
+            <p>A multilingual AI-powered tourism assistant providing GPS-based suggestions, voice/text interaction, and
+              intelligent audio responses.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Node.js, Express.js, Gemini LLM, MySQL, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/AI-Based-Heritage-Tourism-Guide" target="_blank" class="project-btn">🔗 View on GitHub</a>
+            <a href="https://github.com/MohamedAbusayath/AI-Based-Heritage-Tourism-Guide" target="_blank"
+              class="project-btn">🔗 View on GitHub</a>
           </div>
         </div>
 
@@ -97,9 +100,11 @@
           <img src="img/AIchatbot.png" alt="AI Chatbot Project">
           <div class="project-content">
             <h3>AI Chatbot</h3>
-            <p>A full-stack chatbot application integrating Spring Boot with Ollama LLM for seamless natural language interaction.</p>
+            <p>A full-stack chatbot application integrating Spring Boot with Ollama LLM for seamless natural language
+              interaction.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, REST API, HTML, CSS, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" class="project-btn">🔗 View on GitHub</a>
+            <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" class="project-btn">🔗 View on
+              GitHub</a>
           </div>
         </div>
 
@@ -108,8 +113,10 @@
           <div class="project-content">
             <h3>LearningHub — Online Learning Platform</h3>
             <p>A full-stack learning platform featuring AI-powered assistance using Gemini API and a responsive UI.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, JPA, MySQL, HTML, CSS, JavaScript, Gemini API</p>
-            <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank" class="project-btn">🔗 View on GitHub</a>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, JPA, MySQL, HTML, CSS, JavaScript,
+              Gemini API</p>
+            <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank"
+              class="project-btn">🔗 View on GitHub</a>
           </div>
         </div>
 
@@ -117,16 +124,45 @@
           <img src="img/news.png" alt="Live News App Project">
           <div class="project-content">
             <h3>NewsNow — Live News Application</h3>
-            <p>Real-time news app built with React.js and NewsData API. Features category-based browsing, dark mode, and smooth animations.</p>
+            <p>Real-time news app built with React.js and NewsData API. Features category-based browsing, dark mode, and
+              smooth animations.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> React.js, Axios, NewsData.io API, Vercel</p>
             <a href="https://news-app-dusky-xi.vercel.app/" target="_blank" class="project-btn">🌐 Live Demo</a>
             <a href="https://github.com/MohamedAbusayath/news-app" target="_blank" class="project-btn">🔗 GitHub</a>
           </div>
         </div>
 
+        <div class="project-card">
+          <img src="img/employee.png" alt="Employee Management System Project">
+          <div class="project-content">
+            <h3>Employee Management System</h3>
+            <p>Full-stack Employee Management System built with Spring Boot (MVC). Implements CRUD for employees,
+              role-based access, server-side rendered views with Thymeleaf, and REST endpoints for integrations.</p>
+            <p class="tech-stack"><strong>Tech Stack:</strong> Spring Boot (MVC), Spring Data JPA, MySQL, Thymeleaf</p>
+            <a href="https://github.com/MohamedAbusayath/EmployeeManagement" target="_blank" class="project-btn">🔗
+              GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="img/algorithm_visualizer.png" alt="Algorithm Visualizer Project (Sorting & Searching)">
+          <div class="project-content">
+            <h3>Algorithm Visualizer</h3>
+            <p>
+              A simple tool that helps users understand Sorting and Searching algorithms.
+              It shows each step clearly and displays the output in an easy-to-read format.
+              The backend uses Spring Boot REST APIs to process and return the algorithm results.
+            </p>
+            <p class="tech-stack">
+              <strong>Tech Stack:</strong> React, Spring Boot (REST), Java
+            </p>
+            <a href="https://github.com/MohamedAbusayath/AlgorithmVisualizer" target="_blank" rel="noopener noreferrer"
+              class="project-btn">🔗 GitHub</a>
+          </div>
+        </div>
+
       </div>
     </section>
-
 
     <!-- ===== CERTIFICATES ===== -->
     <section id="Certificates">
@@ -156,7 +192,11 @@
           <p>Java Concurrency & Multithreading — Scaler Masterclass</p>
           <a href="img/java-multi-thread.png" target="_blank">View Certificate</a>
         </div>
-
+        <div class="certificate-card">
+          <img src="img/java-fullstack.png" alt="Java Multi-thread Certificate">
+          <p>Java Full-Stack — Uniq Technology</p>
+          <a href="img/java-fullstack.png" target="_blank">View Certificate</a>
+        </div>
         <div class="certificate-card">
           <img src="img/Internship_certificate_inmakes-1.png" alt="Internship Certificate">
           <p>Software Testing Internship — Inmakes Infotech Pvt Ltd</p>
@@ -171,56 +211,106 @@
       </div>
     </section>
 
-<!-- ===== SKILLS SECTION ===== -->
-<section id="Skills">
-  <h2>Technical Skills</h2>
-  <div class="skills-grid">
+    <!-- ===== SKILLS SECTION ===== -->
+    <section id="Skills">
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
 
-    <!-- Core Programming -->
-    <div class="skill-card">
-      <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
-      <div class="skill"><p>Java</p><div class="skill-bar"><span data-width="95%"></span></div></div>
-      <div class="skill"><p>JavaScript</p><div class="skill-bar"><span data-width="90%"></span></div></div>
-      <div class="skill"><p>Python</p><div class="skill-bar"><span data-width="40%"></span></div></div>
-      <div class="skill"><p>SQL</p><div class="skill-bar"><span data-width="85%"></span></div></div>
-    </div>
+        <!-- Core Programming -->
+        <div class="skill-card">
+          <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
+          <div class="skill">
+            <p>Java</p>
+            <div class="skill-bar"><span data-width="95%"></span></div>
+          </div>
+          <div class="skill">
+            <p>JavaScript</p>
+            <div class="skill-bar"><span data-width="90%"></span></div>
+          </div>
+          <div class="skill">
+            <p>Python</p>
+            <div class="skill-bar"><span data-width="40%"></span></div>
+          </div>
+          <div class="skill">
+            <p>SQL</p>
+            <div class="skill-bar"><span data-width="85%"></span></div>
+          </div>
+        </div>
 
-    <!-- Frameworks -->
-    <div class="skill-card">
-      <h3><i class="fa-solid fa-layer-group"></i> Frameworks & Libraries</h3>
-      <div class="skill"><p>Spring Boot</p><div class="skill-bar"><span data-width="95%"></span></div></div>
-      <div class="skill"><p>React.js</p><div class="skill-bar"><span data-width="45%"></span></div></div>
-      
-    </div>
+        <!-- Frameworks -->
+        <div class="skill-card">
+          <h3><i class="fa-solid fa-layer-group"></i> Frameworks & Libraries</h3>
+          <div class="skill">
+            <p>Spring Boot</p>
+            <div class="skill-bar"><span data-width="95%"></span></div>
+          </div>
+          <div class="skill">
+            <p>React.js</p>
+            <div class="skill-bar"><span data-width="45%"></span></div>
+          </div>
 
-    <!-- Database & Tools -->
-    <div class="skill-card">
-      <h3><i class="fa-solid fa-database"></i> Databases & Tools</h3>
-      <div class="skill"><p>MySQL</p><div class="skill-bar"><span data-width="90%"></span></div></div>
-      <div class="skill"><p>MongoDB </p><div class="skill-bar"><span data-width="40%"></span></div></div>
-      <div class="skill"><p>VS Code / Eclipse</p><div class="skill-bar"><span data-width="85%"></span></div></div>
-      <div class="skill"><p>Git & GitHub</p><div class="skill-bar"><span data-width="60%"></span></div></div>
-    </div>
+        </div>
 
-<div class="skill-card">
-      <h3><i class="fa-solid fa-vial"></i> Testing & API Tools</h3>
-     
-       <div class="skill"><p>Postman</p><div class="skill-bar"><span data-width="90%"></span></div></div>
-      <div class="skill"><p>Selenium</p><div class="skill-bar"><span data-width="85%"></span></div></div>
-      <div class="skill"><p>JUnit</p><div class="skill-bar"><span data-width="88%"></span></div></div>
-      <div class="skill"><p> Cucumber (BDD)</p><div class="skill-bar"><span data-width="88%"></span></div></div>
-    </div>
-    <!-- Soft Skills -->
-    <div class="skill-card">
-      <h3><i class="fa-solid fa-user-check"></i> Soft Skills</h3>
-      <div class="skill"><p>Problem Solving</p><div class="skill-bar"><span data-width="90%"></span></div></div>
-      <div class="skill"><p>Team Collaboration</p><div class="skill-bar"><span data-width="85%"></span></div></div>
-      <div class="skill"><p>Adaptability & Communication</p><div class="skill-bar"><span data-width="88%"></span></div></div>
-    </div>
+        <!-- Database & Tools -->
+        <div class="skill-card">
+          <h3><i class="fa-solid fa-database"></i> Databases & Tools</h3>
+          <div class="skill">
+            <p>MySQL</p>
+            <div class="skill-bar"><span data-width="90%"></span></div>
+          </div>
+          <div class="skill">
+            <p>MongoDB </p>
+            <div class="skill-bar"><span data-width="40%"></span></div>
+          </div>
+          <div class="skill">
+            <p>VS Code / Eclipse</p>
+            <div class="skill-bar"><span data-width="85%"></span></div>
+          </div>
+          <div class="skill">
+            <p>Git & GitHub</p>
+            <div class="skill-bar"><span data-width="60%"></span></div>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <div class="skill-card">
+          <h3><i class="fa-solid fa-vial"></i> Testing & API Tools</h3>
 
+          <div class="skill">
+            <p>Postman</p>
+            <div class="skill-bar"><span data-width="90%"></span></div>
+          </div>
+          <div class="skill">
+            <p>Selenium</p>
+            <div class="skill-bar"><span data-width="85%"></span></div>
+          </div>
+          <div class="skill">
+            <p>JUnit</p>
+            <div class="skill-bar"><span data-width="88%"></span></div>
+          </div>
+          <div class="skill">
+            <p> Cucumber (BDD)</p>
+            <div class="skill-bar"><span data-width="88%"></span></div>
+          </div>
+        </div>
+        <!-- Soft Skills -->
+        <div class="skill-card">
+          <h3><i class="fa-solid fa-user-check"></i> Soft Skills</h3>
+          <div class="skill">
+            <p>Problem Solving</p>
+            <div class="skill-bar"><span data-width="90%"></span></div>
+          </div>
+          <div class="skill">
+            <p>Team Collaboration</p>
+            <div class="skill-bar"><span data-width="85%"></span></div>
+          </div>
+          <div class="skill">
+            <p>Adaptability & Communication</p>
+            <div class="skill-bar"><span data-width="88%"></span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ===== EDUCATION ===== -->
     <section id="Education">
@@ -232,9 +322,57 @@
           <p><strong>St. Michael College of Engineering and Technology</strong> (2021–2025)</p>
           <p>CGPA: <strong>7.5</strong></p>
         </div>
+        <div class="education-card">
+          <h3>HSC</h3>
+          <p><strong>Britto Higher Secondary School, kallal</strong>(2020-2021)</p>
+          <p>Percentage: <strong>83%</strong></p>
+        </div>
+        <div class="education-card">
+          <p><strong>Goverment High School, Chokkanathapuram</strong>(2018-2019)</p>
+          <p>Percentage: <strong>80%</strong></p>
+        </div>
       </div>
     </section>
 
+    <!-- ===== INTERNSHIPS ===== -->
+    <section id="Internships">
+      <h2>Internships</h2>
+      
+      <div class="internship-container">
+        <div class="internship-card">
+          <img src="img/uniq.png" alt="Uniq Technologies" class="company-logo">
+          <h3>Java Full-Stack Intern</h3>
+          <p><strong>Uniq Technologies, Chennai</strong> — 6 Months</p>
+          <ul>
+            <li>Developed full-stack features using Java, Spring Boot, MySQL, HTML, CSS, and JavaScript.</li>
+            <li>Improved application performance and enhanced user experience through optimizations.</li>
+            <li>Collaborated with team members to deliver production-ready features and fixes.</li>
+          </ul>
+        </div>
+
+        <div class="internship-card">
+          <img src="img/shiash.png" alt="Uniq Technologies" class="company-logo">
+          <h3>Java Developer Intern</h3>
+          <p><strong>Shiash Info Solutions, Chennai</strong> — 3 Months</p>
+          <ul>
+            <li>Built backend modules and REST APIs using Java and JDBC.</li>
+            <li>Worked on database integration and query optimization to improve response times.</li>
+            <li>Assisted in debugging and code reviews to increase code quality.</li>
+          </ul>
+        </div>
+
+        <div class="internship-card">
+          <img src="img/inmak.png" alt="Uniq Technologies" class="company-logo">
+          <h3>Software Testing Intern</h3>
+          <p><strong>Inmakes Infotech (Remote)</strong> — 3 Months</p>
+          <ul>
+            <li>Performed manual and automated testing using Selenium and TestNG.</li>
+            <li>Created and executed test cases; reported issues and verified fixes.</li>
+            <li>Contributed to improving software reliability and QA processes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
     <!-- ===== CONTACT ===== -->
     <section class="contact-content" id="Contact">
@@ -257,8 +395,6 @@
     </section>
 
   </main>
-
-
 
   <!-- ===== JAVASCRIPT ===== -->
   <script>
@@ -284,7 +420,7 @@
   <script>
     emailjs.init('JwWzCh-vL8LPUExti');
     const form = document.querySelector('form[name="submitToGoogleSheet"]');
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
       emailjs.sendForm('service_fuq991d', 'template_dxyin7a', form)
         .then(() => {
@@ -296,20 +432,20 @@
         });
     });
   </script>
-<script>
-  const skillBars = document.querySelectorAll('.skill-bar span');
-  const animateSkills = () => {
-    skillBars.forEach(bar => {
-      const rect = bar.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        bar.style.width = bar.dataset.width;
-      }
-    });
-  };
-  window.addEventListener('scroll', animateSkills);
-  window.addEventListener('load', animateSkills);
-</script>
-
+  <script>
+    const skillBars = document.querySelectorAll('.skill-bar span');
+    const animateSkills = () => {
+      skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          bar.style.width = bar.dataset.width;
+        }
+      });
+    };
+    window.addEventListener('scroll', animateSkills);
+    window.addEventListener('load', animateSkills);
+  </script>
 
 </body>
+
 </html>

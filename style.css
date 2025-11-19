@@ -587,3 +587,113 @@ footer {
   50% { opacity: 1; }
   100% { transform: translateX(100%); opacity: 0.8; }
 }
+/* ==== INTERNSHIPS ==== */
+.internship-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.internship-card {
+  background: #1a1a1a;
+  border: 1px solid rgba(233, 30, 99, 0.28);
+  border-radius: 12px;
+  padding: 22px;
+  width: clamp(280px, 40%, 420px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border 0.28s ease;
+  color: #e6e6e6;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover lift + neon glow */
+.internship-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 40px rgba(233, 30, 99, 0.18);
+  border-color: rgba(233, 30, 99, 0.55);
+}
+
+/* Optional small company logo (place <img class="company-logo"> inside the card if available) */
+.internship-card .company-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid rgba(233, 30, 99, 0.2);
+  background: rgba(255,255,255,0.02);
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Title and company/date row */
+.internship-card h3 {
+  color: #e91e63;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+}
+
+.internship-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Bulleted list styling */
+.internship-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 6px;
+  display: grid;
+  gap: 8px;
+}
+
+.internship-card ul li {
+  position: relative;
+  padding-left: 28px;
+  color: #d6d6d6;
+  line-height: 1.5;
+  font-size: 0.93rem;
+}
+
+/* custom bullet (neon dot) */
+.internship-card ul li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff80ab 0%, #e91e63 70%);
+  box-shadow: 0 0 10px rgba(233,30,99,0.6);
+}
+
+/* Small subtle accent line at the top-right (decorative) */
+.internship-card::after {
+  content: "";
+  position: absolute;
+  right: -60px;
+  top: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at 30% 30%, rgba(233,30,99,0.06), transparent 40%);
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+/* Responsive: stack cards full width on small screens */
+@media (max-width: 768px) {
+  .internship-card {
+    width: calc(100% - 40px);
+    padding: 18px;
+  }
+
+  .internship-card .company-logo {
+    width: 56px;
+    height: 56px;
+  }
+}
