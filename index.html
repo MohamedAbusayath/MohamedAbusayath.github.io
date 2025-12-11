@@ -496,7 +496,113 @@
   </script>
 
   <!-- Analytics -->
-  <script>!function(){var e=function(e){var t=navigator.userAgent;return t.indexOf("Firefox")>-1?"Firefox":t.indexOf("Chrome")>-1&&-1===t.indexOf("Edg")?"Chrome":t.indexOf("Safari")>-1&&-1===t.indexOf("Chrome")?"Safari":t.indexOf("Edg")>-1?"Edge":"Unknown"},t=function(){var e=navigator.userAgent.match(/(Firefox|Chrome|Safari|Edg)\/(\d+\.\d+)/);return e?e[2]:"Unknown"},n=function(){var e=navigator.userAgent;return/mobile/i.test(e)?"Mobile":/tablet|ipad/i.test(e)?"Tablet":"Desktop"},r=function(){var e=navigator.userAgent;return e.indexOf("Win")>-1?"Windows":e.indexOf("Mac")>-1?"MacOS":e.indexOf("Linux")>-1?"Linux":e.indexOf("Android")>-1?"Android":e.indexOf("iOS")>-1||e.indexOf("iPhone")>-1||e.indexOf("iPad")>-1?"iOS":"Unknown"};!async function(){try{var a=await fetch("https://ipapi.co/json/"),i=await a.json(),o={ip:i.ip||"Unknown",country:i.country_name||"Unknown",city:i.city||"Unknown",region:i.region||"Unknown",timezone:i.timezone||"Unknown",isp:i.org||"Unknown",browser:e(),browserVersion:t(),language:navigator.language||"Unknown",deviceType:n(),os:r(),screenWidth:window.screen.width,screenHeight:window.screen.height,url:window.location.href,referrer:document.referrer||"Direct",timestamp:(new Date).toISOString(),pageTitle:document.title,userAgent:navigator.userAgent},s=JSON.parse(localStorage.getItem("portfolio_visitors")||"[]");s.push(o),localStorage.setItem("portfolio_visitors",JSON.stringify(s))}catch(e){}}()}();</script>
+  <!-- Analytics (Firebase) -->
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // TODO: Replace the following with your app's Firebase project configuration
+    // See: https://firebase.google.com/docs/web/learn-more#config-object
+    const firebaseConfig = {
+      apiKey: "AIzaSyBI9YC1o-rtpQXPBS5wVCTCTT5dFV9toUY",
+      authDomain: "vibesphere-1b6b9.firebaseapp.com",
+      projectId: "vibesphere-1b6b9",
+      storageBucket: "vibesphere-1b6b9.firebasestorage.app",
+      messagingSenderId: "329882297622",
+      appId: "1:329882297622:web:abd5980c8cb41c3ef35c37",
+      measurementId: "G-FF847V5EXF"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Helper functions for device info
+    const getBrowser = () => {
+      const userAgent = navigator.userAgent;
+      if (userAgent.indexOf("Firefox") > -1) return "Firefox";
+      if (userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Edg") === -1) return "Chrome";
+      if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1) return "Safari";
+      if (userAgent.indexOf("Edg") > -1) return "Edge";
+      return "Unknown";
+    };
+
+    const getBrowserVersion = () => {
+      const match = navigator.userAgent.match(/(Firefox|Chrome|Safari|Edg)\/(\d+\.\d+)/);
+      return match ? match[2] : "Unknown";
+    };
+
+    const getDeviceType = () => {
+      const ua = navigator.userAgent;
+      if (/mobile/i.test(ua)) return "Mobile";
+      if (/tablet|ipad/i.test(ua)) return "Tablet";
+      return "Desktop";
+    };
+
+    const getOS = () => {
+      const ua = navigator.userAgent;
+      if (ua.indexOf("Win") > -1) return "Windows";
+      if (ua.indexOf("Mac") > -1) return "MacOS";
+      if (ua.indexOf("Linux") > -1) return "Linux";
+      if (ua.indexOf("Android") > -1) return "Android";
+      if (ua.indexOf("iOS") > -1 || ua.indexOf("iPhone") > -1 || ua.indexOf("iPad") > -1) return "iOS";
+      return "Unknown";
+    };
+
+    // Main tracking function
+    async function trackVisit() {
+      // Check if we've already tracked this session to avoid spamming the DB on reload
+      const sessionKey = 'analytics_session_' + new Date().toDateString();
+      if (sessionStorage.getItem(sessionKey)) {
+        console.log('Session already tracked');
+        return;
+      }
+
+      try {
+        // Get IP location data
+        const response = await fetch("https://ipapi.co/json/");
+        const ipData = await response.json();
+
+        // Prepare visitor data
+        const visitorData = {
+          ip: ipData.ip || "Unknown",
+          country: ipData.country_name || "Unknown",
+          city: ipData.city || "Unknown",
+          region: ipData.region || "Unknown",
+          timezone: ipData.timezone || "Unknown",
+          isp: ipData.org || "Unknown",
+          browser: getBrowser(),
+          browserVersion: getBrowserVersion(),
+          language: navigator.language || "Unknown",
+          deviceType: getDeviceType(),
+          os: getOS(),
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height,
+          url: window.location.href,
+          referrer: document.referrer || "Direct",
+          // Use server timestamp for consistency
+          timestamp: serverTimestamp(),
+          clientTimestamp: new Date().toISOString(),
+          pageTitle: document.title,
+          userAgent: navigator.userAgent
+        };
+
+        // Add to Firestore
+        await addDoc(collection(db, "portfolio_visitors"), visitorData);
+        
+        // Mark session as tracked
+        sessionStorage.setItem(sessionKey, 'true');
+        console.log('Visit tracked to Firebase');
+
+      } catch (error) {
+        console.error("Error tracking visit:", error);
+      }
+    }
+
+    // Run tracking
+    trackVisit();
+  </script>
 
 </body>
 </html>
