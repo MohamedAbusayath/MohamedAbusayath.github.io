@@ -1,0 +1,25 @@
+# Visitor Analytics Dashboard (Private - Do Not Upload)
+portfolio-analytics/
+
+# Node modules (if you add any)
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary files
+*.tmp
+*.temp

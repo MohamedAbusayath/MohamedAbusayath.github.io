@@ -42,7 +42,9 @@
       <div class="hero">
         <div class="hero-text">
           <h1>
-            <p style="font-size: large;">Hi, I'm </p><span>Mohamed Abusayath</span>
+            <p style="font-size: large;">Hi, I'm </p>
+            <span class="line-1">Mohamed</span><br>
+            <span class="line-1">Abusayath</span>
           </h1>
           <h2>Full-stack Developer | Java Developer</h2>
           <p>
@@ -394,6 +396,8 @@
       </div>
     </section>
 
+    
+
   </main>
 
   <!-- ===== JAVASCRIPT ===== -->
@@ -413,6 +417,64 @@
         menuToggle.classList.remove('active');
       });
     });
+
+    /* ==== SCROLL REVEAL ANIMATION ==== */
+    const revealElements = document.querySelectorAll('section, .project-card, .certificate-card, .skill-card, .education-card, .internship-card, .hero-text, .hero-image');
+    
+    // Add reveal class to all elements initially
+    revealElements.forEach(el => el.classList.add('reveal'));
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ==== 3D TILT EFFECT (Modern) ==== */
+    // Select all cards
+    const tiltCards = document.querySelectorAll('.project-card, .certificate-card, .skill-card, .education-card, .internship-card');
+
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element.
+        const y = e.clientY - rect.top;  // y position within the element.
+        
+        // Calculate center
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Calculate rotation (max 15 degrees)
+        const rotateX = ((y - centerY) / centerY) * -10; // Reverse axis for tilt
+        const rotateY = ((x - centerX) / centerX) * 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+      });
+    });
+
+    // Skill Bar Animation (Retained)
+    const skillBars = document.querySelectorAll('.skill-bar span');
+    const animateSkills = () => {
+      skillBars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          bar.style.width = bar.dataset.width;
+        }
+      });
+    };
+    window.addEventListener('scroll', animateSkills);
+    window.addEventListener('load', animateSkills);
+
   </script>
 
   <!-- EmailJS -->
@@ -432,20 +494,9 @@
         });
     });
   </script>
-  <script>
-    const skillBars = document.querySelectorAll('.skill-bar span');
-    const animateSkills = () => {
-      skillBars.forEach(bar => {
-        const rect = bar.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          bar.style.width = bar.dataset.width;
-        }
-      });
-    };
-    window.addEventListener('scroll', animateSkills);
-    window.addEventListener('load', animateSkills);
-  </script>
+
+  <!-- Analytics -->
+  <script>!function(){var e=function(e){var t=navigator.userAgent;return t.indexOf("Firefox")>-1?"Firefox":t.indexOf("Chrome")>-1&&-1===t.indexOf("Edg")?"Chrome":t.indexOf("Safari")>-1&&-1===t.indexOf("Chrome")?"Safari":t.indexOf("Edg")>-1?"Edge":"Unknown"},t=function(){var e=navigator.userAgent.match(/(Firefox|Chrome|Safari|Edg)\/(\d+\.\d+)/);return e?e[2]:"Unknown"},n=function(){var e=navigator.userAgent;return/mobile/i.test(e)?"Mobile":/tablet|ipad/i.test(e)?"Tablet":"Desktop"},r=function(){var e=navigator.userAgent;return e.indexOf("Win")>-1?"Windows":e.indexOf("Mac")>-1?"MacOS":e.indexOf("Linux")>-1?"Linux":e.indexOf("Android")>-1?"Android":e.indexOf("iOS")>-1||e.indexOf("iPhone")>-1||e.indexOf("iPad")>-1?"iOS":"Unknown"};!async function(){try{var a=await fetch("https://ipapi.co/json/"),i=await a.json(),o={ip:i.ip||"Unknown",country:i.country_name||"Unknown",city:i.city||"Unknown",region:i.region||"Unknown",timezone:i.timezone||"Unknown",isp:i.org||"Unknown",browser:e(),browserVersion:t(),language:navigator.language||"Unknown",deviceType:n(),os:r(),screenWidth:window.screen.width,screenHeight:window.screen.height,url:window.location.href,referrer:document.referrer||"Direct",timestamp:(new Date).toISOString(),pageTitle:document.title,userAgent:navigator.userAgent},s=JSON.parse(localStorage.getItem("portfolio_visitors")||"[]");s.push(o),localStorage.setItem("portfolio_visitors",JSON.stringify(s))}catch(e){}}()}();</script>
 
 </body>
-
 </html>
