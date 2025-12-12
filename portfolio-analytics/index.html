@@ -429,7 +429,7 @@
 
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, collection, onSnapshot, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getFirestore, collection, onSnapshot, query, orderBy, limit, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
     // TODO: Replace with the SAME config as index.html
     const firebaseConfig = {
@@ -606,8 +606,30 @@
         }
     };
     
-    window.clearData = function() {
-        alert("To clear data, please delete the 'portfolio_visitors' collection in your Firebase Console.\nThis adds security so visitors can't accidentally wipe your database!");
+    window.clearData = async function() {
+        if (confirm("⚠️ ARE YOU SURE? ⚠️\n\nThis will permanently delete ALL visitor data.\nThis action cannot be undone.")) {
+            try {
+                const btn = document.querySelector('button[onclick="clearData()"]');
+                const originalText = btn ? btn.innerText : 'Clear Data';
+                if(btn) btn.innerText = "Deleting...";
+
+                // 1. Get all documents
+                const q = query(collection(db, "portfolio_visitors"));
+                const snapshot = await getDocs(q);
+
+                // 2. Delete each document
+                const deletePromises = snapshot.docs.map(doc => deleteDoc(doc.ref));
+                await Promise.all(deletePromises);
+
+                alert("All data has been cleared.");
+                if(btn) btn.innerText = originalText;
+                
+                // Dashboard will auto-update via onSnapshot listener
+            } catch (error) {
+                console.error("Error clearing data:", error);
+                alert("Error clearing data: " + error.message);
+            }
+        }
     };
 
     window.exportToCSV = function() {
