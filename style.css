@@ -10,6 +10,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: #fff;
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 /* ===== AURORA BACKGROUND ===== */
@@ -308,6 +309,8 @@ header {
 
 .hero-image img {
   width: clamp(220px, 30vw, 350px);
+  aspect-ratio: 1;
+  object-fit: cover;
   border-radius: 20px;
   z-index: 2;
   box-shadow: 0 0 30px rgba(233, 30, 99, 0.3);
@@ -626,6 +629,8 @@ h2 {
 /* ==== CERTIFICATES ==== */
 .certificate-card img {
   width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 15px;
   border-bottom: 2px solid #e91e63;
@@ -874,6 +879,17 @@ footer {
   margin-bottom: 80px; /* Space for dock */
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* Scroll Reveal */
 .reveal,
 .js-enabled .reveal,
@@ -1034,6 +1050,10 @@ footer {
     margin: 0 auto;
     width: 80%; /* Adjust size */
     max-width: 400px;
+  }
+
+  .float-card {
+    display: none;
   }
 
   /* Center the social links */
