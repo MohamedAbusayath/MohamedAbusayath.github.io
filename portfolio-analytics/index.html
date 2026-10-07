@@ -600,14 +600,14 @@
         updateDashboard(allVisitors);
         const btn = document.querySelector('button[onclick="refreshData()"]');
         if(btn) {
-             const originalhtml = btn.innerHTML;
-             btn.innerHTML = '<i class="fas fa-check"></i> Refreshed!';
-             setTimeout(() => btn.innerHTML = originalhtml, 2000);
+            const originalhtml = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check"></i> Refreshed!';
+            setTimeout(() => btn.innerHTML = originalhtml, 2000);
         }
     };
     
     window.clearData = async function() {
-        if (confirm("⚠️ ARE YOU SURE? ⚠️\n\nThis will permanently delete ALL visitor data.\nThis action cannot be undone.")) {
+        if (confirm("ARE YOU SURE?\n\nThis will permanently delete ALL visitor data.\nThis action cannot be undone.")) {
             try {
                 const btn = document.querySelector('button[onclick="clearData()"]');
                 const originalText = btn ? btn.innerText : 'Clear Data';
@@ -633,9 +633,9 @@
     };
 
     window.exportToCSV = function() {
-       if (allVisitors.length === 0) { alert('No data to export'); return; }
-       const headers = ['Timestamp', 'IP', 'Country', 'City', 'Device', 'Browser', 'OS', 'Referrer'];
-       const csvContent = [
+      if (allVisitors.length === 0) { alert('No data to export'); return; }
+      const headers = ['Timestamp', 'IP', 'Country', 'City', 'Device', 'Browser', 'OS', 'Referrer'];
+      const csvContent = [
         headers.join(','),
         ...allVisitors.map(v => [
           v.timestamp.toISOString(),
