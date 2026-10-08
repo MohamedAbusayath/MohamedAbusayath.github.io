@@ -46,8 +46,9 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, monospace;
 
   /* Layout & Sizing */
-  --max-width: 1220px;
-  --header-height: 74px;
+  --max-width: 1240px;
+  --header-height: 72px;
+  --container-padding: 32px;
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
@@ -167,14 +168,16 @@ button, input, textarea {
 }
 
 .section-container {
-  width: min(calc(100% - 40px), var(--max-width));
-  margin: 0 auto;
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--max-width));
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 0;
 }
 
 .section-header {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 56px auto;
+  margin: 0 auto 52px auto;
 }
 
 .section-kicker {
@@ -189,7 +192,7 @@ button, input, textarea {
 }
 
 .section-title {
-  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
   font-weight: 800;
   color: var(--text-highlight);
   letter-spacing: -0.03em;
@@ -198,7 +201,7 @@ button, input, textarea {
 }
 
 .section-subtitle {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -301,13 +304,15 @@ button, input, textarea {
 }
 
 .nav-container {
-  width: min(calc(100% - 40px), var(--max-width));
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--max-width));
   height: 100%;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  min-width: 0;
 }
 
 .brand-logo {
@@ -317,6 +322,7 @@ button, input, textarea {
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
 .logo-bracket {
@@ -335,15 +341,16 @@ button, input, textarea {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--text-secondary);
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
   transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
@@ -458,8 +465,11 @@ button, input, textarea {
   top: var(--header-height);
   left: 0;
   right: 0;
+  max-height: calc(100vh - var(--header-height));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: var(--bg-primary);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-medium);
   padding: 24px;
   box-shadow: var(--shadow-lg);
   flex-direction: column;
@@ -550,12 +560,12 @@ button, input, textarea {
 }
 
 .hero-title {
-  font-size: clamp(2.3rem, 4.2vw, 3.4rem);
+  font-size: clamp(1.85rem, 4.4vw, 3.25rem);
   font-weight: 800;
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.035em;
   color: var(--text-highlight);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .hero-subtitle-gradient {
@@ -564,15 +574,15 @@ button, input, textarea {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.25rem, 3.2vw, 2.2rem);
   font-weight: 700;
   margin-top: 6px;
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.96rem, 1.5vw, 1.1rem);
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.68;
   max-width: 600px;
   margin-bottom: 24px;
 }
@@ -761,6 +771,10 @@ button, input, textarea {
   background-color: #0c1220;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .terminal-tab {
@@ -777,6 +791,7 @@ button, input, textarea {
   border-bottom: 2px solid transparent;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .terminal-tab:hover {
@@ -809,7 +824,10 @@ button, input, textarea {
 
 .terminal-body {
   padding: 18px;
-  min-height: 250px;
+  min-height: 240px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .tab-pane {
@@ -856,6 +874,15 @@ button, input, textarea {
   line-height: 1.55;
   color: #e2e8f0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.code-block code {
+  display: inline-block;
+  min-width: 100%;
+  white-space: pre;
 }
 
 .json-key { color: #38bdf8; }
@@ -1066,7 +1093,7 @@ button, input, textarea {
    ========================================================================== */
 .skills-category-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 24px;
 }
 
@@ -1167,9 +1194,7 @@ button, input, textarea {
   border-radius: var(--radius-md);
   padding: 20px 24px;
   margin-bottom: 36px;
-  max-width: 980px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
 }
 
 .bridge-icon {
@@ -1194,8 +1219,9 @@ button, input, textarea {
 
 .timeline-wrapper {
   position: relative;
-  max-width: 980px;
+  max-width: 100%;
   margin: 0 auto;
+  min-width: 0;
 }
 
 .timeline-block {
@@ -1237,6 +1263,7 @@ button, input, textarea {
 
 .timeline-card {
   flex-grow: 1;
+  min-width: 0;
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
@@ -1379,7 +1406,7 @@ button, input, textarea {
 
 .backend-responsibilities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 14px;
   margin-top: 14px;
 }
@@ -1448,7 +1475,7 @@ button, input, textarea {
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
   gap: 28px;
   margin-bottom: 48px;
 }
@@ -1460,6 +1487,7 @@ button, input, textarea {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
@@ -1700,7 +1728,7 @@ button, input, textarea {
    ========================================================================== */
 .highlights-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 22px;
 }
 
@@ -1713,6 +1741,7 @@ button, input, textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
   transition: all var(--transition-fast);
 }
 
@@ -1941,16 +1970,36 @@ button, input, textarea {
   align-items: start;
 }
 
+.blueprint-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .blueprint-tree {
   background-color: #0b101b;
   border: 1px solid var(--border-medium);
   border-radius: var(--radius-sm);
   padding: 16px 20px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   font-family: var(--font-mono);
+  min-width: 0;
+  max-width: 100%;
+}
+
+.blueprint-tree pre {
+  margin: 0;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   font-size: 0.78rem;
   line-height: 1.65;
-  min-width: 0;
+}
+
+.blueprint-tree code {
+  display: block;
+  min-width: 100%;
+  white-space: pre;
 }
 
 [data-theme="light"] .blueprint-tree {
@@ -2300,7 +2349,7 @@ button, input, textarea {
   text-overflow: ellipsis;
 }
 
-.copy-btn, .channel-external-btn {
+.contact-channel-card .copy-btn, .channel-external-btn {
   background: transparent;
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
@@ -2315,7 +2364,7 @@ button, input, textarea {
   transition: all var(--transition-fast);
 }
 
-.copy-btn:hover, .channel-external-btn:hover {
+.contact-channel-card .copy-btn:hover, .channel-external-btn:hover {
   color: var(--accent-primary);
   border-color: var(--accent-primary-border);
 }
@@ -2391,8 +2440,10 @@ button, input, textarea {
 }
 
 .footer-container {
-  width: min(calc(100% - 40px), var(--max-width));
-  margin: 0 auto;
+  width: min(calc(100% - (var(--container-padding) * 2)), var(--max-width));
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 0;
 }
 
 .footer-top {
@@ -2548,12 +2599,39 @@ button, input, textarea {
 }
 
 /* ==========================================================================
-   RESPONSIVENESS (375px, 768px, 1024px, 1440px)
+   RESPONSIVE DESIGN & CROSS-SCREEN SYSTEM
+   Breakpoints: 1024px (Tablet), 860px, 768px (Phablet), 640px (Mobile), 480px, 360px
    ========================================================================== */
+
+/* --- Tablet Landscape & Intermediate (<= 1024px) --- */
 @media (max-width: 1024px) {
+  :root {
+    --container-padding: 24px;
+  }
+
+  .site-header .desktop-nav {
+    display: none;
+  }
+
+  .site-header .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .site-header .resume-nav-btn {
+    display: none;
+  }
+
+  .site-header .nav-actions .nav-icon-link {
+    display: none;
+  }
+
+  .section-wrapper {
+    padding: 76px 0;
+  }
+
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 40px;
+    gap: 36px;
   }
 
   .hero-content, .hero-visual {
@@ -2561,95 +2639,77 @@ button, input, textarea {
     max-width: 100%;
   }
 
-  .about-grid {
-    grid-template-columns: minmax(0, 1fr);
+  /* Tablet 2-Column Grids for balanced density */
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 
-  .edu-cert-layout {
-    grid-template-columns: minmax(0, 1fr);
+  .skills-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
   }
 
   .workflow-pipeline {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
   .workflow-arrow {
     display: none;
   }
 
-  .workflow-step {
-    flex: 1 1 calc(50% - 12px);
-    margin-bottom: 12px;
+  .blueprint-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 32px;
+  }
+}
+
+/* --- Intermediate Tablet Portrait (<= 860px) --- */
+@media (max-width: 860px) {
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 
   .contact-grid-container {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .contact-details-panel, .contact-form-panel {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .blueprint-grid {
-    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 
   .career-bridge-banner {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
   }
 }
 
-@media (max-width: 860px) {
-  .desktop-nav {
-    display: none;
-  }
-
-  .mobile-menu-toggle {
-    display: flex;
-  }
-
-  .resume-nav-btn {
-    display: none;
-  }
-
-  .nav-actions .nav-icon-link {
-    display: none;
-  }
-}
-
+/* --- Standard Tablet Portrait & Phablet (<= 768px) --- */
 @media (max-width: 768px) {
   .section-wrapper {
-    padding: 68px 0;
+    padding: 64px 0;
   }
 
   .hero-section {
-    padding-top: calc(var(--header-height) + 36px);
-    padding-bottom: 60px;
+    padding-top: calc(var(--header-height) + 28px);
+    padding-bottom: 54px;
   }
 
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-subtitle-gradient {
-    font-size: 1.6rem;
-  }
-
-  .skills-category-grid {
+  .edu-cert-layout {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .projects-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .workflow-step {
-    flex: 1 1 100%;
+    gap: 28px;
   }
 
   .timeline-block {
@@ -2667,48 +2727,94 @@ button, input, textarea {
 
   .footer-bottom {
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     text-align: center;
   }
 }
 
+/* --- Standard Mobile Devices (<= 640px) --- */
+@media (max-width: 640px) {
+  .section-wrapper {
+    padding: 54px 0;
+  }
+
+  /* Single Column Layouts on mobile */
+  .projects-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .skills-category-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .highlights-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .workflow-pipeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .backend-responsibilities-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .timeline-block {
+    gap: 14px;
+  }
+
+  .timeline-marker {
+    width: 14px;
+  }
+
+  .timeline-card {
+    padding: 20px 16px;
+  }
+
+  .cert-cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+}
+
+/* --- Compact Mobile (<= 480px) --- */
 @media (max-width: 480px) {
-  .section-container {
-    width: min(calc(100% - 24px), var(--max-width));
+  :root {
+    --container-padding: 16px;
   }
 
-  .contact-details-panel, .contact-form-panel {
-    padding: 22px 18px;
-  }
-
-  .repo-blueprint-card {
-    padding: 20px 14px;
-  }
-
-  .career-bridge-banner {
-    padding: 16px;
+  .section-header {
+    margin-bottom: 36px;
   }
 
   .hero-actions {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .hero-actions .btn {
     width: 100%;
-  }
-
-  .cta-banner-card {
-    padding: 36px 20px;
+    justify-content: center;
   }
 
   .cta-buttons-group {
     flex-direction: column;
     width: 100%;
+    gap: 10px;
   }
 
   .cta-buttons-group .btn {
     width: 100%;
+    justify-content: center;
+  }
+
+  .about-card {
+    padding: 22px 16px;
   }
 
   .about-profile-header {
@@ -2723,14 +2829,115 @@ button, input, textarea {
   .experience-card-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 6px;
   }
 
   .experience-period {
     align-items: flex-start;
   }
 
-  .terminal-tabs {
+  .contact-details-panel, .contact-form-panel {
+    padding: 22px 16px;
+  }
+
+  .repo-blueprint-card {
+    padding: 20px 14px;
+  }
+
+  .cta-banner-card {
+    padding: 36px 18px;
+  }
+
+  .terminal-tab {
+    padding: 7px 10px;
     font-size: 0.72rem;
+    gap: 5px;
+  }
+
+  .terminal-tab .method {
+    font-size: 0.65rem;
+    padding: 1px 4px;
+  }
+}
+
+/* --- Ultra-Small Mobile (<= 360px: 320x568, 360x800) --- */
+@media (max-width: 360px) {
+  :root {
+    --container-padding: 12px;
+  }
+
+  .section-wrapper {
+    padding: 42px 0;
+  }
+
+  .brand-logo {
+    font-size: 1.05rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 6.8vw, 1.85rem);
+  }
+
+  .hero-tech-strip {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .spec-pill {
+    font-size: 0.72rem;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+  }
+
+  .project-card-content {
+    padding: 16px 12px;
+  }
+
+  .project-heading {
+    font-size: 1.1rem;
+  }
+
+  .filter-btn {
+    padding: 6px 10px;
+    font-size: 0.76rem;
+  }
+
+  .timeline-card {
+    padding: 16px 12px;
+  }
+
+  .timeline-block {
+    gap: 8px;
+  }
+
+  .terminal-tab {
+    padding: 6px 8px;
+    font-size: 0.68rem;
+    gap: 4px;
+  }
+
+  .terminal-body {
+    padding: 12px;
+  }
+
+  .contact-details-panel, .contact-form-panel {
+    padding: 18px 12px;
+  }
+
+  .contact-channel-card {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+
+  .styled-contact-form input,
+  .styled-contact-form textarea {
+    padding: 10px 12px 10px 36px;
+    font-size: 0.88rem;
   }
 }
 
