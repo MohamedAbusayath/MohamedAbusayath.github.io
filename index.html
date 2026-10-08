@@ -215,6 +215,12 @@
               <span>Tamil Nadu, India</span>
             </div>
             <div class="meta-separator">•</div>
+            <button type="button" class="meta-copy-btn copy-btn" data-copy="mohamedabusayaths@gmail.com" aria-label="Copy Email" title="Click to copy email">
+              <i class="fa-regular fa-envelope"></i>
+              <span>mohamedabusayaths@gmail.com</span>
+              <i class="fa-regular fa-copy copy-icon"></i>
+            </button>
+            <div class="meta-separator">•</div>
             <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="meta-link">
               <i class="fa-brands fa-github"></i> github.com/MohamedAbusayath
             </a>
@@ -222,6 +228,14 @@
             <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="meta-link">
               <i class="fa-brands fa-linkedin"></i> LinkedIn
             </a>
+          </div>
+
+          <!-- Recruiter Fast-Screening Strip -->
+          <div class="recruiter-fast-specs">
+            <div class="spec-pill"><i class="fa-solid fa-bolt-lightning"></i> <span><strong>Status:</strong> Immediate Joiner</span></div>
+            <div class="spec-pill"><i class="fa-solid fa-laptop-code"></i> <span><strong>Target:</strong> Junior / Mid Node.js Backend &amp; Full-Stack</span></div>
+            <div class="spec-pill"><i class="fa-solid fa-map-location-dot"></i> <span><strong>Mode:</strong> Remote / Hybrid / Relocation</span></div>
+            <div class="spec-pill"><i class="fa-solid fa-graduation-cap"></i> <span><strong>Degree:</strong> B.E. CSE (2021–2025)</span></div>
           </div>
         </div>
 
@@ -234,8 +248,8 @@
                 <span class="dot dot-yellow"></span>
                 <span class="dot dot-green"></span>
               </div>
-              <div class="terminal-title">api-inspector // live-endpoint-demo</div>
-              <div class="terminal-latency"><span class="pulse-dot"></span> 24ms</div>
+              <div class="terminal-title">api-inspector // real-node-implementation</div>
+              <div class="terminal-latency"><span class="pulse-dot"></span> 18ms</div>
             </div>
 
             <!-- Terminal Tabs for Endpoints -->
@@ -246,8 +260,11 @@
               <button class="terminal-tab" data-tab="auth" role="tab" aria-selected="false">
                 <span class="method post">POST</span> /auth/login
               </button>
+              <button class="terminal-tab" data-tab="cache" role="tab" aria-selected="false">
+                <span class="method get">GET</span> /cache/:id
+              </button>
               <button class="terminal-tab" data-tab="order" role="tab" aria-selected="false">
-                <span class="method post">POST</span> /orders/razorpay
+                <span class="method post">POST</span> /webhooks
               </button>
             </div>
 
@@ -258,20 +275,19 @@
                 <div class="http-status-line">
                   <span class="status-code code-200">200 OK</span>
                   <span class="content-type">application/json</span>
-                  <span class="resp-time">24ms</span>
+                  <span class="resp-time">18ms (Event Loop: 0.8ms)</span>
                 </div>
-                <pre class="code-block"><code class="language-json">{
-  <span class="json-key">"status"</span>: <span class="json-str">"operational"</span>,
-  <span class="json-key">"role"</span>: <span class="json-str">"Node.js Backend Developer"</span>,
-  <span class="json-key">"stack"</span>: {
-    <span class="json-key">"runtime"</span>: <span class="json-str">"Node.js v20+ / Express"</span>,
-    <span class="json-key">"databases"</span>: [<span class="json-str">"MongoDB"</span>, <span class="json-str">"MySQL"</span>],
-    <span class="json-key">"cache"</span>: <span class="json-str">"Redis (Cache-Aside &amp; TTL)"</span>,
-    <span class="json-key">"container"</span>: <span class="json-str">"Docker"</span>
-  },
-  <span class="json-key">"security"</span>: [<span class="json-str">"Helmet"</span>, <span class="json-str">"Joi-Validation"</span>, <span class="json-str">"JWT-RBAC"</span>],
-  <span class="json-key">"uptime"</span>: <span class="json-num">99.98</span>
-}</code></pre>
+                <pre class="code-block"><code class="language-javascript"><span class="code-comment">// routes/health.js - Diagnostic &amp; DB Pings</span>
+router.get(<span class="code-str">'/health'</span>, asyncHandler(<span class="code-kw">async</span> (req, res) =&gt; {
+  <span class="code-kw">const</span> dbReady = mongoose.connection.readyState === 1;
+  <span class="code-kw">const</span> redisPing = <span class="code-kw">await</span> redisClient.ping();
+  <span class="code-kw">return</span> res.status(200).json({
+    status: <span class="code-str">'operational'</span>,
+    runtime: process.version,
+    databases: { mongodb: dbReady ? <span class="code-str">'connected'</span> : <span class="code-str">'disconnected'</span>, redis: redisPing },
+    uptime: Math.floor(process.uptime()) + <span class="code-str">'s'</span>
+  });
+}));</code></pre>
               </div>
 
               <!-- Tab 2: POST /auth/login -->
@@ -279,38 +295,57 @@
                 <div class="http-status-line">
                   <span class="status-code code-200">200 OK</span>
                   <span class="content-type">application/json</span>
-                  <span class="resp-time">48ms (bcrypt verified)</span>
+                  <span class="resp-time">46ms (bcrypt verified)</span>
                 </div>
-                <pre class="code-block"><code class="language-json">{
-  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
-  <span class="json-key">"message"</span>: <span class="json-str">"Authentication successful"</span>,
-  <span class="json-key">"data"</span>: {
-    <span class="json-key">"user"</span>: {
-      <span class="json-key">"id"</span>: <span class="json-str">"usr_64f19b882"</span>,
-      <span class="json-key">"role"</span>: <span class="json-str">"ADMIN"</span>,
-      <span class="json-key">"permissions"</span>: [<span class="json-str">"api:read"</span>, <span class="json-str">"api:write"</span>, <span class="json-str">"admin:manage"</span>]
-    },
-    <span class="json-key">"token"</span>: <span class="json-str">"eyJhbGciOiJIUzI1NiIsInR5cCI6Ik..."</span>,
-    <span class="json-key">"expiresIn"</span>: <span class="json-str">"24h"</span>
+                <pre class="code-block"><code class="language-javascript"><span class="code-comment">// controllers/auth.controller.js - Joi Sanitized + JWT</span>
+<span class="code-kw">const</span> loginUser = asyncHandler(<span class="code-kw">async</span> (req, res) =&gt; {
+  <span class="code-kw">const</span> { email, password } = req.validatedBody; <span class="code-comment">// Joi validated</span>
+  <span class="code-kw">const</span> user = <span class="code-kw">await</span> User.findOne({ email }).select(<span class="code-str">'+password'</span>);
+  <span class="code-kw">if</span> (!user || !(<span class="code-kw">await</span> bcrypt.compare(password, user.password))) {
+    <span class="code-kw">throw new</span> ApiError(401, <span class="code-str">'Invalid credentials'</span>);
   }
-}</code></pre>
+  <span class="code-kw">const</span> token = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET, { expiresIn: <span class="code-str">'24h'</span> });
+  <span class="code-kw">return</span> res.status(200).json({ success: <span class="code-bool">true</span>, token, role: user.role });
+});</code></pre>
               </div>
 
-              <!-- Tab 3: POST /orders/razorpay -->
+              <!-- Tab 3: GET /cache/:id -->
+              <div class="tab-pane" id="pane-cache">
+                <div class="http-status-line">
+                  <span class="status-code code-200">200 OK</span>
+                  <span class="content-type">application/json</span>
+                  <span class="resp-time">4ms (Redis Cache Hit)</span>
+                </div>
+                <pre class="code-block"><code class="language-javascript"><span class="code-comment">// services/catalog.service.js - Cache-Aside Pattern</span>
+<span class="code-kw">const</span> getProduct = <span class="code-kw">async</span> (id) =&gt; {
+  <span class="code-kw">const</span> key = <span class="code-str">`item:${id}`</span>;
+  <span class="code-kw">const</span> cached = <span class="code-kw">await</span> redisClient.get(key);
+  <span class="code-kw">if</span> (cached) <span class="code-kw">return</span> { source: <span class="code-str">'redis'</span>, data: JSON.parse(cached) };
+
+  <span class="code-kw">const</span> product = <span class="code-kw">await</span> Product.findById(id).lean();
+  <span class="code-kw">if</span> (!product) <span class="code-kw">throw new</span> ApiError(404, <span class="code-str">'Item not found'</span>);
+  <span class="code-kw">await</span> redisClient.setEx(key, 3600, JSON.stringify(product));
+  <span class="code-kw">return</span> { source: <span class="code-str">'mongodb'</span>, data: product };
+};</code></pre>
+              </div>
+
+              <!-- Tab 4: POST /webhooks -->
               <div class="tab-pane" id="pane-order">
                 <div class="http-status-line">
-                  <span class="status-code code-201">201 Created</span>
+                  <span class="status-code code-200">200 OK</span>
                   <span class="content-type">application/json</span>
-                  <span class="resp-time">112ms (Razorpay API)</span>
+                  <span class="resp-time">12ms (HMAC Verified)</span>
                 </div>
-                <pre class="code-block"><code class="language-json">{
-  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
-  <span class="json-key">"orderId"</span>: <span class="json-str">"order_OaBc123XyZ"</span>,
-  <span class="json-key">"amount"</span>: <span class="json-num">249900</span>,
-  <span class="json-key">"currency"</span>: <span class="json-str">"INR"</span>,
-  <span class="json-key">"webhook"</span>: <span class="json-str">"HMAC SHA-256 Verified"</span>,
-  <span class="json-key">"inventoryLock"</span>: <span class="json-str">"Redis Atomic (TTL 10m)"</span>
-}</code></pre>
+                <pre class="code-block"><code class="language-javascript"><span class="code-comment">// middlewares/verifyWebhook.js - Cryptographic Security</span>
+<span class="code-kw">const</span> verifyRazorpay = (req, res, next) =&gt; {
+  <span class="code-kw">const</span> signature = req.headers[<span class="code-str">'x-razorpay-signature'</span>];
+  <span class="code-kw">const</span> expected = crypto
+    .createHmac(<span class="code-str">'sha256'</span>, process.env.RAZORPAY_WEBHOOK_SECRET)
+    .update(JSON.stringify(req.body))
+    .digest(<span class="code-str">'hex'</span>);
+  <span class="code-kw">if</span> (signature !== expected) <span class="code-kw">throw new</span> ApiError(400, <span class="code-str">'Invalid signature'</span>);
+  next();
+};</code></pre>
               </div>
             </div>
 
@@ -565,6 +600,17 @@
           </p>
         </div>
 
+        <!-- Engineering Transition Callout (Recruiter Transparency & Value Add) -->
+        <div class="career-bridge-banner">
+          <div class="bridge-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="bridge-content">
+            <h3 class="bridge-title">From Enterprise OOP Discipline to High-Performance Node.js</h3>
+            <p class="bridge-text">
+              Trained in strict object-oriented software engineering, relational schema normalization, and automated testing rigor through industry internships in Java, Spring Boot, and Selenium. I applied these robust enterprise backend foundations to architecting high-throughput, event-driven <strong>Node.js &amp; Express APIs</strong>, Redis caching layers, JWT-secured auth microservices, and atomic database transactions.
+            </p>
+          </div>
+        </div>
+
         <div class="timeline-wrapper">
           <!-- Experience Item 1 -->
           <div class="timeline-block">
@@ -807,28 +853,99 @@
         <!-- Project Cards Grid -->
         <div class="projects-grid" id="projects-grid">
 
-          <!-- PROJECT 1: AI-Based Heritage Tourism Guide -->
+          <!-- PROJECT 1: Sweet Shop Management & Inventory System (FEATURED BACKEND) -->
           <article class="project-card" data-category="backend fullstack">
             <div class="project-media">
-              <img src="img/heritage.png" alt="AI-Based Heritage Tourism Guide preview" loading="lazy">
+              <img src="img/sweet.png" alt="Sweet Shop Management System preview" loading="lazy">
               <div class="project-badge-overlay">
-                <span class="badge-featured">Featured System</span>
+                <span class="badge-featured">Featured Backend System</span>
               </div>
             </div>
             <div class="project-card-content">
               <div class="project-header">
-                <span class="project-category-tag">Node.js • Express • MySQL • AI Integration</span>
-                <h3 class="project-heading">AI-Based Heritage Tourism Guide</h3>
+                <span class="project-category-tag">Backend • MongoDB • JWT • RBAC • Atomic Operations</span>
+                <h3 class="project-heading">Sweet Shop Management &amp; Inventory Backend</h3>
               </div>
 
               <div class="project-problem-block">
                 <span class="subhead-label">Problem Solved:</span>
-                <p>Tourists visiting heritage monuments lack real-time, multilingual guidance tailored to their current GPS coordinates without expensive tour guides.</p>
+                <p>Retail confectioneries struggle with manual stock tracking, unauthorized access to pricing tables, and race conditions during simultaneous order checkouts.</p>
               </div>
 
               <div class="project-built-block">
                 <span class="subhead-label">What I Built:</span>
-                <p>A full-stack backend service and client application that matches client geolocation coordinates to monument databases and calls Google's Gemini LLM to generate intelligent multilingual audio and text guides.</p>
+                <p>A complete inventory &amp; sales management backend system with stateless JWT authentication, role-based authorization (Admin vs Customer), atomic inventory deduction on checkout, and fast indexed search endpoints.</p>
+              </div>
+
+              <!-- Core REST API Endpoints Specification -->
+              <div class="project-endpoints-block">
+                <span class="subhead-label">Core REST API Endpoints:</span>
+                <div class="endpoint-pills">
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/auth/login</code> - JWT issue + Role verification</div>
+                  <div class="endpoint-pill"><span class="method get">GET</span> <code>/api/v1/sweets?category=...&amp;inStock=true</code> - Indexed query</div>
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/orders/checkout</code> - Atomic stock deduction</div>
+                </div>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> JWT authentication with bcrypt password hashing (12 salt rounds)</li>
+                  <li><i class="fa-solid fa-check"></i> Role-based authorization middleware protecting Admin endpoints</li>
+                  <li><i class="fa-solid fa-check"></i> MongoDB schema validation with atomic <code>$inc</code> stock decrements</li>
+                  <li><i class="fa-solid fa-check"></i> Compound indexing on high-traffic category &amp; price query fields</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>Node.js / Spring</span>
+                <span>MongoDB</span>
+                <span>REST APIs</span>
+                <span>JWT &amp; RBAC</span>
+                <span>Mongoose</span>
+                <span>React (Vite)</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: AI-Based Heritage Tourism Guide (GEOSPATIAL & AI BACKEND) -->
+          <article class="project-card" data-category="backend fullstack">
+            <div class="project-media">
+              <img src="img/heritage.png" alt="AI-Based Heritage Tourism Guide preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">Featured API System</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Node.js • Express • MySQL Spatial • Gemini API</span>
+                <h3 class="project-heading">AI-Based Heritage Tourism Guide Backend</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Tourists visiting heritage monuments lack real-time, multilingual guidance tailored to their current GPS coordinates without expensive physical guides.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A full-stack backend service and client application that matches client geolocation coordinates to monument databases and orchestrates Google's Gemini LLM to generate intelligent multilingual audio and text guides.</p>
+              </div>
+
+              <!-- Core REST API Endpoints Specification -->
+              <div class="project-endpoints-block">
+                <span class="subhead-label">Core REST API Endpoints:</span>
+                <div class="endpoint-pills">
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/landmarks/nearby</code> - Spatial GPS radius query</div>
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/guide/generate</code> - Gemini prompt pipeline</div>
+                  <div class="endpoint-pill"><span class="method get">GET</span> <code>/api/v1/landmarks/:id/audio</code> - Audio stream delivery</div>
+                </div>
               </div>
 
               <div class="project-backend-highlights">
@@ -858,58 +975,204 @@
             </div>
           </article>
 
-          <!-- PROJECT 2: Sweet Shop Management System -->
-          <article class="project-card" data-category="backend fullstack">
+          <!-- PROJECT 3: Employee Management System (RELATIONAL ENTERPRISE BACKEND) -->
+          <article class="project-card" data-category="backend">
             <div class="project-media">
-              <img src="img/sweet.png" alt="Sweet Shop Management System preview" loading="lazy">
+              <img src="img/employee.png" alt="Employee Management System preview" loading="lazy">
               <div class="project-badge-overlay">
-                <span class="badge-featured">Admin &amp; Inventory</span>
+                <span class="badge-featured">Relational Backend</span>
               </div>
             </div>
             <div class="project-card-content">
               <div class="project-header">
-                <span class="project-category-tag">Backend • MongoDB • JWT • Role-Based Access</span>
-                <h3 class="project-heading">Sweet Shop Management &amp; Inventory System</h3>
+                <span class="project-category-tag">Backend • Relational DB • MVC • CRUD</span>
+                <h3 class="project-heading">Employee Management Backend System</h3>
               </div>
 
               <div class="project-problem-block">
                 <span class="subhead-label">Problem Solved:</span>
-                <p>Retail confectioneries struggle with manual stock tracking, unauthorized access to pricing tables, and inventory discrepancies during order processing.</p>
+                <p>Internal corporate operations require centralized employee records, department structures, relational mapping, and role-based access management.</p>
               </div>
 
               <div class="project-built-block">
                 <span class="subhead-label">What I Built:</span>
-                <p>A complete inventory &amp; sales management system with secure authentication, role-based authorization (Admin vs Customer), atomic inventory deduction on checkout, and search endpoints.</p>
+                <p>A full-stack MVC backend application implementing comprehensive CRUD operations, relational schema mapping with MySQL, and role-based views.</p>
+              </div>
+
+              <!-- Core REST API Endpoints Specification -->
+              <div class="project-endpoints-block">
+                <span class="subhead-label">Core REST API Endpoints:</span>
+                <div class="endpoint-pills">
+                  <div class="endpoint-pill"><span class="method get">GET</span> <code>/api/v1/employees?dept=...&amp;page=0</code> - Paginated fetch</div>
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/employees</code> - Transactional entity insert</div>
+                  <div class="endpoint-pill"><span class="method put">PUT</span> <code>/api/v1/employees/:id</code> - Department mapping update</div>
+                </div>
               </div>
 
               <div class="project-backend-highlights">
                 <span class="subhead-label">Key Backend Features:</span>
                 <ul class="mini-feature-list">
-                  <li><i class="fa-solid fa-check"></i> JWT-based authentication with bcrypt password hashing</li>
-                  <li><i class="fa-solid fa-check"></i> Role-based authorization middleware protecting Admin routes</li>
-                  <li><i class="fa-solid fa-check"></i> MongoDB schema validation with atomic stock decrements</li>
-                  <li><i class="fa-solid fa-check"></i> Fast catalog filtering and search endpoints</li>
+                  <li><i class="fa-solid fa-check"></i> Structured REST endpoints and server-rendered view controllers</li>
+                  <li><i class="fa-solid fa-check"></i> Relational database schema with Spring Data JPA / Hibernate</li>
+                  <li><i class="fa-solid fa-check"></i> Input validation and transactional database updates</li>
                 </ul>
               </div>
 
               <div class="project-tech-pills">
-                <span>MongoDB</span>
+                <span>Spring Boot</span>
+                <span>MySQL</span>
+                <span>JPA / Hibernate</span>
+                <span>Thymeleaf</span>
                 <span>REST APIs</span>
-                <span>JWT</span>
-                <span>React (Vite)</span>
-                <span>Role-Based Access</span>
-                <span>Spring Boot / Node</span>
               </div>
 
               <div class="project-card-footer">
-                <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                <a href="https://github.com/MohamedAbusayath/EmployeeManagement" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
                   <i class="fa-brands fa-github"></i> View Code
                 </a>
               </div>
             </div>
           </article>
 
-          <!-- PROJECT 3: NewsNow Live News App -->
+          <!-- PROJECT 4: ATS Resume Checker (PARSING & SCORING BACKEND) -->
+          <article class="project-card" data-category="backend tools">
+            <div class="project-media">
+              <div class="project-code-cover">
+                <i class="fa-solid fa-file-lines cover-icon"></i>
+                <span class="cover-text">ATS ANALYZER ENGINE</span>
+              </div>
+              <div class="project-badge-overlay">
+                <span class="badge-live">Live App</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">REST API • Parsing Engine • Scoring Logic</span>
+                <h3 class="project-heading">ATS Resume Checker &amp; Scoring Engine</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Job applicants lack visibility into why applicant tracking systems reject resumes due to missing keywords and format mismatches.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A resume evaluation service that compares uploaded resume text against targeted job descriptions, computing compatibility scores and actionable keyword recommendations.</p>
+              </div>
+
+              <!-- Core REST API Endpoints Specification -->
+              <div class="project-endpoints-block">
+                <span class="subhead-label">Core REST API Endpoints:</span>
+                <div class="endpoint-pills">
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/analyze/parse</code> - Multipart text extraction</div>
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/score/evaluate</code> - Keyword density analytics</div>
+                </div>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> String tokenization and keyword density evaluation algorithm</li>
+                  <li><i class="fa-solid fa-check"></i> Weighted scoring logic returning JSON analytics breakdown</li>
+                  <li><i class="fa-solid fa-check"></i> Input sanitization protecting against unexpected document symbols</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>REST API</span>
+                <span>Java / Backend</span>
+                <span>JavaScript</span>
+                <span>HTML/CSS</span>
+                <span>Netlify</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://atsresumeanalyze.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/MohamedAbusayath/ATS-resume-Analyze" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: AI Chatbot Service (LLM GATEWAY) -->
+          <article class="project-card" data-category="backend tools">
+            <div class="project-media">
+              <img src="img/AIchatbot.png" alt="AI Chatbot preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">LLM Gateway</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">API Gateway • LLM Integration • Streaming</span>
+                <h3 class="project-heading">AI Chatbot Streaming API Gateway</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A conversational assistant backend integrating RESTful endpoints with Ollama local LLM and cloud APIs, handling conversation context buffers and streaming response data.</p>
+              </div>
+
+              <!-- Core REST API Endpoints Specification -->
+              <div class="project-endpoints-block">
+                <span class="subhead-label">Core REST API Endpoints:</span>
+                <div class="endpoint-pills">
+                  <div class="endpoint-pill"><span class="method post">POST</span> <code>/api/v1/chat/message</code> - Context buffer dispatch</div>
+                  <div class="endpoint-pill"><span class="method get">GET</span> <code>/api/v1/chat/history/:id</code> - Session state fetch</div>
+                </div>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>REST API</span>
+                <span>LLM Integration</span>
+                <span>Ollama</span>
+                <span>Node.js / JS</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: LearningHub Platform (FULL-STACK BACKEND) -->
+          <article class="project-card" data-category="fullstack backend">
+            <div class="project-media">
+              <img src="img/online-learning.png" alt="LearningHub platform preview" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Full-Stack • MySQL • Gemini API</span>
+                <h3 class="project-heading">LearningHub - Online Learning Platform</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>An educational platform backend with course catalog management, user progress tracking in MySQL, and an on-demand AI explanation endpoint utilizing Gemini API.</p>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>MySQL</span>
+                <span>Spring Boot</span>
+                <span>Gemini API</span>
+                <span>REST APIs</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 7: NewsNow Live News App (SUPPORTING FULL-STACK) -->
           <article class="project-card" data-category="fullstack tools">
             <div class="project-media">
               <img src="img/news.png" alt="NewsNow Live News Application preview" loading="lazy">
@@ -962,111 +1225,7 @@
             </div>
           </article>
 
-          <!-- PROJECT 4: ATS Resume Checker -->
-          <article class="project-card" data-category="backend tools">
-            <div class="project-media">
-              <div class="project-code-cover">
-                <i class="fa-solid fa-file-lines cover-icon"></i>
-                <span class="cover-text">ATS ANALYZER ENGINE</span>
-              </div>
-              <div class="project-badge-overlay">
-                <span class="badge-live">Live App</span>
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div class="project-header">
-                <span class="project-category-tag">REST API • Parsing Engine • Scoring Logic</span>
-                <h3 class="project-heading">ATS Resume Checker &amp; Scoring Engine</h3>
-              </div>
-
-              <div class="project-problem-block">
-                <span class="subhead-label">Problem Solved:</span>
-                <p>Job applicants lack visibility into why applicant tracking systems reject resumes due to missing keywords and format mismatches.</p>
-              </div>
-
-              <div class="project-built-block">
-                <span class="subhead-label">What I Built:</span>
-                <p>A resume evaluation service that compares uploaded resume text against targeted job descriptions, computing compatibility scores and actionable keyword recommendations.</p>
-              </div>
-
-              <div class="project-backend-highlights">
-                <span class="subhead-label">Key Backend Features:</span>
-                <ul class="mini-feature-list">
-                  <li><i class="fa-solid fa-check"></i> String tokenization and keyword density evaluation algorithm</li>
-                  <li><i class="fa-solid fa-check"></i> Weighted scoring logic returning JSON analytics breakdown</li>
-                  <li><i class="fa-solid fa-check"></i> Input sanitization protecting against unexpected document symbols</li>
-                </ul>
-              </div>
-
-              <div class="project-tech-pills">
-                <span>REST API</span>
-                <span>Java / Backend</span>
-                <span>JavaScript</span>
-                <span>HTML/CSS</span>
-                <span>Netlify</span>
-              </div>
-
-              <div class="project-card-footer">
-                <a href="https://atsresumeanalyze.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
-                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-                </a>
-                <a href="https://github.com/MohamedAbusayath/ATS-resume-Analyze" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
-                  <i class="fa-brands fa-github"></i> Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 5: Employee Management System -->
-          <article class="project-card" data-category="backend">
-            <div class="project-media">
-              <img src="img/employee.png" alt="Employee Management System preview" loading="lazy">
-              <div class="project-badge-overlay">
-                <span class="badge-featured">Backend System</span>
-              </div>
-            </div>
-            <div class="project-card-content">
-              <div class="project-header">
-                <span class="project-category-tag">Backend • Relational DB • MVC • CRUD</span>
-                <h3 class="project-heading">Employee Management Backend System</h3>
-              </div>
-
-              <div class="project-problem-block">
-                <span class="subhead-label">Problem Solved:</span>
-                <p>Internal corporate operations require centralized employee records, department structures, and role-based access management.</p>
-              </div>
-
-              <div class="project-built-block">
-                <span class="subhead-label">What I Built:</span>
-                <p>A full-stack MVC backend application implementing comprehensive CRUD operations, relational schema mapping with MySQL, and role-based views.</p>
-              </div>
-
-              <div class="project-backend-highlights">
-                <span class="subhead-label">Key Backend Features:</span>
-                <ul class="mini-feature-list">
-                  <li><i class="fa-solid fa-check"></i> Structured REST endpoints and server-rendered view controllers</li>
-                  <li><i class="fa-solid fa-check"></i> Relational database schema with Spring Data JPA / Hibernate</li>
-                  <li><i class="fa-solid fa-check"></i> Input validation and transactional database updates</li>
-                </ul>
-              </div>
-
-              <div class="project-tech-pills">
-                <span>Spring Boot</span>
-                <span>MySQL</span>
-                <span>JPA / Hibernate</span>
-                <span>Thymeleaf</span>
-                <span>REST APIs</span>
-              </div>
-
-              <div class="project-card-footer">
-                <a href="https://github.com/MohamedAbusayath/EmployeeManagement" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                  <i class="fa-brands fa-github"></i> View Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 6: Algorithm Visualizer -->
+          <!-- PROJECT 8: Algorithm Visualizer (SUPPORTING TOOLS) -->
           <article class="project-card" data-category="tools fullstack">
             <div class="project-media">
               <img src="img/algorithm_visualizer.png" alt="Algorithm Visualizer preview" loading="lazy">
@@ -1108,68 +1267,6 @@
 
               <div class="project-card-footer">
                 <a href="https://github.com/MohamedAbusayath/AlgorithmVisualizer" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                  <i class="fa-brands fa-github"></i> View Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 7: AI Chatbot Service -->
-          <article class="project-card" data-category="backend tools">
-            <div class="project-media">
-              <img src="img/AIchatbot.png" alt="AI Chatbot preview" loading="lazy">
-            </div>
-            <div class="project-card-content">
-              <div class="project-header">
-                <span class="project-category-tag">API Gateway • LLM Integration • REST</span>
-                <h3 class="project-heading">AI Chatbot Service</h3>
-              </div>
-
-              <div class="project-problem-block">
-                <span class="subhead-label">What I Built:</span>
-                <p>A conversational assistant backend integrating RESTful endpoints with Ollama local LLM and cloud APIs, handling conversation context buffers and streaming response data.</p>
-              </div>
-
-              <div class="project-tech-pills">
-                <span>REST API</span>
-                <span>LLM Integration</span>
-                <span>Ollama</span>
-                <span>JavaScript</span>
-              </div>
-
-              <div class="project-card-footer">
-                <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
-                  <i class="fa-brands fa-github"></i> View Code
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROJECT 8: LearningHub Platform -->
-          <article class="project-card" data-category="fullstack backend">
-            <div class="project-media">
-              <img src="img/online-learning.png" alt="LearningHub platform preview" loading="lazy">
-            </div>
-            <div class="project-card-content">
-              <div class="project-header">
-                <span class="project-category-tag">Full-Stack • MySQL • Gemini API</span>
-                <h3 class="project-heading">LearningHub - Online Learning Platform</h3>
-              </div>
-
-              <div class="project-problem-block">
-                <span class="subhead-label">What I Built:</span>
-                <p>An educational platform backend with course catalog management, user progress tracking in MySQL, and an on-demand AI explanation endpoint utilizing Gemini API.</p>
-              </div>
-
-              <div class="project-tech-pills">
-                <span>MySQL</span>
-                <span>Spring Boot</span>
-                <span>Gemini API</span>
-                <span>REST APIs</span>
-              </div>
-
-              <div class="project-card-footer">
-                <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
                   <i class="fa-brands fa-github"></i> View Code
                 </a>
               </div>
@@ -1474,6 +1571,57 @@
             <span class="principle-bullet"></span>
             <div>
               <strong>Observability:</strong> Structured logs, meaningful error responses, documented Swagger endpoints.
+            </div>
+          </div>
+        </div>
+
+        <!-- Production Repository Architecture Blueprint -->
+        <div class="repo-blueprint-card">
+          <div class="blueprint-header">
+            <div class="blueprint-title-wrap">
+              <i class="fa-solid fa-folder-tree"></i>
+              <h4>Production Node.js Clean Architecture Layout</h4>
+            </div>
+            <span class="blueprint-badge">Separation of Concerns</span>
+          </div>
+
+          <div class="blueprint-grid">
+            <div class="blueprint-tree">
+              <pre><code><span class="tree-dir">src/</span>
+├── <span class="tree-dir">config/</span>         <span class="tree-desc"># Joi-validated env, DB connection pools (MongoDB/MySQL), Redis client</span>
+├── <span class="tree-dir">controllers/</span>    <span class="tree-desc"># Pure HTTP handlers: status codes, response envelopes, zero direct queries</span>
+├── <span class="tree-dir">middlewares/</span>    <span class="tree-desc"># auth(JWT+RBAC), validate(Joi), rateLimiter, centralized errorHandler</span>
+├── <span class="tree-dir">models/</span>         <span class="tree-desc"># Mongoose schemas with compound indexes / Sequelize relational models</span>
+├── <span class="tree-dir">routes/</span>         <span class="tree-desc"># Semantic versioned endpoints (e.g. /api/v1/orders)</span>
+├── <span class="tree-dir">services/</span>       <span class="tree-desc"># Decoupled business rules, third-party APIs (Razorpay), transactions</span>
+├── <span class="tree-dir">utils/</span>          <span class="tree-desc"># ApiError, ApiResponse, logger, asyncHandler</span>
+└── <span class="tree-file">app.js</span>          <span class="tree-desc"># Express server setup, CORS, Helmet, graceful shutdown handling</span></code></pre>
+            </div>
+
+            <div class="blueprint-rules">
+              <div class="rule-box">
+                <i class="fa-solid fa-shield-halved"></i>
+                <div>
+                  <strong>Fail-Fast Boundary Validation</strong>
+                  <p>Every payload is inspected by Joi middleware before entering controller functions; invalid inputs return 400 instantly.</p>
+                </div>
+              </div>
+
+              <div class="rule-box">
+                <i class="fa-solid fa-layer-group"></i>
+                <div>
+                  <strong>Zero Database Leaks in HTTP Layer</strong>
+                  <p>Controllers never query databases directly. Data access is encapsulated in Services/Models for easy unit testing and mocking.</p>
+                </div>
+              </div>
+
+              <div class="rule-box">
+                <i class="fa-solid fa-arrow-rotate-right"></i>
+                <div>
+                  <strong>Graceful Process Lifecycle</strong>
+                  <p>Handlers for <code>SIGTERM</code> and <code>SIGINT</code> cleanly close database pools and finish in-flight requests before exiting.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

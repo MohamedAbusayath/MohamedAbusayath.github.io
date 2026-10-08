@@ -641,6 +641,59 @@ button, input, textarea {
   color: var(--accent-primary);
 }
 
+.meta-copy-btn {
+  background: var(--bg-card);
+  border: 1px dashed var(--border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 4px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.meta-copy-btn:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  background-color: var(--accent-primary-subtle);
+}
+
+.meta-copy-btn .copy-icon {
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
+.recruiter-fast-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.spec-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  padding: 5px 11px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}
+
+.spec-pill strong {
+  color: var(--text-primary);
+}
+
+.spec-pill i {
+  color: var(--accent-primary);
+}
+
 /* Interactive API Inspector Terminal */
 .terminal-card {
   background-color: #0b101b;
@@ -809,6 +862,16 @@ button, input, textarea {
 .json-str { color: #34d399; }
 .json-num { color: #fbbf24; }
 .json-bool { color: #f472b6; }
+
+.code-kw { color: #c678dd; font-weight: 600; }
+.code-str { color: #98c379; }
+.code-comment { color: #7f8c9f; font-style: italic; }
+.code-bool { color: #d19a66; }
+
+[data-theme="light"] .code-kw { color: #9333ea; }
+[data-theme="light"] .code-str { color: #16a34a; }
+[data-theme="light"] .code-comment { color: #64748b; }
+[data-theme="light"] .code-bool { color: #d97706; }
 
 .terminal-footer {
   display: flex;
@@ -1094,6 +1157,41 @@ button, input, textarea {
 /* ==========================================================================
    5. EXPERIENCE & TIMELINE
    ========================================================================== */
+.career-bridge-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+  border: 1px solid var(--accent-primary-border);
+  border-left: 4px solid var(--accent-primary);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 36px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bridge-icon {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.bridge-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+  margin-bottom: 6px;
+}
+
+.bridge-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
 .timeline-wrapper {
   position: relative;
   max-width: 980px;
@@ -1517,6 +1615,43 @@ button, input, textarea {
   flex-shrink: 0;
 }
 
+.project-endpoints-block {
+  margin-bottom: 14px;
+}
+
+.endpoint-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.endpoint-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  overflow-x: auto;
+}
+
+.endpoint-pill .method {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.endpoint-pill .method.get { background-color: rgba(16, 185, 129, 0.18); color: #10b981; }
+.endpoint-pill .method.post { background-color: rgba(6, 182, 212, 0.18); color: #06b6d4; }
+.endpoint-pill .method.put { background-color: rgba(245, 158, 11, 0.18); color: #f59e0b; }
+.endpoint-pill .method.delete { background-color: rgba(239, 68, 68, 0.18); color: #ef4444; }
+
 .project-tech-pills {
   display: flex;
   flex-wrap: wrap;
@@ -1755,6 +1890,112 @@ button, input, textarea {
 
 .principle-item strong {
   color: var(--text-highlight);
+}
+
+/* Production Repository Architecture Blueprint */
+.repo-blueprint-card {
+  margin-top: 36px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.blueprint-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.blueprint-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-highlight);
+}
+
+.blueprint-title-wrap i {
+  color: var(--accent-primary);
+}
+
+.blueprint-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  background-color: var(--accent-primary-subtle);
+  border: 1px solid var(--accent-primary-border);
+  color: var(--accent-primary);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.blueprint-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.blueprint-tree {
+  background-color: #0b101b;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  min-width: 0;
+}
+
+[data-theme="light"] .blueprint-tree {
+  background-color: #0e1526;
+  border-color: #cbd5e1;
+}
+
+.tree-dir { color: #38bdf8; font-weight: 600; }
+.tree-file { color: #34d399; }
+.tree-desc { color: #64748b; font-style: italic; }
+
+.blueprint-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rule-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.rule-box i {
+  color: var(--accent-primary);
+  font-size: 1.1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.rule-box strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-highlight);
+  margin-bottom: 2px;
+}
+
+.rule-box p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
 }
 
 /* ==========================================================================
@@ -2353,6 +2594,14 @@ button, input, textarea {
   .footer-top {
     grid-template-columns: 1fr 1fr;
   }
+
+  .blueprint-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .career-bridge-banner {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 860px) {
@@ -2430,6 +2679,14 @@ button, input, textarea {
 
   .contact-details-panel, .contact-form-panel {
     padding: 22px 18px;
+  }
+
+  .repo-blueprint-card {
+    padding: 20px 14px;
+  }
+
+  .career-bridge-banner {
+    padding: 16px;
   }
 
   .hero-actions {
