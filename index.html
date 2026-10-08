@@ -1,608 +1,780 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohamed Abusayath - Portfolio</title>
-  <meta name="description" content="Portfolio of Mohamed Abusayath - Software Developer.">
+  <title>Mohamed Abusayath | Node.js Backend & Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Mohamed Abusayath S, a practical Node.js Backend & Full-Stack Developer building scalable REST APIs, database architectures, Redis caching layers, and production backend integrations.">
+  <meta name="keywords" content="Mohamed Abusayath, Mohamed Abusayath S, Node.js Backend Developer, Express.js, REST APIs, MongoDB, MySQL, Redis, Docker, Full-Stack Developer, Software Engineer Portfolio">
+  <meta name="author" content="Mohamed Abusayath S">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mohamedabusayaths.netlify.app/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f172a'/%3E%3Ctext x='16' y='22' font-size='16' font-family='monospace' font-weight='bold' text-anchor='middle' fill='%2310b981'%3E%26lt%3B/%26gt%3B%3C/text%3E%3C/svg%3E">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mohamed Abusayath | Node.js Backend & Full-Stack Developer">
+  <meta property="og:description" content="Explore Mohamed Abusayath's portfolio featuring real-world Node.js REST APIs, database schemas, Redis caching, third-party integrations, and production projects.">
+  <meta property="og:url" content="https://mohamedabusayaths.netlify.app/">
+  <meta property="og:image" content="https://mohamedabusayaths.netlify.app/img/mohamed-abusayath.png">
+  <meta property="og:site_name" content="Mohamed Abusayath Portfolio">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mohamed Abusayath | Node.js Backend & Full-Stack Developer">
+  <meta name="twitter:description" content="Practical Node.js Backend & Full-Stack Developer building scalable APIs and real-world backend systems.">
+  <meta name="twitter:image" content="https://mohamedabusayaths.netlify.app/img/mohamed-abusayath.png">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Schema.org Person JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mohamed Abusayath S",
+      "alternateName": [
+        "Mohamed Abusayath",
+        "MohamedAbusayath"
+      ],
+      "url": "https://mohamedabusayaths.netlify.app/",
+      "image": "https://mohamedabusayaths.netlify.app/img/mohamed-abusayath.png",
+      "jobTitle": "Node.js Backend Developer",
+      "description": "Practical Node.js Backend & Full-Stack Developer building scalable REST APIs, database systems, Redis caching, and real-world web applications.",
+      "email": "mailto:mohamedabusayaths@gmail.com",
+      "telephone": "+918870912422",
+      "sameAs": [
+        "https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/",
+        "https://github.com/MohamedAbusayath"
+      ],
+      "knowsAbout": [
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "MongoDB",
+        "Mongoose",
+        "MySQL",
+        "Sequelize",
+        "Redis",
+        "Docker",
+        "API Authentication & Authorization",
+        "Razorpay Payments & Webhooks",
+        "Postman API Testing",
+        "JavaScript",
+        "Java"
+      ],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "St. Michael College of Engineering & Technology"
+      }
+    }
+  </script>
 </head>
 
 <body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
-  <header>
-    <div class="logo">Port<span>folio</span></div>
+  <!-- ================================================== -->
+  <!-- 1. NAVBAR                                         -->
+  <!-- ================================================== -->
+  <header class="site-header" id="header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="Mohamed Abusayath Home">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">Mohamed</span><span class="logo-accent">.dev</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
 
-    <div class="menu-toggle" id="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Main Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#highlights" class="nav-link">Highlights</a>
+        <a href="#workflow" class="nav-link">How I Build</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Nav Actions (Theme, Resume, Socials, Hamburger) -->
+      <div class="nav-actions">
+        <!-- Theme Toggle -->
+        <button type="button" class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light theme" title="Toggle Theme">
+          <i class="fa-solid fa-moon dark-icon"></i>
+          <i class="fa-solid fa-sun light-icon"></i>
+        </button>
+
+        <!-- Social Icons -->
+        <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="nav-icon-link" aria-label="GitHub Profile" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="nav-icon-link" aria-label="LinkedIn Profile" title="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <!-- Resume CTA Button -->
+        <a href="resume/MohamedAbusayathS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary resume-nav-btn">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Resume</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" class="mobile-menu-toggle" id="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
     </div>
 
-    <nav id="navbar">
-      <a href="#About">About</a>
-      <a href="#Projects">Projects</a>
-      <a href="#Certificates">Certificates</a>
-      <a href="#Skills">Skills</a>
-      <a href="#Education">Education</a>
-      <a href="#Internships">Internships</a>
-      <a href="#Contact">Contact</a>
-      <a href="/resume/MOHAMED_ABUSAYATH_S_RESUME__Copy_.pdf" target="_blank" class="resume-btn">Resume</a>
-      
-    </nav>
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+      <nav class="mobile-nav-links">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#skills" class="mobile-nav-link">Technical Skills</a>
+        <a href="#experience" class="mobile-nav-link">Experience</a>
+        <a href="#projects" class="mobile-nav-link">Projects</a>
+        <a href="#highlights" class="mobile-nav-link">Backend Highlights</a>
+        <a href="#workflow" class="mobile-nav-link">How I Build</a>
+        <a href="#education" class="mobile-nav-link">Education & Certifications</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+      </nav>
+      <div class="mobile-drawer-footer">
+        <a href="resume/MohamedAbusayathS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+        </a>
+        <div class="mobile-socials">
+          <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="mailto:mohamedabusayaths@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <main id="main">
+  <main id="main-content">
 
-    <!-- ===== ABOUT ===== -->
-    <section id="About">
-      <div class="hero">
-        <div class="hero-text">
-          <h1>
-            <p class="eyebrow">Hi, I'm</p>
-            <span class="line-1">Mohamed</span>
-            <span class="line-1">Abusayath</span>
+    <!-- ================================================== -->
+    <!-- 2. HERO SECTION                                   -->
+    <!-- ================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="section-container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="status-indicator"></span>
+            <span>Available for Backend & Full-Stack Roles</span>
+          </div>
+
+          <h1 class="hero-title">
+            Node.js Backend Developer
+            <span class="hero-subtitle-gradient">building scalable APIs and real-world backend systems.</span>
           </h1>
-          <h2>Full-stack Developer | Software Developer</h2>
-          <p>
-            I'm a <strong>Computer Science and Engineering</strong> graduate with a strong interest in
-            <strong>Software Development</strong>. I enjoy creating clean, efficient, and user-friendly
-            applications using <strong>JavaScript, Node.js, Express.js, Java, Spring Boot, and SQL</strong>.
-            <br><br>
-            As a fresher, I'm eager to apply my technical knowledge, explore innovative ideas,
-            and grow as a professional developer through continuous learning and teamwork.
+
+          <p class="hero-description">
+            I specialize in architecting performant RESTful APIs, relational & NoSQL databases, Redis caching layers, and production integrations using <strong>Node.js, Express.js, MongoDB, MySQL, and Docker</strong>. Focused on clean architecture, security, and developer-friendly documentation.
           </p>
 
-          <div class="hero-stats" aria-label="Portfolio highlights">
-            <span><strong>15+</strong> Projects</span>
-            <span><strong>3</strong> Internships</span>
-            <span><strong>Java</strong> Backend</span>
+          <!-- Core Tech Pills -->
+          <div class="hero-tech-strip">
+            <span class="tech-tag"><i class="fa-brands fa-node-js"></i> Node.js</span>
+            <span class="tech-tag"><i class="fa-solid fa-server"></i> Express.js</span>
+            <span class="tech-tag"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+            <span class="tech-tag"><i class="fa-solid fa-database"></i> MySQL</span>
+            <span class="tech-tag"><i class="fa-solid fa-bolt"></i> Redis</span>
+            <span class="tech-tag"><i class="fa-solid fa-network-wired"></i> REST APIs</span>
+            <span class="tech-tag"><i class="fa-brands fa-docker"></i> Docker</span>
           </div>
 
-          <!-- Social Links -->
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" aria-label="LinkedIn">
-              <i class="fab fa-linkedin"></i>
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <i class="fa-solid fa-code"></i> View Projects
             </a>
-            <a href="https://github.com/MohamedAbusayath" target="_blank" aria-label="GitHub">
-              <i class="fab fa-github"></i>
+            <a href="resume/MohamedAbusayathS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <i class="fa-solid fa-file-arrow-down"></i> Download Resume
             </a>
-            <a href="mailto:mohamedabusayath@gmail.com" target="_blank" aria-label="Email">
-              <i class="fas fa-envelope"></i>
+            <a href="#contact" class="btn btn-ghost">
+              <i class="fa-regular fa-paper-plane"></i> Contact Me
             </a>
           </div>
 
-          <a href="#Projects" class="btn">View My Work</a>
-        </div>
-
-        <div class="hero-image">
-          <div class="glow-circle"></div>
-          <img src="img/mohamed-abusayath.png" alt="Mohamed Abusayath">
-          <div class="float-card card1"><i class="fa-solid fa-laptop-code"></i> Software Developer</div>
-          <div class="float-card card3"><i class="fa-solid fa-brain"></i> AI Enthusiast</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== PROJECTS ===== -->
-    <section id="Projects">
-      <h2>Projects</h2>
-      <p class="projects-intro">
-        Selected work from my GitHub. You can explore the full repository list on
-        <a href="https://github.com/MohamedAbusayath?tab=repositories" target="_blank" rel="noopener noreferrer">my GitHub profile</a>.
-      </p>
-      <div class="projects-container">
-        <div class="project-card">
-          <img src="img/heritage.png" alt="AI-Based Heritage Tourism Guide">
-          <div class="project-content">
-            <h3>AI-Based Heritage Tourism Guide</h3>
-            <p>A multilingual AI-powered tourism assistant providing GPS-based suggestions, voice/text interaction, and
-              intelligent audio responses.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Node.js, Express.js, Gemini LLM, MySQL, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/AI-Based-Heritage-Tourism-Guide" target="_blank"
-              class="project-btn"><i class="fa-brands fa-github"></i> View on GitHub</a>
+          <!-- Quick Social Links & Location -->
+          <div class="hero-meta">
+            <div class="meta-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Tamil Nadu, India</span>
+            </div>
+            <div class="meta-separator">•</div>
+            <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="meta-link">
+              <i class="fa-brands fa-github"></i> github.com/MohamedAbusayath
+            </a>
+            <div class="meta-separator">•</div>
+            <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="meta-link">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
           </div>
         </div>
 
-        <div class="project-card">
-          <img src="img/AIchatbot.png" alt="AI Chatbot Project">
-          <div class="project-content">
-            <h3>AI Chatbot</h3>
-            <p>A full-stack chatbot application integrating Spring Boot with Ollama LLM for seamless natural language
-              interaction.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, REST API, HTML, CSS, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" class="project-btn"><i class="fa-brands fa-github"></i> View on
-              GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="img/online-learning.png" alt="Online Learning Platform Project">
-          <div class="project-content">
-            <h3>LearningHub - Online Learning Platform</h3>
-            <p>A full-stack learning platform featuring AI-powered assistance using Gemini API and a responsive UI.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, JPA, MySQL, HTML, CSS, JavaScript,
-              Gemini API</p>
-            <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank"
-              class="project-btn"><i class="fa-brands fa-github"></i> View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="img/news.png" alt="Live News App Project">
-          <div class="project-content">
-            <h3>NewsNow - Live News Application</h3>
-            <p>Real-time news app built with React.js and NewsData API. Features category-based browsing, dark mode, and
-              smooth animations.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> React.js, Axios, NewsData.io API, Vercel</p>
-            <a href="https://news-app-dusky-xi.vercel.app/" target="_blank" class="project-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
-            <a href="https://github.com/MohamedAbusayath/news-app" target="_blank" class="project-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="img/employee.png" alt="Employee Management System Project">
-          <div class="project-content">
-            <h3>Employee Management System</h3>
-            <p>Full-stack Employee Management System built with Spring Boot (MVC). Implements CRUD for employees,
-              role-based access, server-side rendered views with Thymeleaf, and REST endpoints for integrations.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Spring Boot (MVC), Spring Data JPA, MySQL, Thymeleaf</p>
-            <a href="https://github.com/MohamedAbusayath/EmployeeManagement" target="_blank" class="project-btn"><i class="fa-brands fa-github"></i>
-              GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <img src="img/algorithm_visualizer.png" alt="Algorithm Visualizer Project (Sorting & Searching)">
-          <div class="project-content">
-            <h3>Algorithm Visualizer</h3>
-            <p>
-              A simple tool that helps users understand Sorting and Searching algorithms.
-              It shows each step clearly and displays the output in an easy-to-read format.
-              The backend uses Spring Boot REST APIs to process and return the algorithm results.
-            </p>
-            <p class="tech-stack">
-              <strong>Tech Stack:</strong> React, Spring Boot (REST), Java
-            </p>
-            <a href="https://github.com/MohamedAbusayath/AlgorithmVisualizer" target="_blank" rel="noopener noreferrer"
-              class="project-btn"><i class="fa-brands fa-github"></i> GitHub</a>
-          </div>
-        </div>
-
-<div class="project-card">
-  <img src="img/sweet.png" alt="Sweet Shop Management System Project">
-  <div class="project-content">
-    <h3>Sweet Shop Management System</h3>
-    <p>
-      A full-stack web application for managing a sweet shop's inventory and sales.
-      It supports user authentication, role-based access (Admin/User), inventory control,
-      purchase flow, and search functionality with a clean and responsive UI.
-    </p>
-    <p class="tech-stack">
-      <strong>Tech Stack:</strong> React (Vite), Spring Boot, MongoDB, Java, JWT
-    </p>
-    <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="project-btn">
-       <i class="fa-brands fa-github"></i> GitHub
-    </a>
-  </div>
-</div>
-        <div class="project-card">
-          <div class="project-cover cover-ats" role="img" aria-label="ATS Resume Checker Project">ATS</div>
-          <div class="project-content">
-            <h3>ATS Resume Checker</h3>
-            <p>An ATS resume analysis application that compares resumes with job descriptions and returns compatibility scores, keyword matches, warnings, and improvement suggestions.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, JavaScript, HTML, CSS</p>
-            <a href="https://github.com/MohamedAbusayath/ATS-resume-Analyze" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-            <a href="https://atsresumeanalyze.netlify.app/" target="_blank" rel="noopener noreferrer"
-              class="project-btn">Live Demo</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-bulkmail">BulkMail</div>
-          <div class="project-content">
-            <h3>BulkMail</h3>
-            <p>A Java-based bulk email project focused on composing and sending messages efficiently for campaign-style workflows.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
-            <a href="https://github.com/MohamedAbusayath/BulkMail" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-attendance">Attendance</div>
-          <div class="project-content">
-            <h3>Attendance System</h3>
-            <p>A Java application for tracking attendance records with a straightforward workflow for managing student or employee entries.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
-            <a href="https://github.com/MohamedAbusayath/attendance-system" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-mailblast">mailblast</div>
-          <div class="project-content">
-            <h3>Mail-blast</h3>
-            <p>An HTML-based email project built around campaign presentation, template structure, and lightweight mailing workflows.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS</p>
-            <a href="https://github.com/MohamedAbusayath/mailblast" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-items-ui">Items UI</div>
-          <div class="project-content">
-            <h3>Items API Frontend</h3>
-            <p>A frontend interface for interacting with an items API, designed to present item data clearly in a browser-based workflow.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/ItemsApiFrontend" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-items-api">Items API</div>
-          <div class="project-content">
-            <h3>Item API Task</h3>
-            <p>A Java backend task centered on item management APIs, covering core CRUD-style data handling and service logic.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
-            <a href="https://github.com/MohamedAbusayath/ItemApiTask" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-ecom">Ecom</div>
-          <div class="project-content">
-            <h3>Ecom</h3>
-            <p>An e-commerce project built in Java, covering the core shopping flow and business logic needed for an online store.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
-            <a href="https://github.com/MohamedAbusayath/Ecom" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-testing">QA</div>
-          <div class="project-content">
-            <h3>SoftwareTesting</h3>
-            <p>A Java project related to software testing concepts and implementation, highlighting validation and quality-focused development work.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
-            <a href="https://github.com/MohamedAbusayath/SoftwareTesting" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-cover cover-portfolio">Portfolio</div>
-          <div class="project-content">
-            <h3>MohamedAbusayath.github.io</h3>
-            <p>A personal portfolio website showcasing projects, skills, education, and contact details in a polished web presentation.</p>
-            <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/MohamedAbusayath.github.io" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
-          </div>
-        </div>
-        <!-- Other GitHub projects will be appended here by the script -->
-        <div id="github-loader" style="text-align: center; width: 100%; padding: 40px 0; display: none;">
-          <i class="fas fa-spinner fa-spin"></i> Loading more projects from GitHub...
-        </div>
-
-      </div>
-      <div class="projects-pagination" aria-label="Projects pagination">
-        <button type="button" class="pagination-btn" id="projects-prev">Previous</button>
-        <div class="pagination-pages" id="projects-pages"></div>
-        <button type="button" class="pagination-btn" id="projects-next">Next</button>
-      </div>
-    </section>
-
-    <!-- ===== CERTIFICATES ===== -->
-    <section id="Certificates">
-      <h2>Certificates</h2>
-      <div class="certificates-container">
-
-        <div class="certificate-card">
-          <img src="img/javaScriptCertificate-1.png" alt="JavaScript Certificate">
-          <p>JavaScript - Udemy</p>
-          <a href="img/javaScriptCertificate-1.png" target="_blank">View Certificate</a>
-        </div>
-
-        <div class="certificate-card">
-          <img src="img/GuviCertification - b3J11c03e0p571L93j.png" alt="Generative AI Certificate">
-          <p>Generative AI - GUVI</p>
-          <a href="img/GuviCertification - b3J11c03e0p571L93j.png" target="_blank">View Certificate</a>
-        </div>
-
-        <div class="certificate-card">
-          <img src="img/Digital-marketing.png" alt="Digital Marketing Certificate">
-          <p>Digital Marketing - Naan Mudhalvan</p>
-          <a href="img/Digital-marketing.png" target="_blank">View Certificate</a>
-        </div>
-
-        <div class="certificate-card">
-          <img src="img/java-multi-thread.png" alt="Java Multi-thread Certificate">
-          <p>Java Concurrency & Multithreading - Scaler Masterclass</p>
-          <a href="img/java-multi-thread.png" target="_blank">View Certificate</a>
-        </div>
-         <div class="certificate-card">
-          <img src="img/sql.png" alt="Java Multi-thread Certificate">
-          <p>SQL and Relational Databases 101 - Cognitive Class</p>
-          <a href="https://courses.cognitiveclass.ai/certificates/e87e02bf84a842beb7048094b63a73a8" target="_blank">View Certificate</a>
-        </div>
-        <div class="certificate-card">
-          <img src="img/java-fullstack.png" alt="Java Multi-thread Certificate">
-          <p>Java Full-Stack - Uniq Technology</p>
-          <a href="img/java-fullstack.png" target="_blank">View Certificate</a>
-        </div>
-        <div class="certificate-card">
-          <img src="img/Internship_certificate_inmakes-1.png" alt="Internship Certificate">
-          <p>Software Testing Internship - Inmakes Infotech Pvt Ltd</p>
-          <a href="img/Internship_certificate_inmakes-1.png" target="_blank">View Certificate</a>
-        </div>
-
-        <div class="certificate-card">
-          <img src="img/ShiashInternCer.jpg" alt="Java Internship Certificate">
-          <p>Java Internship - Shiash Info Solutions</p>
-          <a href="img/ShiashInternCer.jpg" target="_blank">View Certificate</a>
-        </div>
-      </div>
-      <div class="certificates-pagination" aria-label="Certificates pagination">
-        <button type="button" class="pagination-btn" id="certificates-prev">Previous</button>
-        <div class="pagination-pages" id="certificates-pages"></div>
-        <button type="button" class="pagination-btn" id="certificates-next">Next</button>
-      </div>
-    </section>
-
-    <!-- ===== SKILLS SECTION ===== -->
-    <section id="Skills">
-      <h2>Technical Skills</h2>
-      <div class="skills-grid">
-
-        <!-- Core Programming -->
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-code"></i> Programming Languages</h3>
-          <div class="skill">
-            <p>Java</p>
-            <div class="skill-bar"><span data-width="95%"></span></div>
-          </div>
-          <div class="skill">
-            <p>JavaScript</p>
-            <div class="skill-bar"><span data-width="90%"></span></div>
-          </div>
-          <div class="skill">
-            <p>SQL</p>
-            <div class="skill-bar"><span data-width="85%"></span></div>
-          </div>
-        </div>
-
-        <!-- Frameworks -->
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-layer-group"></i> Frameworks & Libraries</h3>
-          <div class="skill">
-            <p>Spring Boot</p>
-            <div class="skill-bar"><span data-width="95%"></span></div>
-          </div>
-          <div class="skill">
-            <p>Express.js</p>
-            <div class="skill-bar"><span data-width="45%"></span></div>
-          </div>
-          <div class="skill">
-            <p>React.js</p>
-            <div class="skill-bar"><span data-width="45%"></span></div>
-          </div>
-
-        </div>
-
-        <!-- Database & Tools -->
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-database"></i> Databases & Tools</h3>
-          <div class="skill">
-            <p>MySQL</p>
-            <div class="skill-bar"><span data-width="90%"></span></div>
-          </div>
-          <div class="skill">
-            <p>MongoDB </p>
-            <div class="skill-bar"><span data-width="40%"></span></div>
-          </div>
-          <div class="skill">
-            <p>VS Code / Eclipse</p>
-            <div class="skill-bar"><span data-width="85%"></span></div>
-          </div>
-          <div class="skill">
-            <p>Git & GitHub</p>
-            <div class="skill-bar"><span data-width="60%"></span></div>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-vial"></i> Testing & API Tools</h3>
-
-          <div class="skill">
-            <p>Postman</p>
-            <div class="skill-bar"><span data-width="90%"></span></div>
-          </div>
-          <div class="skill">
-            <p>Selenium</p>
-            <div class="skill-bar"><span data-width="85%"></span></div>
-          </div>
-          <div class="skill">
-            <p>JUnit</p>
-            <div class="skill-bar"><span data-width="88%"></span></div>
-          </div>
-          <div class="skill">
-            <p> Cucumber (BDD)</p>
-            <div class="skill-bar"><span data-width="88%"></span></div>
-          </div>
-        </div>
-        <!-- Soft Skills -->
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-user-check"></i> Soft Skills</h3>
-          <div class="skill">
-            <p>Problem Solving</p>
-            <div class="skill-bar"><span data-width="90%"></span></div>
-          </div>
-          <div class="skill">
-            <p>Team Collaboration</p>
-            <div class="skill-bar"><span data-width="85%"></span></div>
-          </div>
-          <div class="skill">
-            <p>Adaptability & Communication</p>
-            <div class="skill-bar"><span data-width="88%"></span></div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ===== EDUCATION ===== -->
-    <section id="Education">
-      <h2>Education</h2>
-      <!-- TIMELINE CONTAINER -->
-      <div class="timeline-container">
-        <div class="timeline-line"></div>
-
-        <!-- College -->
-        <div class="timeline-item left reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content education-card">
-            <div class="timeline-date">2021 - 2025</div>
-            
-            <h3>B.E. Computer Science</h3>
-            <p><strong>St. Michael College of Engg. & Tech.</strong></p>
-            <p class="grade">CGPA: <strong>7.5</strong></p>
-          </div>
-        </div>
-
-        <!-- HSC -->
-        <div class="timeline-item right reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content education-card">
-            <div class="timeline-date">2020 - 2021</div>
-            <h3>HSC (12th Grade)</h3>
-            <p><strong>Britto Higher Secondary School</strong></p>
-            <p class="grade">Percentage: <strong>83%</strong></p>
-          </div>
-        </div>
-
-        <!-- SSLC -->
-        <div class="timeline-item left reveal">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content education-card">
-            <div class="timeline-date">2018 - 2019</div>
-            <h3>SSLC (10th Grade)</h3>
-            <p><strong>Government High School</strong></p>
-            <p class="grade">Percentage: <strong>80%</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== INTERNSHIPS ===== -->
-    <section id="Internships">
-      <h2>Internships</h2>
-      
-      <div class="internship-container">
-        <div class="internship-card">
-          <img src="img/uniq.png" alt="Uniq Technologies" class="company-logo">
-          <h3>Java Full-Stack Intern</h3>
-          <p><strong>Uniq Technologies, Chennai</strong> - 6 Months</p>
-          <ul>
-            <li>Developed full-stack features using Java, Spring Boot, MySQL, HTML, CSS, and JavaScript.</li>
-            <li>Improved application performance and enhanced user experience through optimizations.</li>
-            <li>Collaborated with team members to deliver production-ready features and fixes.</li>
-          </ul>
-        </div>
-
-        <div class="internship-card">
-          <img src="img/shiash.png" alt="Uniq Technologies" class="company-logo">
-          <h3>Java Developer Intern</h3>
-          <p><strong>Shiash Info Solutions, Chennai</strong> - 3 Months</p>
-          <ul>
-            <li>Built backend modules and REST APIs using Java and JDBC.</li>
-            <li>Worked on database integration and query optimization to improve response times.</li>
-            <li>Assisted in debugging and code reviews to increase code quality.</li>
-          </ul>
-        </div>
-
-        <div class="internship-card">
-          <img src="img/inmak.png" alt="Uniq Technologies" class="company-logo">
-          <h3>Software Testing Intern</h3>
-          <p><strong>Inmakes Infotech (Remote)</strong> - 3 Months</p>
-          <ul>
-            <li>Performed manual and automated testing using Selenium and TestNG.</li>
-            <li>Created and executed test cases; reported issues and verified fixes.</li>
-            <li>Contributed to improving software reliability and QA processes.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== CONTACT ===== -->
-    <section class="contact-content" id="Contact">
-      <div class="container">
-        <div class="contact-title">
-          <h2>Contact Me</h2>
-          <p>Reach me directly</p>
-        </div>
-        <div class="contact">
-          <div class="contact-card">
-            <div class="contact-card-header">
-              <div class="contact-badge">
-                <i class="fa-solid fa-address-book"></i>
+        <!-- Technical Visual Element: Interactive API Inspector Terminal -->
+        <div class="hero-visual">
+          <div class="terminal-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
               </div>
+              <div class="terminal-title">api-inspector // live-endpoint-demo</div>
+              <div class="terminal-latency"><span class="pulse-dot"></span> 24ms</div>
+            </div>
+
+            <!-- Terminal Tabs for Endpoints -->
+            <div class="terminal-tabs" role="tablist">
+              <button class="terminal-tab active" data-tab="health" role="tab" aria-selected="true">
+                <span class="method get">GET</span> /health
+              </button>
+              <button class="terminal-tab" data-tab="auth" role="tab" aria-selected="false">
+                <span class="method post">POST</span> /auth/login
+              </button>
+              <button class="terminal-tab" data-tab="order" role="tab" aria-selected="false">
+                <span class="method post">POST</span> /orders/razorpay
+              </button>
+            </div>
+
+            <!-- Terminal Code Output Area -->
+            <div class="terminal-body">
+              <!-- Tab 1: GET /health -->
+              <div class="tab-pane active" id="pane-health">
+                <div class="http-status-line">
+                  <span class="status-code code-200">200 OK</span>
+                  <span class="content-type">application/json</span>
+                  <span class="resp-time">24ms</span>
+                </div>
+                <pre class="code-block"><code class="language-json">{
+  <span class="json-key">"status"</span>: <span class="json-str">"operational"</span>,
+  <span class="json-key">"role"</span>: <span class="json-str">"Node.js Backend Developer"</span>,
+  <span class="json-key">"stack"</span>: {
+    <span class="json-key">"runtime"</span>: <span class="json-str">"Node.js v20+ / Express"</span>,
+    <span class="json-key">"databases"</span>: [<span class="json-str">"MongoDB"</span>, <span class="json-str">"MySQL"</span>],
+    <span class="json-key">"cache"</span>: <span class="json-str">"Redis (Cache-Aside &amp; TTL)"</span>,
+    <span class="json-key">"container"</span>: <span class="json-str">"Docker"</span>
+  },
+  <span class="json-key">"security"</span>: [<span class="json-str">"Helmet"</span>, <span class="json-str">"Joi-Validation"</span>, <span class="json-str">"JWT-RBAC"</span>],
+  <span class="json-key">"uptime"</span>: <span class="json-num">99.98</span>
+}</code></pre>
+              </div>
+
+              <!-- Tab 2: POST /auth/login -->
+              <div class="tab-pane" id="pane-auth">
+                <div class="http-status-line">
+                  <span class="status-code code-200">200 OK</span>
+                  <span class="content-type">application/json</span>
+                  <span class="resp-time">48ms (bcrypt verified)</span>
+                </div>
+                <pre class="code-block"><code class="language-json">{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"message"</span>: <span class="json-str">"Authentication successful"</span>,
+  <span class="json-key">"data"</span>: {
+    <span class="json-key">"user"</span>: {
+      <span class="json-key">"id"</span>: <span class="json-str">"usr_64f19b882"</span>,
+      <span class="json-key">"role"</span>: <span class="json-str">"ADMIN"</span>,
+      <span class="json-key">"permissions"</span>: [<span class="json-str">"api:read"</span>, <span class="json-str">"api:write"</span>, <span class="json-str">"admin:manage"</span>]
+    },
+    <span class="json-key">"token"</span>: <span class="json-str">"eyJhbGciOiJIUzI1NiIsInR5cCI6Ik..."</span>,
+    <span class="json-key">"expiresIn"</span>: <span class="json-str">"24h"</span>
+  }
+}</code></pre>
+              </div>
+
+              <!-- Tab 3: POST /orders/razorpay -->
+              <div class="tab-pane" id="pane-order">
+                <div class="http-status-line">
+                  <span class="status-code code-201">201 Created</span>
+                  <span class="content-type">application/json</span>
+                  <span class="resp-time">112ms (Razorpay API)</span>
+                </div>
+                <pre class="code-block"><code class="language-json">{
+  <span class="json-key">"success"</span>: <span class="json-bool">true</span>,
+  <span class="json-key">"orderId"</span>: <span class="json-str">"order_OaBc123XyZ"</span>,
+  <span class="json-key">"amount"</span>: <span class="json-num">249900</span>,
+  <span class="json-key">"currency"</span>: <span class="json-str">"INR"</span>,
+  <span class="json-key">"webhook"</span>: <span class="json-str">"HMAC SHA-256 Verified"</span>,
+  <span class="json-key">"inventoryLock"</span>: <span class="json-str">"Redis Atomic (TTL 10m)"</span>
+}</code></pre>
+              </div>
+            </div>
+
+            <!-- Terminal Footer Status -->
+            <div class="terminal-footer">
+              <span class="terminal-stat"><i class="fa-solid fa-shield-halved"></i> Joi Sanitized</span>
+              <span class="terminal-stat"><i class="fa-solid fa-lock"></i> JWT Auth</span>
+              <span class="terminal-stat"><i class="fa-solid fa-database"></i> Indexed Queries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 3. ABOUT SECTION                                  -->
+    <!-- ================================================== -->
+    <section class="section-wrapper" id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Professional Background</span>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            A practical backend developer who builds predictable APIs, reliable database models, and production-tested integrations.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card profile-bio-card">
+            <div class="about-profile-header">
+              <div class="avatar-wrapper">
+                <img src="img/mohamed-abusayath.png" alt="Mohamed Abusayath S" class="profile-avatar" loading="lazy">
+                <span class="avatar-badge" title="Active Backend Developer"><i class="fa-solid fa-check"></i></span>
+              </div>
+              <div class="profile-meta">
+                <h3 class="profile-name">Mohamed Abusayath S</h3>
+                <p class="profile-role">Node.js Backend & Full-Stack Developer</p>
+                <p class="profile-location"><i class="fa-solid fa-location-dot"></i> Tamil Nadu, India</p>
+              </div>
+            </div>
+
+            <div class="about-text-content">
+              <p>
+                I am a <strong>Computer Science & Engineering graduate</strong> with practical experience engineering backend services and REST APIs. My core engineering focus centers around <strong>Node.js, Express.js, MongoDB/Mongoose, MySQL, and Redis</strong>.
+              </p>
+              <p>
+                Throughout my internships and project development, I have focused on solving real backend challenges: architecting REST endpoints, implementing robust <strong>authentication and role-based authorization</strong>, validating inputs via Joi schema middleware, isolating database queries, handling file uploads with Multer and Cloudinary, and integrating payment workflows with <strong>Razorpay</strong> and webhooks.
+              </p>
+              <p>
+                I take pride in writing clean, modular controllers and services, building Postman test suites to prevent regressions, debugging edge-case production issues, and deploying systems in reproducible Docker containers.
+              </p>
+            </div>
+
+            <div class="about-highlights-pills">
+              <span class="highlight-pill"><i class="fa-solid fa-server"></i> RESTful Architecture</span>
+              <span class="highlight-pill"><i class="fa-solid fa-lock"></i> JWT &amp; Role-Based Access</span>
+              <span class="highlight-pill"><i class="fa-solid fa-bolt"></i> Redis Cache-Aside</span>
+              <span class="highlight-pill"><i class="fa-solid fa-credit-card"></i> Razorpay &amp; Webhooks</span>
+              <span class="highlight-pill"><i class="fa-solid fa-shield-halved"></i> Joi Schema Validation</span>
+              <span class="highlight-pill"><i class="fa-solid fa-vial"></i> Postman Automated Testing</span>
+            </div>
+          </div>
+
+          <!-- Engineering Values / Focus Areas -->
+          <div class="about-pillars">
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+              <div class="pillar-content">
+                <h4>Clean API Architecture</h4>
+                <p>Strict separation of concerns across Routes, Controllers, Services, and Data Access layers with uniform JSON response envelopes and HTTP status codes.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-database"></i></div>
+              <div class="pillar-content">
+                <h4>Resilient Database Design</h4>
+                <p>Relational modeling in MySQL with foreign key constraints as well as document schemas in MongoDB with indexing, validations, and aggregation pipelines.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-bug"></i></div>
+              <div class="pillar-content">
+                <h4>Deep Debugging &amp; Testing</h4>
+                <p>Systematic root-cause analysis of API errors, automated Postman test collections, logging request lifecycles, and edge-case handling.</p>
+              </div>
+            </div>
+
+            <div class="pillar-card">
+              <div class="pillar-icon"><i class="fa-solid fa-shield-virus"></i></div>
+              <div class="pillar-content">
+                <h4>Security &amp; Defensive Coding</h4>
+                <p>Payload sanitization, rate-limiting, CORS configuration, bcrypt password hashing, and token signature verification preventing unauthorized access.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 4. TECHNICAL SKILLS                               -->
+    <!-- ================================================== -->
+    <section class="section-wrapper bg-alt" id="skills">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Core Competencies</span>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">
+            Categorized technical stack based on practical development experience. No artificial percentage bars—only real engineering tools.
+          </p>
+        </div>
+
+        <div class="skills-category-grid">
+          <!-- Category 1: Backend Engineering -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-node"><i class="fa-brands fa-node-js"></i></div>
               <div>
-                <h3>Let's Connect</h3>
-                <p>Open to software developer opportunities and professional collaboration.</p>
+                <h3 class="category-title">Backend &amp; APIs</h3>
+                <p class="category-subtitle">Core server-side development</p>
               </div>
             </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-brands fa-node-js"></i> Node.js</span>
+              <span class="skill-chip"><i class="fa-solid fa-server"></i> Express.js</span>
+              <span class="skill-chip"><i class="fa-solid fa-network-wired"></i> RESTful APIs</span>
+              <span class="skill-chip"><i class="fa-solid fa-arrows-split-up-and-left"></i> Custom Middleware</span>
+              <span class="skill-chip"><i class="fa-solid fa-arrows-spin"></i> Async Programming</span>
+              <span class="skill-chip"><i class="fa-solid fa-layer-group"></i> MVC Architecture</span>
+              <span class="skill-chip"><i class="fa-solid fa-triangle-exclamation"></i> Error Handling</span>
+              <span class="skill-chip"><i class="fa-brands fa-java"></i> Java (Core &amp; Spring Boot)</span>
+            </div>
+          </div>
 
-            <div class="contact-grid">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-user"></i>
+          <!-- Category 2: Databases -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-db"><i class="fa-solid fa-database"></i></div>
+              <div>
+                <h3 class="category-title">Databases &amp; ORM</h3>
+                <p class="category-subtitle">Data persistence &amp; schema design</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-solid fa-leaf"></i> MongoDB</span>
+              <span class="skill-chip"><i class="fa-solid fa-file-code"></i> Mongoose ODM</span>
+              <span class="skill-chip"><i class="fa-solid fa-table"></i> MySQL</span>
+              <span class="skill-chip"><i class="fa-solid fa-link"></i> Sequelize ORM</span>
+              <span class="skill-chip"><i class="fa-solid fa-magnifying-glass-chart"></i> Database Indexing</span>
+              <span class="skill-chip"><i class="fa-solid fa-diagram-project"></i> Relational Schemas</span>
+              <span class="skill-chip"><i class="fa-solid fa-filter"></i> Aggregation Pipelines</span>
+              <span class="skill-chip"><i class="fa-solid fa-database"></i> JDBC / JPA</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Caching & Infrastructure -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-cache"><i class="fa-solid fa-bolt"></i></div>
+              <div>
+                <h3 class="category-title">Caching &amp; Infrastructure</h3>
+                <p class="category-subtitle">Performance &amp; containerization</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-solid fa-bolt"></i> Redis (Cache-Aside)</span>
+              <span class="skill-chip"><i class="fa-solid fa-clock"></i> TTL Caching</span>
+              <span class="skill-chip"><i class="fa-solid fa-gauge-high"></i> Rate Limiting</span>
+              <span class="skill-chip"><i class="fa-brands fa-docker"></i> Docker</span>
+              <span class="skill-chip"><i class="fa-solid fa-boxes-stacked"></i> Containerization</span>
+              <span class="skill-chip"><i class="fa-brands fa-git-alt"></i> Git Version Control</span>
+              <span class="skill-chip"><i class="fa-brands fa-github"></i> GitHub Workflows</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Security & Integrations -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-security"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <h3 class="category-title">Security &amp; Integrations</h3>
+                <p class="category-subtitle">Payments, auth &amp; file workflows</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-solid fa-key"></i> JWT (Authentication)</span>
+              <span class="skill-chip"><i class="fa-solid fa-user-shield"></i> Role-Based Access (RBAC)</span>
+              <span class="skill-chip"><i class="fa-solid fa-lock"></i> bcrypt Hashing</span>
+              <span class="skill-chip"><i class="fa-solid fa-check-double"></i> Joi Schema Validation</span>
+              <span class="skill-chip"><i class="fa-solid fa-credit-card"></i> Razorpay Payment APIs</span>
+              <span class="skill-chip"><i class="fa-solid fa-webhook"></i> Webhook Verification</span>
+              <span class="skill-chip"><i class="fa-solid fa-cloud-arrow-up"></i> Cloudinary</span>
+              <span class="skill-chip"><i class="fa-solid fa-file-arrow-up"></i> Multer Uploads</span>
+              <span class="skill-chip"><i class="fa-solid fa-comments"></i> Socket.IO</span>
+              <span class="skill-chip"><i class="fa-solid fa-shield"></i> Helmet.js</span>
+            </div>
+          </div>
+
+          <!-- Category 5: Testing & Documentation -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-test"><i class="fa-solid fa-vial-circle-check"></i></div>
+              <div>
+                <h3 class="category-title">Testing &amp; Documentation</h3>
+                <p class="category-subtitle">Quality assurance &amp; API specs</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-solid fa-paper-plane"></i> Postman Collections</span>
+              <span class="skill-chip"><i class="fa-solid fa-book-open"></i> Swagger / OpenAPI</span>
+              <span class="skill-chip"><i class="fa-solid fa-vial"></i> Selenium &amp; TestNG</span>
+              <span class="skill-chip"><i class="fa-solid fa-flask"></i> JUnit Testing</span>
+              <span class="skill-chip"><i class="fa-solid fa-file-circle-check"></i> API Contract Testing</span>
+              <span class="skill-chip"><i class="fa-solid fa-clock-rotate-left"></i> Cron Scheduled Jobs</span>
+            </div>
+          </div>
+
+          <!-- Category 6: Frontend (Full-Stack Support) -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon icon-front"><i class="fa-brands fa-js"></i></div>
+              <div>
+                <h3 class="category-title">Frontend (Full-Stack)</h3>
+                <p class="category-subtitle">Client-side rendering &amp; interaction</p>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip"><i class="fa-brands fa-html5"></i> HTML5 (Semantic)</span>
+              <span class="skill-chip"><i class="fa-brands fa-css3-alt"></i> CSS3 &amp; Flexbox/Grid</span>
+              <span class="skill-chip"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</span>
+              <span class="skill-chip"><i class="fa-brands fa-react"></i> React.js</span>
+              <span class="skill-chip"><i class="fa-solid fa-mobile-screen"></i> Responsive Web Design</span>
+              <span class="skill-chip"><i class="fa-solid fa-arrows-rotate"></i> Axios &amp; Fetch API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 5. EXPERIENCE                                     -->
+    <!-- ================================================== -->
+    <section class="section-wrapper" id="experience">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Career Path</span>
+          <h2 class="section-title">Experience &amp; Internships</h2>
+          <p class="section-subtitle">
+            Hands-on software development experience building APIs, testing systems, and collaborating in team environments.
+          </p>
+        </div>
+
+        <div class="timeline-wrapper">
+          <!-- Experience Item 1 -->
+          <div class="timeline-block">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="experience-card-header">
+                <div class="company-brand">
+                  <img src="img/uniq.png" alt="Uniq Technologies logo" class="company-thumb" onerror="this.style.display='none'">
+                  <div>
+                    <h3 class="experience-role">Java Full-Stack Intern</h3>
+                    <h4 class="experience-company">Uniq Technologies, Chennai</h4>
+                  </div>
                 </div>
-                <div class="contact-item-content">
-                  <span class="contact-label">Name</span>
-                  <strong>Mohamed Abusayath S</strong>
+                <div class="experience-period">
+                  <span class="badge-duration"><i class="fa-regular fa-calendar"></i> 6 Months</span>
+                  <span class="badge-type">Internship</span>
                 </div>
               </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-phone"></i>
+              <div class="experience-body">
+                <p class="experience-summary">
+                  Collaborated on engineering full-stack web applications, architecting backend modules with RESTful services and relational databases.
+                </p>
+                <ul class="experience-bullet-list">
+                  <li>
+                    <strong>Backend Architecture:</strong> Developed and maintained backend services and REST APIs using Java, Spring Boot, and MySQL to support responsive frontend interfaces.
+                  </li>
+                  <li>
+                    <strong>Database Engineering:</strong> Designed relational database schemas, configured foreign key relationships, and optimized SQL queries to reduce endpoint response latencies.
+                  </li>
+                  <li>
+                    <strong>API Testing &amp; Bug Fixing:</strong> Tested API endpoints with Postman, verified payload structures, and debugged pre-production edge cases across data transmission cycles.
+                  </li>
+                  <li>
+                    <strong>Frontend Collaboration:</strong> Integrated client-side UI components built with HTML, CSS, and JavaScript with backend REST endpoints for seamless data synchronization.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience-tags">
+                <span class="exp-tag">Java</span>
+                <span class="exp-tag">Spring Boot</span>
+                <span class="exp-tag">REST APIs</span>
+                <span class="exp-tag">MySQL</span>
+                <span class="exp-tag">Postman</span>
+                <span class="exp-tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 2 -->
+          <div class="timeline-block">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="experience-card-header">
+                <div class="company-brand">
+                  <img src="img/shiash.png" alt="Shiash Info Solutions logo" class="company-thumb" onerror="this.style.display='none'">
+                  <div>
+                    <h3 class="experience-role">Java Developer Intern</h3>
+                    <h4 class="experience-company">Shiash Info Solutions, Chennai</h4>
+                  </div>
                 </div>
-                <div class="contact-item-content">
-                  <span class="contact-label">Phone</span>
-                  <a href="tel:8870912422">8870912422</a>
+                <div class="experience-period">
+                  <span class="badge-duration"><i class="fa-regular fa-calendar"></i> 3 Months</span>
+                  <span class="badge-type">Internship</span>
                 </div>
               </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fa-solid fa-envelope"></i>
+              <div class="experience-body">
+                <p class="experience-summary">
+                  Built core backend logic, database persistence modules, and REST endpoints while adhering to standard software engineering practices.
+                </p>
+                <ul class="experience-bullet-list">
+                  <li>
+                    <strong>API Development:</strong> Built and refined backend modules and REST APIs using Java and JDBC to manage core application data flows.
+                  </li>
+                  <li>
+                    <strong>Query Optimization:</strong> Worked directly on database integration, indexing, and query refinement to enhance data retrieval speeds.
+                  </li>
+                  <li>
+                    <strong>Quality &amp; Code Review:</strong> Actively participated in code reviews, debugged runtime defects, and ensured structured exception handling across controllers.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience-tags">
+                <span class="exp-tag">Java</span>
+                <span class="exp-tag">JDBC</span>
+                <span class="exp-tag">SQL</span>
+                <span class="exp-tag">REST APIs</span>
+                <span class="exp-tag">Code Review</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience Item 3 -->
+          <div class="timeline-block">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+              <span class="marker-line"></span>
+            </div>
+            <div class="timeline-card">
+              <div class="experience-card-header">
+                <div class="company-brand">
+                  <img src="img/inmak.png" alt="Inmakes Infotech logo" class="company-thumb" onerror="this.style.display='none'">
+                  <div>
+                    <h3 class="experience-role">Software Testing Intern</h3>
+                    <h4 class="experience-company">Inmakes Infotech (Remote)</h4>
+                  </div>
                 </div>
-                <div class="contact-item-content">
-                  <span class="contact-label">Email</span>
-                  <a href="mailto:mohamedabusayaths@gmail.com">mohamedabusayaths@gmail.com</a>
+                <div class="experience-period">
+                  <span class="badge-duration"><i class="fa-regular fa-calendar"></i> 3 Months</span>
+                  <span class="badge-type">Internship</span>
                 </div>
               </div>
 
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fa-brands fa-linkedin-in"></i>
+              <div class="experience-body">
+                <p class="experience-summary">
+                  Conducted comprehensive manual and automated quality assurance across web applications to ensure functional reliability and user experience standards.
+                </p>
+                <ul class="experience-bullet-list">
+                  <li>
+                    <strong>Test Automation:</strong> Executed manual and automated functional test suites using Selenium WebDriver and TestNG frameworks.
+                  </li>
+                  <li>
+                    <strong>Defect Lifecycle:</strong> Formulated detailed test scenarios, identified and documented software anomalies, and conducted regression testing upon bug resolution.
+                  </li>
+                  <li>
+                    <strong>Quality Standards:</strong> Contributed to software reliability discussions by validating edge-case user inputs, forms, and validation handlers.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="experience-tags">
+                <span class="exp-tag">Software Testing</span>
+                <span class="exp-tag">Selenium</span>
+                <span class="exp-tag">TestNG</span>
+                <span class="exp-tag">QA Lifecycle</span>
+                <span class="exp-tag">Regression Testing</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Practical Engineering Track Card -->
+          <div class="timeline-block">
+            <div class="timeline-marker">
+              <span class="marker-dot highlight-dot"></span>
+            </div>
+            <div class="timeline-card highlight-border-card">
+              <div class="experience-card-header">
+                <div>
+                  <span class="track-badge"><i class="fa-solid fa-code-branch"></i> Core Development Practice</span>
+                  <h3 class="experience-role">Node.js &amp; Backend Engineering Practice</h3>
+                  <h4 class="experience-company">API Architecture, Admin Panels &amp; Database Systems</h4>
                 </div>
-                <div class="contact-item-content">
-                  <span class="contact-label">LinkedIn</span>
-                  <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohamed-abusayath-s-3028602a0</a>
+              </div>
+
+              <div class="experience-body">
+                <p class="experience-summary">
+                  Applied backend development expertise across independently designed production-oriented systems, admin endpoints, and third-party integrations:
+                </p>
+                <div class="backend-responsibilities-grid">
+                  <div class="resp-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div>
+                      <strong>Authentication &amp; RBAC:</strong>
+                      <span>Implemented stateless JWT authentication, bcrypt salt hashing, and role-based route middleware for Admin vs User permissions.</span>
+                    </div>
+                  </div>
+                  <div class="resp-item">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                      <strong>Redis Caching:</strong>
+                      <span>Integrated Redis for fast data access, TTL expiration, counter tracking, and avoiding repeated expensive database queries.</span>
+                    </div>
+                  </div>
+                  <div class="resp-item">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <div>
+                      <strong>Razorpay Payments:</strong>
+                      <span>Built order creation APIs, webhook signature verification (HMAC SHA-256), and refund API endpoints with payment state sync.</span>
+                    </div>
+                  </div>
+                  <div class="resp-item">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <div>
+                      <strong>Cloudinary &amp; Multer:</strong>
+                      <span>Configured multipart/form-data upload streams with file type/size validation and automated cloud CDN image delivery.</span>
+                    </div>
+                  </div>
+                  <div class="resp-item">
+                    <i class="fa-solid fa-vial-circle-check"></i>
+                    <div>
+                      <strong>Validation &amp; Error Handling:</strong>
+                      <span>Enforced request validation via Joi middleware, preventing malformed payloads, and standardized error responses via centralized Express middleware.</span>
+                    </div>
+                  </div>
+                  <div class="resp-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <div>
+                      <strong>Cron Jobs &amp; Docs:</strong>
+                      <span>Scheduled automated background maintenance tasks with node-cron and documented all endpoints with Swagger OpenAPI.</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -611,272 +783,1312 @@
       </div>
     </section>
 
-    
+    <!-- ================================================== -->
+    <!-- 6. PROJECTS                                       -->
+    <!-- ================================================== -->
+    <section class="section-wrapper bg-alt" id="projects">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Featured Engineering Work</span>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">
+            Real systems showcasing API design, database modeling, authentication, third-party integrations, and problem solving.
+          </p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="projects-filter-bar" role="tablist" aria-label="Filter projects">
+          <button type="button" class="filter-btn active" data-filter="all">All Projects</button>
+          <button type="button" class="filter-btn" data-filter="backend">Backend &amp; APIs</button>
+          <button type="button" class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button type="button" class="filter-btn" data-filter="tools">Tools &amp; Utilities</button>
+        </div>
+
+        <!-- Project Cards Grid -->
+        <div class="projects-grid" id="projects-grid">
+
+          <!-- PROJECT 1: AI-Based Heritage Tourism Guide -->
+          <article class="project-card" data-category="backend fullstack">
+            <div class="project-media">
+              <img src="img/heritage.png" alt="AI-Based Heritage Tourism Guide preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">Featured System</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Node.js • Express • MySQL • AI Integration</span>
+                <h3 class="project-heading">AI-Based Heritage Tourism Guide</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Tourists visiting heritage monuments lack real-time, multilingual guidance tailored to their current GPS coordinates without expensive tour guides.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A full-stack backend service and client application that matches client geolocation coordinates to monument databases and calls Google's Gemini LLM to generate intelligent multilingual audio and text guides.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> Node.js &amp; Express RESTful API endpoints for coordinate lookups</li>
+                  <li><i class="fa-solid fa-check"></i> MySQL spatial query indexing for nearby heritage landmarks</li>
+                  <li><i class="fa-solid fa-check"></i> Integration with Gemini API with prompt engineering &amp; audio generation</li>
+                  <li><i class="fa-solid fa-check"></i> Standardized error handling for offline or out-of-range scenarios</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>Node.js</span>
+                <span>Express.js</span>
+                <span>MySQL</span>
+                <span>Gemini API</span>
+                <span>REST APIs</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/AI-Based-Heritage-Tourism-Guide" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: Sweet Shop Management System -->
+          <article class="project-card" data-category="backend fullstack">
+            <div class="project-media">
+              <img src="img/sweet.png" alt="Sweet Shop Management System preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">Admin &amp; Inventory</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Backend • MongoDB • JWT • Role-Based Access</span>
+                <h3 class="project-heading">Sweet Shop Management &amp; Inventory System</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Retail confectioneries struggle with manual stock tracking, unauthorized access to pricing tables, and inventory discrepancies during order processing.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A complete inventory &amp; sales management system with secure authentication, role-based authorization (Admin vs Customer), atomic inventory deduction on checkout, and search endpoints.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> JWT-based authentication with bcrypt password hashing</li>
+                  <li><i class="fa-solid fa-check"></i> Role-based authorization middleware protecting Admin routes</li>
+                  <li><i class="fa-solid fa-check"></i> MongoDB schema validation with atomic stock decrements</li>
+                  <li><i class="fa-solid fa-check"></i> Fast catalog filtering and search endpoints</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>MongoDB</span>
+                <span>REST APIs</span>
+                <span>JWT</span>
+                <span>React (Vite)</span>
+                <span>Role-Based Access</span>
+                <span>Spring Boot / Node</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: NewsNow Live News App -->
+          <article class="project-card" data-category="fullstack tools">
+            <div class="project-media">
+              <img src="img/news.png" alt="NewsNow Live News Application preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-live">Live App</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">React.js • REST API Integration • Vercel</span>
+                <h3 class="project-heading">NewsNow - Real-Time Live News Application</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Information overload and slow news feeds hinder fast discovery of verified, categorized breaking news across global sources.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A responsive news delivery application consuming NewsData.io REST APIs, featuring real-time category filtering, dark mode, robust error boundaries, and client caching.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Technical Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> External REST API consumption via Axios with query parameter building</li>
+                  <li><i class="fa-solid fa-check"></i> Debounced category and keyword search with loading states</li>
+                  <li><i class="fa-solid fa-check"></i> Graceful error fallback for rate-limited API responses</li>
+                  <li><i class="fa-solid fa-check"></i> Production deployment and asset optimization on Vercel</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>React.js</span>
+                <span>Axios</span>
+                <span>NewsData API</span>
+                <span>Vercel</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://news-app-dusky-xi.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/MohamedAbusayath/news-app" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4: ATS Resume Checker -->
+          <article class="project-card" data-category="backend tools">
+            <div class="project-media">
+              <div class="project-code-cover">
+                <i class="fa-solid fa-file-lines cover-icon"></i>
+                <span class="cover-text">ATS ANALYZER ENGINE</span>
+              </div>
+              <div class="project-badge-overlay">
+                <span class="badge-live">Live App</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">REST API • Parsing Engine • Scoring Logic</span>
+                <h3 class="project-heading">ATS Resume Checker &amp; Scoring Engine</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Job applicants lack visibility into why applicant tracking systems reject resumes due to missing keywords and format mismatches.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A resume evaluation service that compares uploaded resume text against targeted job descriptions, computing compatibility scores and actionable keyword recommendations.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> String tokenization and keyword density evaluation algorithm</li>
+                  <li><i class="fa-solid fa-check"></i> Weighted scoring logic returning JSON analytics breakdown</li>
+                  <li><i class="fa-solid fa-check"></i> Input sanitization protecting against unexpected document symbols</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>REST API</span>
+                <span>Java / Backend</span>
+                <span>JavaScript</span>
+                <span>HTML/CSS</span>
+                <span>Netlify</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://atsresumeanalyze.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                </a>
+                <a href="https://github.com/MohamedAbusayath/ATS-resume-Analyze" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-ghost">
+                  <i class="fa-brands fa-github"></i> Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: Employee Management System -->
+          <article class="project-card" data-category="backend">
+            <div class="project-media">
+              <img src="img/employee.png" alt="Employee Management System preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">Backend System</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Backend • Relational DB • MVC • CRUD</span>
+                <h3 class="project-heading">Employee Management Backend System</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Internal corporate operations require centralized employee records, department structures, and role-based access management.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A full-stack MVC backend application implementing comprehensive CRUD operations, relational schema mapping with MySQL, and role-based views.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Backend Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> Structured REST endpoints and server-rendered view controllers</li>
+                  <li><i class="fa-solid fa-check"></i> Relational database schema with Spring Data JPA / Hibernate</li>
+                  <li><i class="fa-solid fa-check"></i> Input validation and transactional database updates</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>Spring Boot</span>
+                <span>MySQL</span>
+                <span>JPA / Hibernate</span>
+                <span>Thymeleaf</span>
+                <span>REST APIs</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/EmployeeManagement" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: Algorithm Visualizer -->
+          <article class="project-card" data-category="tools fullstack">
+            <div class="project-media">
+              <img src="img/algorithm_visualizer.png" alt="Algorithm Visualizer preview" loading="lazy">
+              <div class="project-badge-overlay">
+                <span class="badge-featured">Algorithm Tool</span>
+              </div>
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">React • REST APIs • Algorithms</span>
+                <h3 class="project-heading">Algorithm Visualizer (Sorting &amp; Searching)</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">Problem Solved:</span>
+                <p>Understanding internal data-structure transformations and time complexity in sorting and searching algorithms is difficult from static code alone.</p>
+              </div>
+
+              <div class="project-built-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>An interactive visualization application that executes algorithmic steps, returns state transitions, and renders step-by-step animations with real-time speed adjustments.</p>
+              </div>
+
+              <div class="project-backend-highlights">
+                <span class="subhead-label">Key Technical Features:</span>
+                <ul class="mini-feature-list">
+                  <li><i class="fa-solid fa-check"></i> Execution state logging for sorting (Bubble, Quick, Merge) and binary search</li>
+                  <li><i class="fa-solid fa-check"></i> Responsive visualization interface with execution speed control</li>
+                  <li><i class="fa-solid fa-check"></i> Clean decoupled architecture between state logic and rendering</li>
+                </ul>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>REST APIs</span>
+                <span>CSS Animations</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/AlgorithmVisualizer" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 7: AI Chatbot Service -->
+          <article class="project-card" data-category="backend tools">
+            <div class="project-media">
+              <img src="img/AIchatbot.png" alt="AI Chatbot preview" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">API Gateway • LLM Integration • REST</span>
+                <h3 class="project-heading">AI Chatbot Service</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>A conversational assistant backend integrating RESTful endpoints with Ollama local LLM and cloud APIs, handling conversation context buffers and streaming response data.</p>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>REST API</span>
+                <span>LLM Integration</span>
+                <span>Ollama</span>
+                <span>JavaScript</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/AiChatBot" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 8: LearningHub Platform -->
+          <article class="project-card" data-category="fullstack backend">
+            <div class="project-media">
+              <img src="img/online-learning.png" alt="LearningHub platform preview" loading="lazy">
+            </div>
+            <div class="project-card-content">
+              <div class="project-header">
+                <span class="project-category-tag">Full-Stack • MySQL • Gemini API</span>
+                <h3 class="project-heading">LearningHub - Online Learning Platform</h3>
+              </div>
+
+              <div class="project-problem-block">
+                <span class="subhead-label">What I Built:</span>
+                <p>An educational platform backend with course catalog management, user progress tracking in MySQL, and an on-demand AI explanation endpoint utilizing Gemini API.</p>
+              </div>
+
+              <div class="project-tech-pills">
+                <span>MySQL</span>
+                <span>Spring Boot</span>
+                <span>Gemini API</span>
+                <span>REST APIs</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a href="https://github.com/MohamedAbusayath/Online-learning-platfrom-ai" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary">
+                  <i class="fa-brands fa-github"></i> View Code
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-cta-box">
+          <p>Looking for more repositories or experimental work?</p>
+          <a href="https://github.com/MohamedAbusayath?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fa-brands fa-github"></i> Browse All Repositories on GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 7. BACKEND / ENGINEERING HIGHLIGHTS               -->
+    <!-- ================================================== -->
+    <section class="section-wrapper" id="highlights">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Technical Depth</span>
+          <h2 class="section-title">Backend &amp; Engineering Highlights</h2>
+          <p class="section-subtitle">
+            A practical look at how I implement core architectural patterns, integrations, and production safeguards.
+          </p>
+        </div>
+
+        <div class="highlights-grid">
+          <!-- Card 1: REST API Architecture -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-network-wired"></i></div>
+              <h3>REST API Architecture</h3>
+            </div>
+            <p>
+              Structured using a clean <strong>Router → Controller → Service → Model</strong> separation of concerns. Endpoints adhere strictly to HTTP standards (GET, POST, PUT, PATCH, DELETE) with predictable resource naming and standardized response envelopes (`{ success, data, message, error }`).
+            </p>
+            <div class="highlight-tag">Clean Architecture</div>
+          </div>
+
+          <!-- Card 2: Authentication & Authorization -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-lock"></i></div>
+              <h3>Authentication &amp; Authorization</h3>
+            </div>
+            <p>
+              Implemented stateless authentication using <strong>JSON Web Tokens (JWT)</strong> with configurable expiry. Passwords are securely hashed with <strong>bcrypt</strong> using strong salt rounds. Route-level middleware enforces <strong>Role-Based Access Control (RBAC)</strong> to guard administrative endpoints.
+            </p>
+            <div class="highlight-tag">JWT • bcrypt • RBAC</div>
+          </div>
+
+          <!-- Card 3: MongoDB & Mongoose -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-leaf"></i></div>
+              <h3>MongoDB &amp; Mongoose</h3>
+            </div>
+            <p>
+              Designed flexible document schemas with strict Mongoose validation, sub-document relationships, and pre-save hooks. Implemented <strong>indexing on high-frequency query fields</strong> to prevent full-collection scans and utilized aggregation pipelines for analytics queries.
+            </p>
+            <div class="highlight-tag">Schema Design • Indexing</div>
+          </div>
+
+          <!-- Card 4: Redis Caching -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h3>Redis Caching</h3>
+            </div>
+            <p>
+              Implemented the <strong>Cache-Aside pattern</strong> using Redis for fast-access reads, atomic counters, and TTL-based expiration. Significantly reduced repeated expensive database queries and enabled sliding-window rate limiting to protect critical endpoints.
+            </p>
+            <div class="highlight-tag">Cache-Aside • TTL • Counters</div>
+          </div>
+
+          <!-- Card 5: Payment Integration -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-credit-card"></i></div>
+              <h3>Payment Integration (Razorpay)</h3>
+            </div>
+            <p>
+              Integrated the complete Razorpay payment lifecycle: server-side order generation, client-side checkout handling, payment capture verification via <strong>cryptographic signature checks</strong>, and refund API handling with transactional status updates.
+            </p>
+            <div class="highlight-tag">Razorpay • Orders • Refunds</div>
+          </div>
+
+          <!-- Card 6: Webhooks -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-arrows-to-circle"></i></div>
+              <h3>Webhooks &amp; Event Handling</h3>
+            </div>
+            <p>
+              Engineered secure webhook listeners that verify incoming payload integrity using <strong>HMAC SHA-256 signatures</strong>. Designed <strong>idempotent processing</strong> logic to ensure identical webhook delivery retries do not duplicate orders or financial transactions.
+            </p>
+            <div class="highlight-tag">HMAC Verification • Idempotency</div>
+          </div>
+
+          <!-- Card 7: API Validation -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-filter-circle-dollar"></i></div>
+              <h3>API Validation (Joi)</h3>
+            </div>
+            <p>
+              Enforced strict request schema validation at the router boundary using <strong>Joi middleware</strong>. Rejects malformed bodies, unexpected types, or missing required fields early with a descriptive <code>400 Bad Request</code> before reaching core business logic.
+            </p>
+            <div class="highlight-tag">Joi • Fail Fast • Sanitization</div>
+          </div>
+
+          <!-- Card 8: Centralized Error Handling -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>Centralized Error Handling</h3>
+            </div>
+            <p>
+              Architected custom Express error middleware <code>(err, req, res, next)</code>. Distinguishes between operational errors (4xx client mistakes) and internal programmer errors (500), sanitizes stack traces in production, and maintains uniform JSON error structures.
+            </p>
+            <div class="highlight-tag">Express Middleware • 4xx/5xx</div>
+          </div>
+
+          <!-- Card 9: Cron Jobs & Background Tasks -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+              <h3>Cron Jobs &amp; Maintenance</h3>
+            </div>
+            <p>
+              Implemented automated background schedules using <code>node-cron</code> for recurring maintenance: archiving expired guest sessions, cleaning temporary upload files, and triggering periodic health syncs without blocking the Node.js event loop.
+            </p>
+            <div class="highlight-tag">node-cron • Non-blocking Tasks</div>
+          </div>
+
+          <!-- Card 10: File Uploads & Cloud Storage -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+              <h3>File Uploads (Multer &amp; Cloudinary)</h3>
+            </div>
+            <p>
+              Configured multipart upload streams using <strong>Multer</strong> with memory/disk buffers, mime-type filtering, and file-size constraints. Uploaded assets directly to <strong>Cloudinary CDN</strong> with automated format optimization and secure remote URL storage.
+            </p>
+            <div class="highlight-tag">Multer • Cloudinary • CDN</div>
+          </div>
+
+          <!-- Card 11: Containerization & Docker -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-brands fa-docker"></i></div>
+              <h3>Containerization with Docker</h3>
+            </div>
+            <p>
+              Packaged applications into lightweight <strong>Docker containers</strong> using multi-stage builds. Ensured reproducible development environments, isolated dependencies, and standardized runtime configuration across local setups and staging deployments.
+            </p>
+            <div class="highlight-tag">Docker • Multi-Stage • Portability</div>
+          </div>
+
+          <!-- Card 12: API Documentation -->
+          <div class="highlight-card">
+            <div class="highlight-card-header">
+              <div class="highlight-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+              <h3>API Documentation &amp; Postman</h3>
+            </div>
+            <p>
+              Maintained comprehensive <strong>Swagger / OpenAPI</strong> specifications for interactive endpoint exploration and published curated <strong>Postman test collections</strong> with automated assertion scripts for regression verification.
+            </p>
+            <div class="highlight-tag">Swagger • Postman Collections</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 8. HOW I BUILD SOFTWARE                           -->
+    <!-- ================================================== -->
+    <section class="section-wrapper bg-alt" id="workflow">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Engineering Methodology</span>
+          <h2 class="section-title">How I Build Software</h2>
+          <p class="section-subtitle">
+            A disciplined, production-minded development pipeline ensuring quality, security, and maintainability at every stage.
+          </p>
+        </div>
+
+        <!-- Visual Step-by-Step Pipeline -->
+        <div class="workflow-pipeline">
+          <div class="workflow-step">
+            <div class="step-number">01</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+              <h4 class="step-title">Requirement Analysis</h4>
+              <p class="step-desc">Break down user stories into domain models, data dependencies, error cases, and performance criteria.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">02</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-file-contract"></i></div>
+              <h4 class="step-title">API Contract Design</h4>
+              <p class="step-desc">Define clear REST endpoints, HTTP status codes, request schemas, and JSON response contracts first.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">03</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h4 class="step-title">Validation &amp; Security</h4>
+              <p class="step-desc">Establish Joi schema validation, input sanitization, rate-limits, and authentication middleware at boundaries.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">04</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-gears"></i></div>
+              <h4 class="step-title">Business Logic &amp; Services</h4>
+              <p class="step-desc">Implement clean domain services decoupled from HTTP controllers to facilitate testing and reusability.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="workflow-pipeline pipeline-row-2">
+          <div class="workflow-step">
+            <div class="step-number">05</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-database"></i></div>
+              <h4 class="step-title">Database &amp; Schemas</h4>
+              <p class="step-desc">Design normalized tables (MySQL) or structured documents (MongoDB), create indexes, and enforce integrity.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">06</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-bolt"></i></div>
+              <h4 class="step-title">Caching &amp; Optimization</h4>
+              <p class="step-desc">Introduce Redis cache-aside for high-read paths, optimize queries, and implement pagination.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">07</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+              <h4 class="step-title">Testing &amp; Postman</h4>
+              <p class="step-desc">Run Postman collections, test corner cases, verify status codes, and check regression safety.</p>
+            </div>
+          </div>
+
+          <div class="workflow-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+
+          <div class="workflow-step">
+            <div class="step-number">08</div>
+            <div class="step-card">
+              <div class="step-icon"><i class="fa-brands fa-docker"></i></div>
+              <h4 class="step-title">Deployment &amp; Logging</h4>
+              <p class="step-desc">Containerize in Docker, configure environment variables, and log errors for maintainable operations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guiding Engineering Principles -->
+        <div class="principles-grid">
+          <div class="principle-item">
+            <span class="principle-bullet"></span>
+            <div>
+              <strong>Predictable APIs:</strong> Standardized envelopes, clear query parameters, semantic HTTP codes.
+            </div>
+          </div>
+          <div class="principle-item">
+            <span class="principle-bullet"></span>
+            <div>
+              <strong>Defensive Validation:</strong> Validate early, sanitize input, never trust raw client data.
+            </div>
+          </div>
+          <div class="principle-item">
+            <span class="principle-bullet"></span>
+            <div>
+              <strong>Database Efficiency:</strong> Strategic indexing, avoiding N+1 queries, lean projections.
+            </div>
+          </div>
+          <div class="principle-item">
+            <span class="principle-bullet"></span>
+            <div>
+              <strong>Observability:</strong> Structured logs, meaningful error responses, documented Swagger endpoints.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 9. EDUCATION & CERTIFICATIONS                     -->
+    <!-- ================================================== -->
+    <section class="section-wrapper" id="education">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Academic &amp; Verified Credentials</span>
+          <h2 class="section-title">Education &amp; Certifications</h2>
+          <p class="section-subtitle">
+            Formal education credentials and completed technical certifications preserved from my actual background.
+          </p>
+        </div>
+
+        <div class="edu-cert-layout">
+          <!-- Left Column: Education Timeline -->
+          <div class="edu-column">
+            <h3 class="subsection-title"><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+
+            <div class="edu-cards-list">
+              <!-- College -->
+              <div class="edu-card">
+                <div class="edu-icon-badge"><i class="fa-solid fa-university"></i></div>
+                <div class="edu-card-content">
+                  <span class="edu-year">2021 — 2025</span>
+                  <h4 class="edu-degree">B.E. Computer Science &amp; Engineering</h4>
+                  <p class="edu-institution">St. Michael College of Engineering &amp; Technology</p>
+                  <p class="edu-score">CGPA: <strong>7.5 / 10</strong></p>
+                </div>
+              </div>
+
+              <!-- HSC -->
+              <div class="edu-card">
+                <div class="edu-icon-badge"><i class="fa-solid fa-school"></i></div>
+                <div class="edu-card-content">
+                  <span class="edu-year">2020 — 2021</span>
+                  <h4 class="edu-degree">Higher Secondary Certificate (HSC - 12th)</h4>
+                  <p class="edu-institution">Britto Higher Secondary School</p>
+                  <p class="edu-score">Percentage: <strong>83%</strong></p>
+                </div>
+              </div>
+
+              <!-- SSLC -->
+              <div class="edu-card">
+                <div class="edu-icon-badge"><i class="fa-solid fa-book-open"></i></div>
+                <div class="edu-card-content">
+                  <span class="edu-year">2018 — 2019</span>
+                  <h4 class="edu-degree">Secondary School Leaving Certificate (SSLC - 10th)</h4>
+                  <p class="edu-institution">Government High School</p>
+                  <p class="edu-score">Percentage: <strong>80%</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Verified Certifications -->
+          <div class="cert-column">
+            <h3 class="subsection-title"><i class="fa-solid fa-certificate"></i> Verified Certifications</h3>
+
+            <div class="cert-cards-grid">
+              <!-- Cert 1: SQL and Relational Databases 101 -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/sql.png" alt="SQL and Relational Databases Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">SQL and Relational Databases 101</h4>
+                  <p class="cert-issuer">Cognitive Class / IBM</p>
+                  <a href="https://courses.cognitiveclass.ai/certificates/e87e02bf84a842beb7048094b63a73a8" target="_blank" rel="noopener noreferrer" class="cert-link">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Verify Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 2: JavaScript Udemy -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/javaScriptCertificate-1.png" alt="JavaScript Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">JavaScript Programming</h4>
+                  <p class="cert-issuer">Udemy</p>
+                  <a href="img/javaScriptCertificate-1.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 3: Generative AI GUVI -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/GuviCertification - b3J11c03e0p571L93j.png" alt="Generative AI Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Generative AI Fundamentals</h4>
+                  <p class="cert-issuer">GUVI Geek Network</p>
+                  <a href="img/GuviCertification - b3J11c03e0p571L93j.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 4: Java Concurrency & Multithreading -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/java-multi-thread.png" alt="Java Concurrency Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Java Concurrency &amp; Multithreading</h4>
+                  <p class="cert-issuer">Scaler Masterclass</p>
+                  <a href="img/java-multi-thread.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 5: Java Full-Stack Uniq -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/java-fullstack.png" alt="Java Full-Stack Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Java Full-Stack Development</h4>
+                  <p class="cert-issuer">Uniq Technology</p>
+                  <a href="img/java-fullstack.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 6: Software Testing Internship Certificate -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/Internship_certificate_inmakes-1.png" alt="Software Testing Internship Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Software Testing Internship</h4>
+                  <p class="cert-issuer">Inmakes Infotech</p>
+                  <a href="img/Internship_certificate_inmakes-1.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 7: Java Internship Shiash -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/ShiashInternCer.jpg" alt="Java Internship Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Java Developer Internship</h4>
+                  <p class="cert-issuer">Shiash Info Solutions</p>
+                  <a href="img/ShiashInternCer.jpg" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+
+              <!-- Cert 8: Digital Marketing -->
+              <div class="cert-card">
+                <div class="cert-thumb-wrapper">
+                  <img src="img/Digital-marketing.png" alt="Digital Marketing Certificate" loading="lazy">
+                </div>
+                <div class="cert-details">
+                  <h4 class="cert-name">Digital Marketing</h4>
+                  <p class="cert-issuer">Naan Mudhalvan</p>
+                  <a href="img/Digital-marketing.png" target="_blank" rel="noopener noreferrer" class="cert-link cert-preview-trigger">
+                    <i class="fa-solid fa-eye"></i> View Certificate
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 10. GITHUB / LINKEDIN / RESUME (CTA SECTION)       -->
+    <!-- ================================================== -->
+    <section class="section-wrapper cta-section-wrapper" id="cta">
+      <div class="section-container">
+        <div class="cta-banner-card">
+          <div class="cta-banner-content">
+            <span class="cta-eyebrow"><i class="fa-solid fa-handshake"></i> Open to Opportunities</span>
+            <h2 class="cta-title">Interested in working together?</h2>
+            <p class="cta-subtitle">
+              Whether you are hiring for a Node.js Backend Developer, Full-Stack Developer, or Junior Software Engineer role—I am ready to build and deliver practical software.
+            </p>
+            <div class="cta-buttons-group">
+              <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <i class="fa-brands fa-github"></i> Explore GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fa-brands fa-linkedin-in"></i> Connect on LinkedIn
+              </a>
+              <a href="resume/MohamedAbusayathS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+              </a>
+              <a href="mailto:mohamedabusayaths@gmail.com" class="btn btn-ghost">
+                <i class="fa-solid fa-envelope"></i> Email Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- 11. CONTACT                                       -->
+    <!-- ================================================== -->
+    <section class="section-wrapper bg-alt" id="contact">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-kicker">Get In Touch</span>
+          <h2 class="section-title">Contact Me</h2>
+          <p class="section-subtitle">
+            Let's discuss full-time roles, backend engineering opportunities, or technical collaboration.
+          </p>
+        </div>
+
+        <div class="contact-grid-container">
+          <!-- Direct Contact Cards -->
+          <div class="contact-details-panel">
+            <h3 class="contact-panel-title">Direct Contact Channels</h3>
+            <p class="contact-panel-desc">Feel free to reach out directly via email, phone, or LinkedIn.</p>
+
+            <div class="contact-channel-list">
+              <!-- Email Card -->
+              <div class="contact-channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-envelope"></i></div>
+                <div class="channel-info">
+                  <span class="channel-label">Email Address</span>
+                  <a href="mailto:mohamedabusayaths@gmail.com" class="channel-val">mohamedabusayaths@gmail.com</a>
+                </div>
+                <button type="button" class="copy-btn" data-copy="mohamedabusayaths@gmail.com" aria-label="Copy Email" title="Copy Email">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+
+              <!-- Phone Card -->
+              <div class="contact-channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="channel-info">
+                  <span class="channel-label">Phone</span>
+                  <a href="tel:8870912422" class="channel-val">+91 8870912422</a>
+                </div>
+                <button type="button" class="copy-btn" data-copy="+918870912422" aria-label="Copy Phone Number" title="Copy Phone">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+
+              <!-- LinkedIn Card -->
+              <div class="contact-channel-card">
+                <div class="channel-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                <div class="channel-info">
+                  <span class="channel-label">LinkedIn</span>
+                  <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="channel-val">linkedin.com/in/mohamed-abusayath-s</a>
+                </div>
+                <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="channel-external-btn" aria-label="Open LinkedIn" title="Open LinkedIn">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <!-- GitHub Card -->
+              <div class="contact-channel-card">
+                <div class="channel-icon"><i class="fa-brands fa-github"></i></div>
+                <div class="channel-info">
+                  <span class="channel-label">GitHub</span>
+                  <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="channel-val">github.com/MohamedAbusayath</a>
+                </div>
+                <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="channel-external-btn" aria-label="Open GitHub" title="Open GitHub">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+              <!-- Location -->
+              <div class="contact-channel-card">
+                <div class="channel-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="channel-info">
+                  <span class="channel-label">Location</span>
+                  <span class="channel-val">Tamil Nadu, India (Open to Remote &amp; Relocation)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Safe Email Composer (Direct mailto trigger with prefill) -->
+          <div class="contact-form-panel">
+            <h3 class="contact-panel-title">Send a Message</h3>
+            <p class="contact-panel-desc">Opens your email client with pre-filled details for direct correspondence.</p>
+
+            <form id="contact-form" class="styled-contact-form">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-user input-icon"></i>
+                  <input type="text" id="contact-name" name="name" placeholder="e.g. Hiring Manager" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-envelope input-icon"></i>
+                  <input type="email" id="contact-email" name="email" placeholder="e.g. recruiter@company.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <div class="input-wrapper">
+                  <i class="fa-regular fa-bookmark input-icon"></i>
+                  <input type="text" id="contact-subject" name="subject" placeholder="Opportunity: Node.js Backend Developer Role" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message</label>
+                <div class="input-wrapper">
+                  <textarea id="contact-message" name="message" rows="4" placeholder="Hello Mohamed, we reviewed your portfolio and would like to discuss a position..." required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
+                <i class="fa-solid fa-paper-plane"></i> Send Email
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- ===== JAVASCRIPT ===== -->
+  <!-- ================================================== -->
+  <!-- 12. FOOTER                                        -->
+  <!-- ================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">Mohamed</span><span class="logo-accent">.dev</span>
+            <span class="logo-bracket">/&gt;</span>
+          </a>
+          <p class="footer-tagline">
+            Practical Node.js Backend &amp; Full-Stack Developer building scalable APIs and reliable software.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Navigation</h4>
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#highlights">Highlights</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-col-title">Resources</h4>
+          <a href="resume/MohamedAbusayathS.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+          <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+          <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; <span id="current-year"></span> Mohamed Abusayath S. Built with semantic HTML5, CSS3 &amp; vanilla JavaScript.
+        </p>
+
+        <a href="#hero" class="back-to-top" aria-label="Back to top" title="Back to top">
+          <i class="fa-solid fa-chevron-up"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Certificate Image Modal Lightbox -->
+  <div class="modal-backdrop" id="cert-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-box">
+      <button type="button" class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <img src="" alt="Certificate Preview" id="modal-img">
+      <p id="modal-caption" class="modal-caption"></p>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container for Copied Text -->
+  <div class="toast-notification" id="toast-notify" role="alert" aria-live="polite"></div>
+
+  <!-- ================================================== -->
+  <!-- MAIN JAVASCRIPT LOGIC                             -->
+  <!-- ================================================== -->
   <script>
-    document.body.classList.add('js-enabled');
+    (function () {
+      'use strict';
 
-    const menuToggle = document.getElementById('menu-toggle');
-    const navbar = document.getElementById('navbar');
+      // 1. Set current year in footer
+      const yearEl = document.getElementById('current-year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
 
-    menuToggle.addEventListener('click', () => {
-      menuToggle.classList.toggle('active');
-      navbar.classList.toggle('active');
-    });
+      // 2. Theme Toggle (Dark/Light with localStorage persistence)
+      const themeToggleBtn = document.getElementById('theme-toggle');
+      const htmlElement = document.documentElement;
+      
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      htmlElement.setAttribute('data-theme', savedTheme);
 
-    const navLinks = navbar.querySelectorAll('a');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        navbar.classList.remove('active');
-        menuToggle.classList.remove('active');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+          const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          htmlElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+
+      // 3. Mobile Navigation Drawer Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileDrawer = document.getElementById('mobile-drawer');
+
+      if (menuToggle && mobileDrawer) {
+        menuToggle.addEventListener('click', () => {
+          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !expanded);
+          menuToggle.classList.toggle('active');
+          mobileDrawer.classList.toggle('open');
+        });
+
+        // Close drawer when any mobile nav link is clicked
+        const mobileLinks = mobileDrawer.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.classList.remove('active');
+            mobileDrawer.classList.remove('open');
+          });
+        });
+      }
+
+      // 4. Terminal Inspector Tab Switching
+      const terminalTabs = document.querySelectorAll('.terminal-tab');
+      terminalTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          terminalTabs.forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+
+          const targetTab = tab.getAttribute('data-tab');
+          document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+          const targetPane = document.getElementById(`pane-${targetTab}`);
+          if (targetPane) targetPane.classList.add('active');
+        });
       });
-    });
 
-    /* ==== SCROLL REVEAL ANIMATION ==== */
-    const revealElements = document.querySelectorAll('section, .project-card, .certificate-card, .skill-card, .education-card, .internship-card, .hero-text, .hero-image, .timeline-item');
-    
-    // Add reveal class to all elements initially
-    revealElements.forEach(el => el.classList.add('reveal'));
+      // 5. Project Category Filtering
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const projectCards = document.querySelectorAll('.project-card');
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
 
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    /* ==== 3D TILT EFFECT (Modern) ==== */
-    // Select all cards
-    const tiltCards = document.querySelectorAll('.project-card, .certificate-card, .skill-card, .education-card, .internship-card, .timeline-content');
-
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element.
-        const y = e.clientY - rect.top;  // y position within the element.
-        
-        // Calculate center
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        // Calculate rotation (max 15 degrees)
-        const rotateX = ((y - centerY) / centerY) * -10; // Reverse axis for tilt
-        const rotateY = ((x - centerX) / centerX) * 10;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+          const filter = btn.getAttribute('data-filter');
+          projectCards.forEach(card => {
+            const categories = card.getAttribute('data-category') || '';
+            if (filter === 'all' || categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
       });
 
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
-      });
-    });
+      // 6. Active Navigation Link Highlighting on Scroll
+      const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+      const sections = document.querySelectorAll('section[id]');
 
-    /* ==== GITHUB PROJECTS LOADER ==== */
-    async function loadGitHubProjects() {
-      const username = 'MohamedAbusayath';
-      const container = document.querySelector('#Projects .projects-container');
-      const loader = document.getElementById('github-loader');
-      loader.style.display = 'block'; // Show loader
+      function highlightNavOnScroll() {
+        const scrollY = window.pageYOffset;
+        sections.forEach(current => {
+          const sectionHeight = current.offsetHeight;
+          const sectionTop = current.offsetTop - 120;
+          const sectionId = current.getAttribute('id');
 
-      // Get URLs of existing featured projects to avoid duplication
-      const existingProjectUrls = new Set(
-        Array.from(container.querySelectorAll('.project-btn[href*="github.com"]'))
-             .map(a => a.href.toLowerCase().split('?')[0]) // Normalize URL to be safe
-      );
-
-      // Fetch oldest repos first, so newest are last
-      const apiUrl = `https://api.github.com/users/${username}/repos?sort=created&direction=asc`;
-
-      try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`GitHub API returned ${response.status}`);
-        }
-        const repos = await response.json();
-        
-        // Hide the loader before adding new cards
-        loader.style.display = 'none';
-
-        repos.forEach(repo => {
-          const repoUrl = repo.html_url.toLowerCase();
-
-          // Skip if it's the portfolio repo itself or if it's already a featured project
-          if (repo.name === `${username}.github.io` || existingProjectUrls.has(repoUrl)) {
-            return;
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
           }
-
-          const card = document.createElement('div');
-          card.className = 'project-card';
-          card.innerHTML = `
-            <div class="project-cover" style="background: linear-gradient(135deg, #141e30, #243b55);">
-              ${repo.name.replace(/-/g, ' ')}
-            </div>
-            <div class="project-content">
-              <h3>${repo.name.replace(/-/g, ' ')}</h3>
-              <p>${repo.description || 'No description provided.'}</p>
-              <p class="tech-stack"><strong>Language:</strong> ${repo.language || 'N/A'}</p>
-              <a href="${repo.html_url}" target="_blank" class="project-btn"><i class="fa-brands fa-github"></i> View on GitHub</a>
-              ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="project-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>` : ''}
-            </div>
-          `;
-          container.appendChild(card);
         });
-
-        // Re-initialize pagination with the combined list of projects
-        initializeProjectPagination();
-
-      } catch (error) {
-        console.error('Failed to load GitHub projects:', error);
-        loader.innerHTML = `<p style="text-align: center; color: #ff80ab;">Failed to load projects from GitHub.</p>`;
       }
-    }
+      window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
 
+      // 7. Toast Notification Utility
+      const toastEl = document.getElementById('toast-notify');
+      function showToast(message) {
+        if (!toastEl) return;
+        toastEl.textContent = message;
+        toastEl.classList.add('show');
+        setTimeout(() => {
+          toastEl.classList.remove('show');
+        }, 3000);
+      }
 
-    /* ==== PAGINATION LOGIC ==== */
-    const projectsPrevBtn = document.getElementById('projects-prev');
-    const projectsNextBtn = document.getElementById('projects-next');
-    const projectsPages = document.getElementById('projects-pages');
-    const projectsPerPage = 3;
-    let currentProjectPage = 1;
-    let allProjectCards = [];
-
-    function initializeProjectPagination() {
-      allProjectCards = Array.from(document.querySelectorAll('#Projects .project-card'));
-      const totalProjectPages = Math.ceil(allProjectCards.length / projectsPerPage);
-      currentProjectPage = Math.min(currentProjectPage, totalProjectPages || 1);
-
-      renderProjectPage(totalProjectPages);
-    }
-
-    function renderProjectPage(totalProjectPages = Math.ceil(allProjectCards.length / projectsPerPage)) {
-      const startIndex = (currentProjectPage - 1) * projectsPerPage;
-      const endIndex = startIndex + projectsPerPage;
-
-      allProjectCards.forEach((card, index) => {
-        card.style.display = (index >= startIndex && index < endIndex) ? 'block' : 'none';
+      // 8. One-Click Copy to Clipboard
+      const copyBtns = document.querySelectorAll('.copy-btn');
+      copyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const textToCopy = btn.getAttribute('data-copy');
+          if (textToCopy && navigator.clipboard) {
+            navigator.clipboard.writeText(textToCopy).then(() => {
+              const originalHTML = btn.innerHTML;
+              btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+              showToast(`Copied to clipboard: ${textToCopy}`);
+              setTimeout(() => {
+                btn.innerHTML = originalHTML;
+              }, 2000);
+            }).catch(() => {
+              showToast(`Copy failed. Please manually copy: ${textToCopy}`);
+            });
+          }
+        });
       });
 
-      projectsPages.innerHTML = '';
+      // 9. Safe Contact Form mailto Handler
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('contact-name').value.trim();
+          const email = document.getElementById('contact-email').value.trim();
+          const subject = document.getElementById('contact-subject').value.trim();
+          const message = document.getElementById('contact-message').value.trim();
 
-      for (let page = 1; page <= totalProjectPages; page += 1) {
-        const pageBtn = document.createElement('button');
-        pageBtn.type = 'button';
-        pageBtn.className = `pagination-number${page === currentProjectPage ? ' active' : ''}`;
-        pageBtn.textContent = page;
-        pageBtn.addEventListener('click', () => {
-          currentProjectPage = page;
-          renderProjectPage(totalProjectPages);
+          const mailtoSubject = encodeURIComponent(`[Portfolio Contact] ${subject}`);
+          const mailtoBody = encodeURIComponent(
+            `Hi Mohamed,\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nSent from your portfolio website.`
+          );
+
+          showToast('Opening your default email client...');
+          window.location.href = `mailto:mohamedabusayaths@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
         });
-        projectsPages.appendChild(pageBtn);
       }
 
-      projectsPrevBtn.disabled = currentProjectPage === 1;
-      projectsNextBtn.disabled = currentProjectPage === totalProjectPages;
-    }
+      // 10. Certificate Modal Lightbox
+      const certModal = document.getElementById('cert-modal');
+      const modalImg = document.getElementById('modal-img');
+      const modalCaption = document.getElementById('modal-caption');
+      const modalClose = document.getElementById('modal-close');
 
-    projectsPrevBtn.addEventListener('click', () => {
-      if (currentProjectPage > 1) {
-        currentProjectPage -= 1;
-        renderProjectPage();
-      }
-    });
+      document.querySelectorAll('.cert-preview-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = trigger.getAttribute('href');
+          const certCard = trigger.closest('.cert-card');
+          const title = certCard ? certCard.querySelector('.cert-name').textContent : 'Certificate';
 
-    projectsNextBtn.addEventListener('click', () => {
-      const totalProjectPages = Math.ceil(allProjectCards.length / projectsPerPage);
-      if (currentProjectPage < totalProjectPages) {
-        currentProjectPage += 1;
-        renderProjectPage(totalProjectPages);
-      }
-    });
-
-    // Initially, paginate only the hardcoded projects
-    initializeProjectPagination();
-    const certificateCards = Array.from(document.querySelectorAll('#Certificates .certificate-card'));
-    const certificatesPrevBtn = document.getElementById('certificates-prev');
-    const certificatesNextBtn = document.getElementById('certificates-next');
-    const certificatesPages = document.getElementById('certificates-pages');
-    const certificatesPerPage = 3;
-    let currentCertificatePage = 1;
-
-    const renderCertificatePagination = () => {
-      const totalCertificatePages = Math.ceil(certificateCards.length / certificatesPerPage);
-      const startIndex = (currentCertificatePage - 1) * certificatesPerPage;
-      const endIndex = startIndex + certificatesPerPage;
-
-      certificateCards.forEach((card, index) => {
-        card.style.display = index >= startIndex && index < endIndex ? 'block' : 'none';
+          if (certModal && modalImg) {
+            modalImg.src = href;
+            modalCaption.textContent = title;
+            certModal.classList.add('active');
+            certModal.setAttribute('aria-hidden', 'false');
+          }
+        });
       });
 
-      certificatesPages.innerHTML = '';
+      function closeModal() {
+        if (certModal) {
+          certModal.classList.remove('active');
+          certModal.setAttribute('aria-hidden', 'true');
+        }
+      }
 
-      for (let page = 1; page <= totalCertificatePages; page += 1) {
-        const pageBtn = document.createElement('button');
-        pageBtn.type = 'button';
-        pageBtn.className = `pagination-number${page === currentCertificatePage ? ' active' : ''}`;
-        pageBtn.textContent = page;
-        pageBtn.addEventListener('click', () => {
-          currentCertificatePage = page;
-          renderCertificatePagination();
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (certModal) {
+        certModal.addEventListener('click', (e) => {
+          if (e.target === certModal) closeModal();
         });
-        certificatesPages.appendChild(pageBtn);
       }
-
-      certificatesPrevBtn.disabled = currentCertificatePage === 1;
-      certificatesNextBtn.disabled = currentCertificatePage === totalCertificatePages;
-    };
-
-    certificatesPrevBtn.addEventListener('click', () => {
-      if (currentCertificatePage > 1) {
-        currentCertificatePage -= 1;
-        renderCertificatePagination();
-      }
-    });
-
-    certificatesNextBtn.addEventListener('click', () => {
-      const totalCertificatePages = Math.ceil(certificateCards.length / certificatesPerPage);
-      if (currentCertificatePage < totalCertificatePages) {
-        currentCertificatePage += 1;
-        renderCertificatePagination();
-      }
-    });
-
-    renderCertificatePagination();
-
-    // Skill Bar Animation (Retained)
-    const skillBars = document.querySelectorAll('.skill-bar span');
-    const animateSkills = () => {
-      skillBars.forEach(bar => {
-        const rect = bar.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          bar.style.width = bar.dataset.width;
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
+          closeModal();
         }
       });
-    };
-    window.addEventListener('scroll', animateSkills);
-    window.addEventListener('load', animateSkills);
 
-    // Load projects from GitHub when the page is ready
-    document.addEventListener('DOMContentLoaded', loadGitHubProjects);
-
+    })();
   </script>
 
-  <!-- Analytics -->
-  <!-- Analytics (Firebase) -->
+  <!-- Visitor Analytics (Unobtrusive & Safe) -->
   <script type="module">
-    // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-    // TODO: Replace the following with your app's Firebase project configuration
-    // See: https://firebase.google.com/docs/web/learn-more#config-object
     const firebaseConfig = {
       apiKey: "AIzaSyA9yuD1MawPpqius8b-_mG7bcErK4hwQNc",
       authDomain: "portfolio-645a6.firebaseapp.com",
@@ -887,95 +2099,46 @@
       measurementId: "G-HVQHVTQM49"
     };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Helper functions for device info
-    const getBrowser = () => {
-      const userAgent = navigator.userAgent;
-      if (userAgent.indexOf("Firefox") > -1) return "Firefox";
-      if (userAgent.indexOf("Chrome") > -1 && userAgent.indexOf("Edg") === -1) return "Chrome";
-      if (userAgent.indexOf("Safari") > -1 && userAgent.indexOf("Chrome") === -1) return "Safari";
-      if (userAgent.indexOf("Edg") > -1) return "Edge";
-      return "Unknown";
-    };
-
-    const getBrowserVersion = () => {
-      const match = navigator.userAgent.match(/(Firefox|Chrome|Safari|Edg)\/(\d+\.\d+)/);
-      return match ? match[2] : "Unknown";
-    };
-
-    const getDeviceType = () => {
-      const ua = navigator.userAgent;
-      if (/mobile/i.test(ua)) return "Mobile";
-      if (/tablet|ipad/i.test(ua)) return "Tablet";
-      return "Desktop";
-    };
-
-    const getOS = () => {
-      const ua = navigator.userAgent;
-      if (ua.indexOf("Win") > -1) return "Windows";
-      if (ua.indexOf("Mac") > -1) return "MacOS";
-      if (ua.indexOf("Linux") > -1) return "Linux";
-      if (ua.indexOf("Android") > -1) return "Android";
-      if (ua.indexOf("iOS") > -1 || ua.indexOf("iPhone") > -1 || ua.indexOf("iPad") > -1) return "iOS";
-      return "Unknown";
-    };
-
-    // Main tracking function
-    async function trackVisit() {
-      // Check if we've already tracked this session to avoid spamming the DB on reload
-      const sessionKey = 'analytics_session_' + new Date().toDateString();
-      if (sessionStorage.getItem(sessionKey)) {
-        console.log('Session already tracked');
-        return;
-      }
-
+    async function trackVisitSafe() {
       try {
-        // Get IP location data
-        const response = await fetch("https://ipapi.co/json/");
-        const ipData = await response.json();
+        const sessionKey = 'analytics_session_' + new Date().toDateString();
+        if (sessionStorage.getItem(sessionKey)) return;
 
-        // Prepare visitor data
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        let ipData = {};
+        try {
+          const res = await fetch("https://ipapi.co/json/", { signal: AbortSignal.timeout(3000) });
+          if (res.ok) ipData = await res.json();
+        } catch (_) {}
+
         const visitorData = {
           ip: ipData.ip || "Unknown",
           country: ipData.country_name || "Unknown",
           city: ipData.city || "Unknown",
           region: ipData.region || "Unknown",
-          timezone: ipData.timezone || "Unknown",
-          isp: ipData.org || "Unknown",
-          browser: getBrowser(),
-          browserVersion: getBrowserVersion(),
-          language: navigator.language || "Unknown",
-          deviceType: getDeviceType(),
-          os: getOS(),
-          screenWidth: window.screen.width,
-          screenHeight: window.screen.height,
+          browser: navigator.userAgent.includes("Chrome") ? "Chrome" : "Other",
+          deviceType: window.innerWidth < 768 ? "Mobile" : "Desktop",
           url: window.location.href,
           referrer: document.referrer || "Direct",
-          // Use server timestamp for consistency
           timestamp: serverTimestamp(),
           clientTimestamp: new Date().toISOString(),
-          pageTitle: document.title,
-          userAgent: navigator.userAgent
+          pageTitle: document.title
         };
 
-        // Add to Firestore
         await addDoc(collection(db, "portfolio_visitors"), visitorData);
-        
-        // Mark session as tracked
         sessionStorage.setItem(sessionKey, 'true');
-        console.log('Visit tracked to Firebase');
-
-      } catch (error) {
-        console.error("Error tracking visit:", error);
+      } catch (err) {
+        // Silently catch analytics failures to not interfere with user experience
       }
     }
 
-    // Run tracking
-    trackVisit();
+    if (window.requestIdleCallback) {
+      window.requestIdleCallback(trackVisitSafe);
+    } else {
+      setTimeout(trackVisitSafe, 2000);
+    }
   </script>
-
 </body>
 </html>

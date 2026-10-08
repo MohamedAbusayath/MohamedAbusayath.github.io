@@ -1,0 +1,13 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node & Package Managers
+node_modules/
+package-lock.json
+
+# Test & Debug Artifacts
+screenshot*.png
+*.log
