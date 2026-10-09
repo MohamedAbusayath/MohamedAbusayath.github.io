@@ -5,7 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mohamed Abusayath — Portfolio</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23090d16' stroke='%2300f3ff' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e91e63'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23090d16' stroke='%2300f3ff' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e91e63'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css?v=2026.2" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -29,8 +30,7 @@
       <a href="#Education">Education</a>
       <a href="#Experience">Experience</a>
       <a href="#Contact">Contact</a>
-      <a href="/resume/MOHAMED_ABUSAYATH_S_RESUME__Copy_.pdf" target="_blank">Resume</a>
-      
+      <a href="/resume/MOHAMED_ABUSAYATH_S_RESUME__Copy_.pdf" target="_blank" class="resume-btn">Resume</a>
     </nav>
   </header>
 
@@ -39,18 +39,8 @@
 
     <!-- ===== ABOUT / HERO (SOLAR SYSTEM ORBIT SYSTEM) ===== -->
     <section id="About" class="hero-section-frame">
-      
-      <!-- Top Frame Corner Bar -->
-      <div class="hero-frame-header">
-        <div class="hero-frame-tag">
-          <span class="tag-dot"></span>
-          Portfolio // 2026
-        </div>
-        <div class="hero-status-pill">
-          <span class="status-pulse"></span>
-          Available for Freelance Projects
-        </div>
-      </div>
+
+
 
       <!-- 1. Name Container -->
       <div class="hero-name-capsule">
@@ -59,23 +49,17 @@
         <span class="name-spark">✦</span>
       </div>
 
-      <div class="hero-solar-subtitle">
-        <span class="solar-dot"></span>
-        TECHNICAL SOLAR SYSTEM
-        <span class="solar-dot"></span>
-      </div>
 
       <!-- Interactive Orbit HUD Controls -->
       <div class="orbit-hud-controls" id="orbitHud" role="toolbar" aria-label="Solar System Orbit Controls">
-        <div class="orbit-hud-badge" id="orbitStatusBadge" title="Current planetary orbit status">
-          <span class="hud-pulse-dot" id="hudPulseDot"></span>
-          <span class="hud-status-text" id="hudStatusText">Orbit Active</span>
-        </div>
-        <button type="button" class="orbit-hud-btn" id="orbitToggleBtn" aria-label="Toggle Planetary Orbit" title="Pause or Resume Planet Revolution (Space/Enter)">
+
+        <button type="button" class="orbit-hud-btn" id="orbitToggleBtn" aria-label="Toggle Planetary Orbit"
+          title="Pause or Resume Planet Revolution (Space/Enter)">
           <span class="hud-btn-icon" id="orbitToggleIcon">⏸</span>
           <span id="orbitToggleLabel">Pause</span>
         </button>
-        <button type="button" class="orbit-hud-btn" id="orbitSpeedBtn" aria-label="Cycle Orbit Speed" title="Cycle Orbit Speed (1x, 1.5x, 2x)">
+        <button type="button" class="orbit-hud-btn" id="orbitSpeedBtn" aria-label="Cycle Orbit Speed"
+          title="Cycle Orbit Speed (1x, 1.5x, 2x)">
           <span class="hud-btn-icon">⚡</span>
           <span id="orbitSpeedLabel">1x Speed</span>
         </button>
@@ -96,7 +80,8 @@
         <div class="sun-center">
           <div class="sun-corona" aria-hidden="true"></div>
           <div class="sun-frame">
-            <img src="img/mohamed-abusayath.png" alt="Mohamed Abusayath" class="sun-photo" width="126" height="146" loading="eager">
+            <img src="img/mohamed-abusayath.png" alt="Mohamed Abusayath" class="sun-photo" width="126" height="146"
+              loading="eager">
           </div>
           <div class="sun-badge">MOHAMED</div>
         </div>
@@ -106,9 +91,11 @@
         <!-- INNER ORBIT (Track 1: R = 155px, Speed = 24s) -->
         <!-- Planet 1: FRONTEND (12 o'clock / Top) -->
         <div class="planet-orbit orbit-frontend">
-          <div class="planet-item planet-frontend" tabindex="0" role="button" aria-label="Planet 1: Frontend — HTML, CSS, JavaScript, React">
+          <div class="planet-item planet-frontend" tabindex="0" role="button"
+            aria-label="Planet 1: Frontend — HTML, CSS, JavaScript, React">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <polyline points="16 18 22 12 16 6"></polyline>
                 <polyline points="8 6 2 12 8 18"></polyline>
               </svg>
@@ -123,10 +110,14 @@
 
         <!-- Planet 5: INTEGRATIONS (6 o'clock / Bottom) -->
         <div class="planet-orbit orbit-integrations">
-          <div class="planet-item planet-integrations" tabindex="0" role="button" aria-label="Planet 5: Integrations — Third-party APIs, Webhooks, Payment Integration">
+          <div class="planet-item planet-integrations" tabindex="0" role="button"
+            aria-label="Planet 5: Integrations — Third-party APIs, Webhooks, Payment Integration">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M19.439 7.85c0-1.571-.944-2.85-2.112-2.85s-2.112 1.279-2.112 2.85V9H10.78v-1.15c0-1.571-.945-2.85-2.112-2.85S6.557 6.279 6.557 7.85V9H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.561v-1.15z"></path>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M19.439 7.85c0-1.571-.944-2.85-2.112-2.85s-2.112 1.279-2.112 2.85V9H10.78v-1.15c0-1.571-.945-2.85-2.112-2.85S6.557 6.279 6.557 7.85V9H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.561v-1.15z">
+                </path>
               </svg>
             </div>
             <span class="planet-name">INTEGRATIONS</span>
@@ -140,9 +131,11 @@
         <!-- MIDDLE ORBIT (Track 2: R = 225px, Speed = 34s) -->
         <!-- Planet 2: BACKEND (~2 o'clock / Top-Right) -->
         <div class="planet-orbit orbit-backend">
-          <div class="planet-item planet-backend" tabindex="0" role="button" aria-label="Planet 2: Backend — Node.js, Express.js, TypeScript">
+          <div class="planet-item planet-backend" tabindex="0" role="button"
+            aria-label="Planet 2: Backend — Node.js, Express.js, TypeScript">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
                 <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
                 <line x1="6" y1="6" x2="6.01" y2="6"></line>
@@ -159,9 +152,11 @@
 
         <!-- Planet 3: DATABASE (~8 o'clock / Bottom-Left) -->
         <div class="planet-orbit orbit-database">
-          <div class="planet-item planet-database" tabindex="0" role="button" aria-label="Planet 3: Database — MongoDB, MySQL, Mongoose, Sequelize">
+          <div class="planet-item planet-database" tabindex="0" role="button"
+            aria-label="Planet 3: Database — MongoDB, MySQL, Mongoose, Sequelize">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
                 <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
                 <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
@@ -178,10 +173,14 @@
         <!-- OUTER ORBIT (Track 3: R = 295px, Speed = 46s) -->
         <!-- Planet 6: TOOLS (~10 o'clock / Top-Left) -->
         <div class="planet-orbit orbit-tools">
-          <div class="planet-item planet-tools" tabindex="0" role="button" aria-label="Planet 6: Tools — Git, GitHub, Postman, Docker">
+          <div class="planet-item planet-tools" tabindex="0" role="button"
+            aria-label="Planet 6: Tools — Git, GitHub, Postman, Docker">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
               </svg>
             </div>
             <span class="planet-name">TOOLS</span>
@@ -194,9 +193,11 @@
 
         <!-- Planet 4: REST APIs (~4 o'clock / Bottom-Right) -->
         <div class="planet-orbit orbit-restapi">
-          <div class="planet-item planet-restapi" tabindex="0" role="button" aria-label="Planet 4: REST APIs — CRUD, Authentication, Authorization">
+          <div class="planet-item planet-restapi" tabindex="0" role="button"
+            aria-label="Planet 4: REST APIs — CRUD, Authentication, Authorization">
             <div class="planet-orb">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <rect x="2" y="2" width="6" height="6" rx="1"></rect>
                 <rect x="16" y="2" width="6" height="6" rx="1"></rect>
                 <rect x="9" y="16" width="6" height="6" rx="1"></rect>
@@ -218,7 +219,11 @@
       <div class="mobile-planets-grid">
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-frontend">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">FRONTEND</span>
@@ -228,7 +233,13 @@
 
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-backend">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">BACKEND</span>
@@ -238,7 +249,12 @@
 
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-database">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">DATABASE</span>
@@ -248,7 +264,14 @@
 
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-restapi">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="6" height="6" rx="1"></rect><rect x="16" y="2" width="6" height="6" rx="1"></rect><rect x="9" y="16" width="6" height="6" rx="1"></rect><path d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"></path><line x1="12" y1="13" x2="12" y2="16"></line></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+              <rect x="16" y="2" width="6" height="6" rx="1"></rect>
+              <rect x="9" y="16" width="6" height="6" rx="1"></rect>
+              <path d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"></path>
+              <line x1="12" y1="13" x2="12" y2="16"></line>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">REST APIs</span>
@@ -258,7 +281,12 @@
 
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-integrations">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.439 7.85c0-1.571-.944-2.85-2.112-2.85s-2.112 1.279-2.112 2.85V9H10.78v-1.15c0-1.571-.945-2.85-2.112-2.85S6.557 6.279 6.557 7.85V9H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.561v-1.15z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M19.439 7.85c0-1.571-.944-2.85-2.112-2.85s-2.112 1.279-2.112 2.85V9H10.78v-1.15c0-1.571-.945-2.85-2.112-2.85S6.557 6.279 6.557 7.85V9H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.561v-1.15z">
+              </path>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">INTEGRATIONS</span>
@@ -268,7 +296,12 @@
 
         <div class="mobile-planet-chip">
           <div class="mobile-chip-orb chip-tools">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+              </path>
+            </svg>
           </div>
           <div class="mobile-chip-text">
             <span class="mobile-chip-name">TOOLS</span>
@@ -285,7 +318,8 @@
           <span class="role-dot"></span>
         </div>
         <p class="role-support-text">
-          Frontend <span>•</span> Backend <span>•</span> APIs <span>•</span> Databases <span>•</span> Integrations <span>•</span> Tools
+          Frontend <span>•</span> Backend <span>•</span> APIs <span>•</span> Databases <span>•</span> Integrations
+          <span>•</span> Tools
         </p>
       </div>
 
@@ -309,13 +343,16 @@
 
         <!-- Social & Marketplace Channels -->
         <div class="hero-socials-row">
-          <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-github">
+          <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer"
+            class="hero-social-pill social-github">
             <i class="fa-brands fa-github"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-linkedin">
+          <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer"
+            class="hero-social-pill social-linkedin">
             <i class="fa-brands fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://www.fiverr.com/md_abusayath" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-fiverr">
+          <a href="https://www.fiverr.com/md_abusayath" target="_blank" rel="noopener noreferrer"
+            class="hero-social-pill social-fiverr">
             <i class="fa-solid fa-bolt"></i> Fiverr (Verified)
           </a>
           <a href="mailto:mohamedabusayaths@gmail.com" class="hero-social-pill social-email">
@@ -331,7 +368,8 @@
       <h2>Projects</h2>
       <p class="projects-intro">
         Selected work from my GitHub. You can explore the full repository list on
-        <a href="https://github.com/MohamedAbusayath?tab=repositories" target="_blank" rel="noopener noreferrer">my GitHub profile</a>.
+        <a href="https://github.com/MohamedAbusayath?tab=repositories" target="_blank" rel="noopener noreferrer">my
+          GitHub profile</a>.
       </p>
       <div class="projects-container">
         <div class="project-card">
@@ -411,31 +449,30 @@
           </div>
         </div>
 
-<div class="project-card">
-  <img src="img/sweet.png" alt="Sweet Shop Management System Project">
-  <div class="project-content">
-    <h3>Sweet Shop Management System</h3>
-    <p>
-      A full-stack web application for managing a sweet shop’s inventory and sales.
-      It supports user authentication, role-based access (Admin/User), inventory control,
-      purchase flow, and search functionality with a clean and responsive UI.
-    </p>
-    <p class="tech-stack">
-      <strong>Tech Stack:</strong> React (Vite), Spring Boot, MongoDB, Java, JWT
-    </p>
-    <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="project-btn">
-       🔗 GitHub
-    </a>
-  </div>
-</div>
+        <div class="project-card">
+          <img src="img/sweet.png" alt="Sweet Shop Management System Project">
+          <div class="project-content">
+            <h3>Sweet Shop Management System</h3>
+            <p>
+              A full-stack web application for managing a sweet shop’s inventory and sales.
+              It supports user authentication, role-based access (Admin/User), inventory control,
+              purchase flow, and search functionality with a clean and responsive UI.
+            </p>
+            <p class="tech-stack">
+              <strong>Tech Stack:</strong> React (Vite), Spring Boot, MongoDB, Java, JWT
+            </p>
+            <a href="https://github.com/MohamedAbusayath/Sweet-Shop-Management" target="_blank"
+              rel="noopener noreferrer" class="project-btn">
+              🔗 GitHub
+            </a>
+          </div>
+        </div>
         <div class="project-card">
           <div class="project-cover cover-ats" role="img" aria-label="ATS Resume Checker Project">ATS</div>
           <div class="project-content">
             <h3>ATS Resume Checker</h3>
-            <p>An ATS resume analysis application that compares resumes with job descriptions and returns compatibility scores, keyword matches, warnings, and improvement suggestions.</p>
+            <p>An ATS resume analysis application that compares resumes with job descriptions and returns compatibility
+              scores, keyword matches, warnings, and improvement suggestions.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java, Spring Boot, JavaScript, HTML, CSS</p>
             <a href="https://github.com/MohamedAbusayath/ATS-resume-Analyze" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -448,7 +485,8 @@
           <div class="project-cover cover-bulkmail">BulkMail</div>
           <div class="project-content">
             <h3>BulkMail</h3>
-            <p>A Java-based bulk email project focused on composing and sending messages efficiently for campaign-style workflows.</p>
+            <p>A Java-based bulk email project focused on composing and sending messages efficiently for campaign-style
+              workflows.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
             <a href="https://github.com/MohamedAbusayath/BulkMail" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -459,7 +497,8 @@
           <div class="project-cover cover-attendance">Attendance</div>
           <div class="project-content">
             <h3>Attendance System</h3>
-            <p>A Java application for tracking attendance records with a straightforward workflow for managing student or employee entries.</p>
+            <p>A Java application for tracking attendance records with a straightforward workflow for managing student
+              or employee entries.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
             <a href="https://github.com/MohamedAbusayath/attendance-system" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -470,7 +509,8 @@
           <div class="project-cover cover-mailblast">mailblast</div>
           <div class="project-content">
             <h3>Mail-blast</h3>
-            <p>An HTML-based email project built around campaign presentation, template structure, and lightweight mailing workflows.</p>
+            <p>An HTML-based email project built around campaign presentation, template structure, and lightweight
+              mailing workflows.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS</p>
             <a href="https://github.com/MohamedAbusayath/mailblast" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -481,7 +521,8 @@
           <div class="project-cover cover-items-ui">Items UI</div>
           <div class="project-content">
             <h3>Items API Frontend</h3>
-            <p>A frontend interface for interacting with an items API, designed to present item data clearly in a browser-based workflow.</p>
+            <p>A frontend interface for interacting with an items API, designed to present item data clearly in a
+              browser-based workflow.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
             <a href="https://github.com/MohamedAbusayath/ItemsApiFrontend" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -492,7 +533,8 @@
           <div class="project-cover cover-items-api">Items API</div>
           <div class="project-content">
             <h3>Item API Task</h3>
-            <p>A Java backend task centered on item management APIs, covering core CRUD-style data handling and service logic.</p>
+            <p>A Java backend task centered on item management APIs, covering core CRUD-style data handling and service
+              logic.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
             <a href="https://github.com/MohamedAbusayath/ItemApiTask" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -503,7 +545,8 @@
           <div class="project-cover cover-ecom">Ecom</div>
           <div class="project-content">
             <h3>Ecom</h3>
-            <p>An e-commerce project built in Java, covering the core shopping flow and business logic needed for an online store.</p>
+            <p>An e-commerce project built in Java, covering the core shopping flow and business logic needed for an
+              online store.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
             <a href="https://github.com/MohamedAbusayath/Ecom" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -514,7 +557,8 @@
           <div class="project-cover cover-testing">QA</div>
           <div class="project-content">
             <h3>SoftwareTesting</h3>
-            <p>A Java project related to software testing concepts and implementation, highlighting validation and quality-focused development work.</p>
+            <p>A Java project related to software testing concepts and implementation, highlighting validation and
+              quality-focused development work.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> Java</p>
             <a href="https://github.com/MohamedAbusayath/SoftwareTesting" target="_blank" rel="noopener noreferrer"
               class="project-btn">View on GitHub</a>
@@ -525,10 +569,11 @@
           <div class="project-cover cover-portfolio">Portfolio</div>
           <div class="project-content">
             <h3>MohamedAbusayath.github.io</h3>
-            <p>A personal portfolio website showcasing projects, skills, education, and contact details in a polished web presentation.</p>
+            <p>A personal portfolio website showcasing projects, skills, education, and contact details in a polished
+              web presentation.</p>
             <p class="tech-stack"><strong>Tech Stack:</strong> HTML, CSS, JavaScript</p>
-            <a href="https://github.com/MohamedAbusayath/MohamedAbusayath.github.io" target="_blank" rel="noopener noreferrer"
-              class="project-btn">View on GitHub</a>
+            <a href="https://github.com/MohamedAbusayath/MohamedAbusayath.github.io" target="_blank"
+              rel="noopener noreferrer" class="project-btn">View on GitHub</a>
           </div>
         </div>
         <!-- Other GitHub projects will be appended here by the script -->
@@ -572,10 +617,11 @@
           <p>Java Concurrency & Multithreading — Scaler Masterclass</p>
           <a href="img/java-multi-thread.png" target="_blank">View Certificate</a>
         </div>
-         <div class="certificate-card">
+        <div class="certificate-card">
           <img src="img/sql.png" alt="Java Multi-thread Certificate">
           <p>SQL and Relational Databases 101 — Cognitive Class</p>
-          <a href="https://courses.cognitiveclass.ai/certificates/e87e02bf84a842beb7048094b63a73a8" target="_blank">View Certificate</a>
+          <a href="https://courses.cognitiveclass.ai/certificates/e87e02bf84a842beb7048094b63a73a8" target="_blank">View
+            Certificate</a>
         </div>
         <div class="certificate-card">
           <img src="img/java-fullstack.png" alt="Java Multi-thread Certificate">
@@ -714,7 +760,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-content education-card">
             <div class="timeline-date">2021 - 2025</div>
-            
+
             <h3>B.E. Computer Science</h3>
             <p><strong>St. Michael College of Engg. & Tech.</strong></p>
             <p class="grade">CGPA: <strong>7.5</strong></p>
@@ -771,18 +817,23 @@
             </p>
 
             <p class="experience-desc">
-              Working on backend development using <span class="cyan-accent">Node.js</span>, <span class="cyan-accent">Express.js</span>, JavaScript, and <span class="cyan-accent">TypeScript</span>.
+              Working on backend development using <span class="cyan-accent">Node.js</span>, <span
+                class="cyan-accent">Express.js</span>, JavaScript, and <span class="cyan-accent">TypeScript</span>.
             </p>
 
             <div class="experience-responsibilities-title">Responsibilities & Key Contributions:</div>
             <ul class="experience-responsibilities">
               <li>Develop and maintain <span class="cyan-accent">RESTful APIs</span>.</li>
-              <li>Work with <span class="cyan-accent">MongoDB</span> and <span class="cyan-accent">MySQL</span> using <span class="cyan-accent">Mongoose</span> and <span class="cyan-accent">Sequelize</span>.</li>
+              <li>Work with <span class="cyan-accent">MongoDB</span> and <span class="cyan-accent">MySQL</span> using
+                <span class="cyan-accent">Mongoose</span> and <span class="cyan-accent">Sequelize</span>.
+              </li>
               <li>Implement <span class="cyan-accent">JWT authentication</span> and role-based authorization.</li>
               <li>Develop CRUD APIs with request validation, pagination, sorting, filtering, and error handling.</li>
-              <li>Implement business logic for booking, orders, purchases, stock validation, and cancellation workflows.</li>
+              <li>Implement business logic for booking, orders, purchases, stock validation, and cancellation workflows.
+              </li>
               <li>Test and debug APIs using <span class="cyan-accent">Postman</span>.</li>
-              <li>Manage source code using <span class="cyan-accent">Git</span> and <span class="cyan-accent">GitHub</span>.</li>
+              <li>Manage source code using <span class="cyan-accent">Git</span> and <span
+                  class="cyan-accent">GitHub</span>.</li>
             </ul>
 
             <div class="experience-tags">
@@ -820,8 +871,11 @@
 
             <div class="experience-responsibilities-title">Responsibilities & Key Contributions:</div>
             <ul class="experience-responsibilities">
-              <li>Developed full-stack features using <span class="cyan-accent">Java</span>, <span class="cyan-accent">Spring Boot</span>, <span class="cyan-accent">MySQL</span>, HTML, CSS, and JavaScript.</li>
-              <li>Improved application performance and enhanced user experience through database query optimizations.</li>
+              <li>Developed full-stack features using <span class="cyan-accent">Java</span>, <span
+                  class="cyan-accent">Spring Boot</span>, <span class="cyan-accent">MySQL</span>, HTML, CSS, and
+                JavaScript.</li>
+              <li>Improved application performance and enhanced user experience through database query optimizations.
+              </li>
               <li>Collaborated with team members to deliver production-ready features and bug fixes.</li>
             </ul>
 
@@ -856,7 +910,8 @@
 
             <div class="experience-responsibilities-title">Responsibilities & Key Contributions:</div>
             <ul class="experience-responsibilities">
-              <li>Built backend modules and REST APIs using <span class="cyan-accent">Java</span> and <span class="cyan-accent">JDBC</span>.</li>
+              <li>Built backend modules and REST APIs using <span class="cyan-accent">Java</span> and <span
+                  class="cyan-accent">JDBC</span>.</li>
               <li>Worked on database integration and query optimization to improve response times.</li>
               <li>Assisted in debugging and code reviews to increase overall software quality.</li>
             </ul>
@@ -891,7 +946,8 @@
 
             <div class="experience-responsibilities-title">Responsibilities & Key Contributions:</div>
             <ul class="experience-responsibilities">
-              <li>Performed manual and automated testing using <span class="cyan-accent">Selenium</span> and <span class="cyan-accent">TestNG</span>.</li>
+              <li>Performed manual and automated testing using <span class="cyan-accent">Selenium</span> and <span
+                  class="cyan-accent">TestNG</span>.</li>
               <li>Created and executed test cases; reported issues and verified fixes.</li>
               <li>Contributed to improving software reliability and delivery QA processes.</li>
             </ul>
@@ -964,16 +1020,24 @@
                 </div>
                 <div class="contact-item-content">
                   <span class="contact-label">LinkedIn</span>
-                  <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer">linkedin.com/in/mohamed-abusayath-s-3028602a0</a>
+                  <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/mohamed-abusayath-s-3028602a0</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- Top Frame Corner Bar -->
+      <div class="hero-frame-header">
+        <div class="hero-status-pill">
+          <span class="status-pulse"></span>
+          Available for Freelance Projects
+        </div>
+      </div>
     </section>
 
-    
+
 
   </main>
 
@@ -997,9 +1061,17 @@
       });
     });
 
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (navbar.classList.contains('active') && !navbar.contains(e.target) && !menuToggle.contains(e.target)) {
+        navbar.classList.remove('active');
+        menuToggle.classList.remove('active');
+      }
+    });
+
     /* ==== SCROLL REVEAL ANIMATION ==== */
     const revealElements = document.querySelectorAll('section, .project-card, .certificate-card, .skill-card, .education-card, .internship-card, .hero-text, .hero-image, .timeline-item');
-    
+
     // Add reveal class to all elements initially
     revealElements.forEach(el => el.classList.add('reveal'));
 
@@ -1024,15 +1096,15 @@
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left; // x position within the element.
         const y = e.clientY - rect.top;  // y position within the element.
-        
+
         // Calculate center
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-        
+
         // Calculate rotation (max 15 degrees)
         const rotateX = ((y - centerY) / centerY) * -10; // Reverse axis for tilt
         const rotateY = ((x - centerX) / centerX) * 10;
-        
+
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
       });
 
@@ -1051,7 +1123,7 @@
       // Get URLs of existing featured projects to avoid duplication
       const existingProjectUrls = new Set(
         Array.from(container.querySelectorAll('.project-btn[href*="github.com"]'))
-             .map(a => a.href.toLowerCase().split('?')[0]) // Normalize URL to be safe
+          .map(a => a.href.toLowerCase().split('?')[0]) // Normalize URL to be safe
       );
 
       // Fetch oldest repos first, so newest are last
@@ -1063,7 +1135,7 @@
           throw new Error(`GitHub API returned ${response.status}`);
         }
         const repos = await response.json();
-        
+
         // Hide the loader before adding new cards
         loader.style.display = 'none';
 
@@ -1115,45 +1187,45 @@
       const totalProjectPages = Math.ceil(allProjectCards.length / projectsPerPage);
 
       const renderPage = () => {
-      const startIndex = (currentProjectPage - 1) * projectsPerPage;
-      const endIndex = startIndex + projectsPerPage;
+        const startIndex = (currentProjectPage - 1) * projectsPerPage;
+        const endIndex = startIndex + projectsPerPage;
 
         allProjectCards.forEach((card, index) => {
           card.style.display = (index >= startIndex && index < endIndex) ? 'block' : 'none';
-      });
-
-      projectsPages.innerHTML = '';
-
-      for (let page = 1; page <= totalProjectPages; page += 1) {
-        const pageBtn = document.createElement('button');
-        pageBtn.type = 'button';
-        pageBtn.className = `pagination-number${page === currentProjectPage ? ' active' : ''}`;
-        pageBtn.textContent = page;
-        pageBtn.addEventListener('click', () => {
-          currentProjectPage = page;
-            renderPage();
         });
-        projectsPages.appendChild(pageBtn);
-      }
 
-      projectsPrevBtn.disabled = currentProjectPage === 1;
-      projectsNextBtn.disabled = currentProjectPage === totalProjectPages;
+        projectsPages.innerHTML = '';
+
+        for (let page = 1; page <= totalProjectPages; page += 1) {
+          const pageBtn = document.createElement('button');
+          pageBtn.type = 'button';
+          pageBtn.className = `pagination-number${page === currentProjectPage ? ' active' : ''}`;
+          pageBtn.textContent = page;
+          pageBtn.addEventListener('click', () => {
+            currentProjectPage = page;
+            renderPage();
+          });
+          projectsPages.appendChild(pageBtn);
+        }
+
+        projectsPrevBtn.disabled = currentProjectPage === 1;
+        projectsNextBtn.disabled = currentProjectPage === totalProjectPages;
       };
 
-    projectsPrevBtn.addEventListener('click', () => {
-      if (currentProjectPage > 1) {
-        currentProjectPage -= 1;
+      projectsPrevBtn.addEventListener('click', () => {
+        if (currentProjectPage > 1) {
+          currentProjectPage -= 1;
           renderPage();
-      }
-    });
+        }
+      });
 
-    projectsNextBtn.addEventListener('click', () => {
+      projectsNextBtn.addEventListener('click', () => {
         const totalProjectPages = Math.ceil(allProjectCards.length / projectsPerPage);
-      if (currentProjectPage < totalProjectPages) {
-        currentProjectPage += 1;
+        if (currentProjectPage < totalProjectPages) {
+          currentProjectPage += 1;
           renderPage();
-      }
-    });
+        }
+      });
 
       renderPage();
     }
@@ -1399,7 +1471,7 @@
 
         // Add to Firestore
         await addDoc(collection(db, "portfolio_visitors"), visitorData);
-        
+
         // Mark session as tracked
         sessionStorage.setItem(sessionKey, 'true');
         console.log('Visit tracked to Firebase');
@@ -1414,4 +1486,5 @@
   </script>
 
 </body>
+
 </html>
