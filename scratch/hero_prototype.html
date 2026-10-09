@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Prototype with Photo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Reset preview container */
+    * { box-sizing: border-box; }
+    body {
+      background-color: #0b0c16;
+      color: #fff;
+      font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* ===== NEW HERO SECTION STYLING (SKETCH-INSPIRED) ===== */
+    .hero-section-frame {
+      max-width: 1240px;
+      margin: 30px auto 60px auto;
+      padding: 36px 32px 44px 32px;
+      background: radial-gradient(130% 90% at 50% 5%, rgba(26, 30, 52, 0.75) 0%, rgba(13, 14, 25, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      box-shadow: 0 24px 64px -12px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    /* Ambient background glows inside frame */
+    .hero-section-frame::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 560px;
+      height: 320px;
+      background: radial-gradient(ellipse at center, rgba(0, 243, 255, 0.12), rgba(233, 30, 99, 0.08) 60%, transparent 80%);
+      filter: blur(55px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Top Corner Metadata Bar matching sketch's "Portfolio" in top-left */
+    .hero-frame-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-frame-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .hero-frame-tag .tag-dot {
+      width: 7px;
+      height: 7px;
+      background: #00f3ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00f3ff;
+    }
+
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #86efac;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .status-pulse {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #22c55e;
+      animation: statusBlink 2s infinite ease-in-out;
+    }
+
+    @keyframes statusBlink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* ===== NAME CONTAINER (TOP-CENTER IN SKETCH) ===== */
+    .hero-name-capsule {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 10px 36px;
+      background: linear-gradient(180deg, rgba(32, 36, 58, 0.85) 0%, rgba(18, 20, 34, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 100px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .hero-name-capsule:hover {
+      border-color: rgba(0, 243, 255, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0, 243, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .name-spark {
+      color: #00f3ff;
+      font-size: 1.1rem;
+      animation: sparkSpin 8s linear infinite;
+    }
+
+    @keyframes sparkSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-name-title {
+      margin: 0;
+      font-size: clamp(1.75rem, 3.6vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .hero-name-title .name-highlight {
+      background: linear-gradient(90deg, #ffffff 10%, #e91e63 55%, #00f3ff 95%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* ===== HERO STAGE: PHOTO + FLOATING LABELS ===== */
+    .hero-stage {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      min-height: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 8px 0 22px 0;
+      z-index: 1;
+    }
+
+    /* Center Photo Box (Replacing SVG with user's actual photo) */
+    .hero-photo-box {
+      position: relative;
+      width: 320px;
+      max-width: 85vw;
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      z-index: 2;
+      animation: devIdleFloat 5s ease-in-out infinite;
+      transition: transform 0.2s ease-out;
+    }
+
+    @keyframes devIdleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    /* Ambient Glow Behind Photo */
+    .photo-ambient-halo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 243, 255, 0.22) 0%, rgba(233, 30, 99, 0.16) 50%, transparent 70%);
+      filter: blur(35px);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Backing Card for the Photo Frame */
+    .photo-backdrop-card {
+      position: absolute;
+      bottom: 8px;
+      width: 270px;
+      height: 310px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(32, 37, 62, 0.6) 0%, rgba(18, 20, 36, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .photo-backdrop-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 20%, rgba(0, 243, 255, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+
+    /* The Cutout Photo of Mohamed */
+    .hero-dev-photo {
+      position: relative;
+      z-index: 2;
+      width: auto;
+      max-width: 95%;
+      height: 340px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 20px rgba(233, 30, 99, 0.25));
+      transition: transform 0.3s ease;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* Floating Code Particles */
+    .floating-code-particle {
+      position: absolute;
+      font-family: monospace;
+      font-weight: 700;
+      z-index: 3;
+      user-select: none;
+      pointer-events: none;
+      animation: particlePulse 4s ease-in-out infinite alternate;
+    }
+
+    .particle-p1 {
+      top: 30px;
+      left: 10px;
+      color: #00f3ff;
+      font-size: 1.05rem;
+      text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+    .particle-p2 {
+      top: 35px;
+      right: 10px;
+      color: #ff4081;
+      font-size: 1.15rem;
+      text-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+      animation-delay: -1.5s;
+    }
+
+    .particle-p3 {
+      bottom: 80px;
+      left: -5px;
+      color: #60a5fa;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      animation-delay: -2.2s;
+    }
+
+    .particle-p4 {
+      bottom: 85px;
+      right: -5px;
+      color: #34d399;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      animation-delay: -3.1s;
+    }
+
+    @keyframes particlePulse {
+      0% { opacity: 0.4; transform: translateY(0); }
+      100% { opacity: 0.9; transform: translateY(-6px); }
+    }
+
+    /* ===== FLOATING TECH LABELS (ORBITING AROUND PHOTO) ===== */
+    .tech-labels-container {
+      display: contents;
+    }
+
+    .tech-label-card {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      background: rgba(18, 22, 38, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 12px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 3;
+      cursor: default;
+      user-select: none;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .tech-label-card:hover {
+      z-index: 10;
+      transform: scale(1.08) translateY(-4px) !important;
+      border-color: rgba(0, 243, 255, 0.6);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 243, 255, 0.3);
+    }
+
+    .tech-icon-wrap {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .tech-icon-wrap svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .tech-text-block {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .tech-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .tech-subtitle {
+      font-size: 0.70rem;
+      color: rgba(255, 255, 255, 0.55);
+      letter-spacing: 0.3px;
+    }
+
+    /* Individual Badge Placements matching hand-drawn sketch arc */
+    /* LEFT SIDE LABELS */
+    .tech-frontend {
+      top: 30px;
+      left: 70px;
+      transform: rotate(-5deg);
+      animation: floatBadge1 4.4s ease-in-out infinite;
+    }
+    .tech-frontend .tech-icon-wrap { background: rgba(0, 243, 255, 0.12); color: #00f3ff; }
+
+    .tech-integrations {
+      top: 140px;
+      left: 15px;
+      transform: rotate(-3deg);
+      animation: floatBadge2 5.1s ease-in-out infinite;
+    }
+    .tech-integrations .tech-icon-wrap { background: rgba(168, 85, 247, 0.14); color: #c084fc; }
+
+    .tech-restapi {
+      top: 250px;
+      left: 55px;
+      transform: rotate(-6deg);
+      animation: floatBadge3 4.8s ease-in-out infinite;
+    }
+    .tech-restapi .tech-icon-wrap { background: rgba(59, 130, 246, 0.14); color: #60a5fa; }
+
+    /* RIGHT SIDE LABELS */
+    .tech-backend {
+      top: 30px;
+      right: 70px;
+      transform: rotate(5deg);
+      animation: floatBadge4 4.6s ease-in-out infinite;
+    }
+    .tech-backend .tech-icon-wrap { background: rgba(16, 185, 129, 0.14); color: #34d399; }
+
+    .tech-database {
+      top: 140px;
+      right: 15px;
+      transform: rotate(3deg);
+      animation: floatBadge5 5.3s ease-in-out infinite;
+    }
+    .tech-database .tech-icon-wrap { background: rgba(245, 158, 11, 0.14); color: #fbbf24; }
+
+    .tech-fullstack {
+      top: 250px;
+      right: 55px;
+      transform: rotate(6deg);
+      animation: floatBadge6 4.9s ease-in-out infinite;
+    }
+    .tech-fullstack .tech-icon-wrap { background: rgba(233, 30, 99, 0.14); color: #ff4081; }
+
+    /* Staggered float animations */
+    @keyframes floatBadge1 { 0%, 100% { transform: rotate(-5deg) translateY(0); } 50% { transform: rotate(-5deg) translateY(-8px); } }
+    @keyframes floatBadge2 { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(7px); } }
+    @keyframes floatBadge3 { 0%, 100% { transform: rotate(-6deg) translateY(0); } 50% { transform: rotate(-6deg) translateY(-6px); } }
+    @keyframes floatBadge4 { 0%, 100% { transform: rotate(5deg) translateY(0); } 50% { transform: rotate(5deg) translateY(-7px); } }
+    @keyframes floatBadge5 { 0%, 100% { transform: rotate(3deg) translateY(0); } 50% { transform: rotate(3deg) translateY(8px); } }
+    @keyframes floatBadge6 { 0%, 100% { transform: rotate(6deg) translateY(0); } 50% { transform: rotate(6deg) translateY(-6px); } }
+
+    /* ===== ROLE BANNER BADGE (BELOW PHOTO IN SKETCH) ===== */
+    .hero-role-banner {
+      position: relative;
+      z-index: 4;
+      margin-top: -22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 14px 34px 16px 34px;
+      background: linear-gradient(180deg, rgba(28, 32, 54, 0.95) 0%, rgba(17, 19, 33, 0.98) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      max-width: 540px;
+      width: calc(100% - 40px);
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    .hero-role-banner:hover {
+      border-color: rgba(233, 30, 99, 0.45);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.6), 0 0 24px rgba(233, 30, 99, 0.2);
+    }
+
+    /* Subtle ribbon-like decorative ears on left and right */
+    .hero-role-banner::before,
+    .hero-role-banner::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(233, 30, 99, 0.5));
+    }
+    .hero-role-banner::before { left: -18px; }
+    .hero-role-banner::after { right: -18px; background: linear-gradient(90deg, rgba(0, 243, 255, 0.5), transparent); }
+
+    .role-main-title {
+      font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin: 0 0 4px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .role-main-title .role-dot {
+      width: 7px;
+      height: 7px;
+      background: #e91e63;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #e91e63;
+    }
+
+    .role-support-text {
+      font-size: clamp(0.75rem, 1.6vw, 0.88rem);
+      color: rgba(255, 255, 255, 0.68);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .role-support-text span {
+      color: #00f3ff;
+      margin: 0 4px;
+    }
+
+    /* ===== FREELANCING CALL TO ACTION BLOCK ===== */
+    .hero-cta-block {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 680px;
+      z-index: 2;
+    }
+
+    .hero-intro-text {
+      font-size: clamp(0.96rem, 1.8vw, 1.12rem);
+      color: #e2e8f0;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      max-width: 580px;
+    }
+
+    .hero-buttons-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #e91e63 0%, #d81b60 100%);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(233, 30, 99, 0.35);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .hero-btn-primary:hover {
+      background: linear-gradient(135deg, #ff4081 0%, #e91e63 100%);
+      box-shadow: 0 14px 30px rgba(233, 30, 99, 0.5), 0 0 20px rgba(233, 30, 99, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .hero-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 13px 28px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+
+    .hero-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(0, 243, 255, 0.5);
+      color: #00f3ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Social Links Row */
+    .hero-socials-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 7px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .hero-social-pill:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .hero-social-pill.social-fiverr {
+      color: #1dbf73;
+      border-color: rgba(29, 191, 115, 0.3);
+      background: rgba(29, 191, 115, 0.06);
+    }
+    .hero-social-pill.social-fiverr:hover {
+      background: rgba(29, 191, 115, 0.15);
+      border-color: #1dbf73;
+      color: #1dbf73;
+    }
+
+    .hero-social-pill.social-github:hover {
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .hero-social-pill.social-linkedin:hover {
+      border-color: #0077b5;
+      color: #38bdf8;
+    }
+
+    .hero-social-pill.social-email:hover {
+      border-color: #ea4335;
+      color: #f87171;
+    }
+
+    /* ===== RESPONSIVE BREAKPOINTS (ALL COMMON SCREENS) ===== */
+    @media (max-width: 1100px) {
+      .tech-frontend { left: 25px; top: 25px; }
+      .tech-backend { right: 25px; top: 25px; }
+      .tech-integrations { left: 0px; top: 135px; }
+      .tech-database { right: 0px; top: 135px; }
+      .tech-restapi { left: 20px; top: 245px; }
+      .tech-fullstack { right: 20px; top: 245px; }
+    }
+
+    @media (max-width: 900px) {
+      .hero-section-frame {
+        padding: 30px 20px 38px 20px;
+      }
+      .hero-photo-box {
+        width: 300px;
+        height: 330px;
+      }
+      .photo-backdrop-card {
+        width: 240px;
+        height: 290px;
+      }
+      .hero-dev-photo {
+        height: 310px;
+      }
+      .tech-frontend { left: 5px; top: 20px; }
+      .tech-backend { right: 5px; top: 20px; }
+      .tech-integrations { left: -10px; top: 125px; }
+      .tech-database { right: -10px; top: 125px; }
+      .tech-restapi { left: 5px; top: 230px; }
+      .tech-fullstack { right: 5px; top: 230px; }
+      .tech-label-card {
+        padding: 8px 14px;
+        gap: 8px;
+      }
+      .tech-icon-wrap { width: 30px; height: 30px; }
+      .tech-title { font-size: 0.8rem; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section-frame {
+        padding: 24px 16px 36px 16px;
+        margin: 20px 10px 50px 10px;
+        border-radius: 20px;
+      }
+
+      .hero-frame-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 18px;
+      }
+
+      .hero-name-capsule {
+        padding: 8px 22px;
+        gap: 10px;
+        margin-bottom: 16px;
+      }
+
+      .hero-stage {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-photo-box {
+        width: 250px;
+        height: 280px;
+        margin-bottom: 6px;
+      }
+
+      .photo-backdrop-card {
+        width: 210px;
+        height: 250px;
+      }
+
+      .hero-dev-photo {
+        height: 270px;
+      }
+
+      /* On mobile & tablet portrait, chips grid layout flanking cleanly */
+      .tech-labels-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        max-width: 420px;
+        margin: 12px 0 16px 0;
+      }
+
+      .tech-label-card {
+        position: static !important;
+        transform: none !important;
+        animation: none !important;
+        padding: 8px 12px;
+        gap: 8px;
+        border-radius: 10px;
+      }
+
+      .tech-icon-wrap {
+        width: 28px;
+        height: 28px;
+      }
+
+      .tech-title {
+        font-size: 0.78rem;
+      }
+
+      .tech-subtitle {
+        display: none;
+      }
+
+      .hero-role-banner {
+        margin-top: 10px;
+        padding: 12px 20px;
+        width: 100%;
+      }
+
+      .hero-role-banner::before,
+      .hero-role-banner::after {
+        display: none;
+      }
+
+      .role-main-title {
+        font-size: 1.05rem;
+        letter-spacing: 1.5px;
+      }
+
+      .role-support-text {
+        font-size: 0.74rem;
+        line-height: 1.4;
+      }
+
+      .hero-buttons-row {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .hero-btn-primary,
+      .hero-btn-secondary {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .hero-name-title {
+        font-size: 1.45rem;
+      }
+      .tech-labels-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-socials-row {
+        gap: 8px;
+      }
+      .hero-social-pill {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-photo-box,
+      .tech-label-card,
+      .name-spark,
+      .status-pulse,
+      .floating-code-particle {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION FRAME -->
+  <section id="About" class="hero-section-frame">
+    
+    <!-- FRAME HEADER / CORNER METADATA (from sketch "Portfolio") -->
+    <div class="hero-frame-header">
+      <div class="hero-frame-tag">
+        <span class="tag-dot"></span>
+        Portfolio // 2026
+      </div>
+      <div class="hero-status-pill">
+        <span class="status-pulse"></span>
+        Available for Freelance Projects
+      </div>
+    </div>
+
+    <!-- 1. NAME HEADER (Top-Center in sketch) -->
+    <div class="hero-name-capsule">
+      <span class="name-spark">✦</span>
+      <h1 class="hero-name-title">Mohamed <span class="name-highlight">Abusayath</span></h1>
+      <span class="name-spark">✦</span>
+    </div>
+
+    <!-- 2. HERO STAGE (Center Photo + 6 Floating Technology Labels) -->
+    <div class="hero-stage">
+
+      <!-- FLOATING TECHNOLOGY LABELS CONTAINER -->
+      <div class="tech-labels-container">
+        
+        <!-- LEFT ARC -->
+        <div class="tech-label-card tech-frontend">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">FRONTEND</span>
+            <span class="tech-subtitle">Modern UI • Reactive</span>
+          </div>
+        </div>
+
+        <div class="tech-label-card tech-integrations">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19.439 7.85c0-1.571-.944-2.85-2.112-2.85s-2.112 1.279-2.112 2.85V9H10.78v-1.15c0-1.571-.945-2.85-2.112-2.85S6.557 6.279 6.557 7.85V9H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-2.561v-1.15z"></path>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">INTEGRATIONS</span>
+            <span class="tech-subtitle">Webhooks • 3rd-Party APIs</span>
+          </div>
+        </div>
+
+        <div class="tech-label-card tech-restapi">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="6" height="6" rx="1"></rect>
+              <rect x="16" y="2" width="6" height="6" rx="1"></rect>
+              <rect x="9" y="16" width="6" height="6" rx="1"></rect>
+              <path d="M5 8v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"></path>
+              <line x1="12" y1="13" x2="12" y2="16"></line>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">REST APIs</span>
+            <span class="tech-subtitle">Endpoints • Auth • JWT</span>
+          </div>
+        </div>
+
+        <!-- RIGHT ARC -->
+        <div class="tech-label-card tech-backend">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6.01" y2="6"></line>
+              <line x1="6" y1="18" x2="6.01" y2="18"></line>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">BACKEND</span>
+            <span class="tech-subtitle">Node.js • Express • Spring</span>
+          </div>
+        </div>
+
+        <div class="tech-label-card tech-database">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">DATABASE</span>
+            <span class="tech-subtitle">SQL • MySQL • MongoDB</span>
+          </div>
+        </div>
+
+        <div class="tech-label-card tech-fullstack">
+          <div class="tech-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <div class="tech-text-block">
+            <span class="tech-title">FULL-STACK</span>
+            <span class="tech-subtitle">End-to-End Solutions</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CENTER PHOTO CONTAINER (Mohamed Abusayath) -->
+      <div class="hero-photo-box">
+        <div class="photo-ambient-halo"></div>
+        <div class="photo-backdrop-card"></div>
+        
+        <!-- Floating Code Badges around Photo -->
+        <span class="floating-code-particle particle-p1">&lt;/&gt;</span>
+        <span class="floating-code-particle particle-p2">{ ; }</span>
+        <span class="floating-code-particle particle-p3">async</span>
+        <span class="floating-code-particle particle-p4">API</span>
+
+        <img src="../img/mohamed-abusayath.png" alt="Mohamed Abusayath" class="hero-dev-photo">
+      </div>
+
+    </div>
+
+    <!-- 3. ROLE BANNER BADGE (Below Photo in sketch) -->
+    <div class="hero-role-banner">
+      <div class="role-main-title">
+        <span class="role-dot"></span>
+        FULL-STACK DEVELOPER
+        <span class="role-dot"></span>
+      </div>
+      <p class="role-support-text">
+        Frontend <span>•</span> Backend <span>•</span> APIs <span>•</span> Databases <span>•</span> Integrations
+      </p>
+    </div>
+
+    <!-- 4. FREELANCING CALL TO ACTION & SOCIAL CHANNELS -->
+    <div class="hero-cta-block">
+      <p class="hero-intro-text">
+        I build websites, web applications, APIs, and backend systems for businesses and startups.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="hero-buttons-row">
+        <a href="#Contact" class="hero-btn-primary">
+          <i class="fa-solid fa-paper-plane"></i>
+          START A PROJECT
+        </a>
+        <a href="#Projects" class="hero-btn-secondary">
+          <i class="fa-solid fa-folder-open"></i>
+          EXPLORE MY WORK
+        </a>
+      </div>
+
+      <!-- Social & Marketplace Channels (Actual URLs only) -->
+      <div class="hero-socials-row">
+        <a href="https://github.com/MohamedAbusayath" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-github">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/mohamed-abusayath-s-3028602a0/" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-linkedin">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://www.fiverr.com/md_abusayath" target="_blank" rel="noopener noreferrer" class="hero-social-pill social-fiverr">
+          <i class="fa-solid fa-bolt"></i> Fiverr (Verified)
+        </a>
+        <a href="mailto:mohamedabusayaths@gmail.com" class="hero-social-pill social-email">
+          <i class="fa-solid fa-envelope"></i> Email Me
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <script>
+    // Subtle desktop cursor response
+    const heroFrame = document.querySelector('.hero-section-frame');
+    const heroPhoto = document.querySelector('.hero-photo-box');
+
+    if (heroFrame && heroPhoto && window.matchMedia('(min-width: 900px) and (prefers-reduced-motion: no-preference)').matches) {
+      heroFrame.addEventListener('mousemove', (e) => {
+        const rect = heroFrame.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        heroPhoto.style.transform = `translate(${x * 14}px, ${y * 10}px)`;
+      });
+      heroFrame.addEventListener('mouseleave', () => {
+        heroPhoto.style.transform = '';
+      });
+    }
+  </script>
+</body>
+</html>
