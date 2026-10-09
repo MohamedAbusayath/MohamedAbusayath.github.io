@@ -44,26 +44,11 @@
 
       <!-- 1. Name Container -->
       <div class="hero-name-capsule">
-        <span class="name-spark">✦</span>
-        <h1 class="hero-name-title">Mohamed <span class="name-highlight">Abusayath</span></h1>
-        <span class="name-spark">✦</span>
+        <h1 class="hero-name-title">Mohamed <span class="name-highlight">Abusayath S</span></h1>
       </div>
 
 
-      <!-- Interactive Orbit HUD Controls -->
-      <div class="orbit-hud-controls" id="orbitHud" role="toolbar" aria-label="Solar System Orbit Controls">
 
-        <button type="button" class="orbit-hud-btn" id="orbitToggleBtn" aria-label="Toggle Planetary Orbit"
-          title="Pause or Resume Planet Revolution (Space/Enter)">
-          <span class="hud-btn-icon" id="orbitToggleIcon">⏸</span>
-          <span id="orbitToggleLabel">Pause</span>
-        </button>
-        <button type="button" class="orbit-hud-btn" id="orbitSpeedBtn" aria-label="Cycle Orbit Speed"
-          title="Cycle Orbit Speed (1x, 1.5x, 2x)">
-          <span class="hud-btn-icon">⚡</span>
-          <span id="orbitSpeedLabel">1x Speed</span>
-        </button>
-      </div>
 
       <!-- 2. Central Solar System: Photo Sun at center with Concentric Skill Planet Orbits -->
       <div class="solar-stage" id="solarStage">
@@ -1299,80 +1284,7 @@
     // Load projects from GitHub when the page is ready
     document.addEventListener('DOMContentLoaded', loadGitHubProjects);
 
-    // ===== SOLAR SYSTEM ORBIT HUD CONTROLLER =====
-    const solarStage = document.getElementById('solarStage');
-    const orbitToggleBtn = document.getElementById('orbitToggleBtn');
-    const orbitToggleLabel = document.getElementById('orbitToggleLabel');
-    const orbitToggleIcon = document.getElementById('orbitToggleIcon');
-    const hudPulseDot = document.getElementById('hudPulseDot');
-    const hudStatusText = document.getElementById('hudStatusText');
-    const orbitSpeedBtn = document.getElementById('orbitSpeedBtn');
-    const orbitSpeedLabel = document.getElementById('orbitSpeedLabel');
 
-    let isOrbitPaused = false;
-    const speedPresets = [
-      { mult: 1, label: '1x Speed', t1: '18s', t2: '26s', t3: '36s' },
-      { mult: 1.5, label: '1.5x Speed', t1: '12s', t2: '17.3s', t3: '24s' },
-      { mult: 2, label: '2x Speed', t1: '9s', t2: '13s', t3: '18s' }
-    ];
-    let currentSpeedIndex = 0;
-
-    function applyOrbitPauseState(paused, reason = '') {
-      isOrbitPaused = paused;
-      if (!solarStage) return;
-
-      if (paused) {
-        solarStage.classList.add('is-paused');
-        solarStage.classList.remove('force-motion');
-        if (orbitToggleLabel) orbitToggleLabel.textContent = 'Resume';
-        if (orbitToggleIcon) orbitToggleIcon.textContent = '▶';
-        if (hudPulseDot) hudPulseDot.classList.add('paused');
-        if (hudStatusText) hudStatusText.textContent = reason ? `Paused (${reason})` : 'Orbit Paused';
-        if (orbitToggleBtn) orbitToggleBtn.setAttribute('aria-label', 'Resume Planetary Orbit');
-      } else {
-        solarStage.classList.remove('is-paused');
-        solarStage.classList.add('force-motion');
-        if (orbitToggleLabel) orbitToggleLabel.textContent = 'Pause';
-        if (orbitToggleIcon) orbitToggleIcon.textContent = '⏸';
-        if (hudPulseDot) hudPulseDot.classList.remove('paused');
-        if (hudStatusText) hudStatusText.textContent = 'Orbit Active';
-        if (orbitToggleBtn) orbitToggleBtn.setAttribute('aria-label', 'Pause Planetary Orbit');
-      }
-    }
-
-    if (orbitToggleBtn) {
-      orbitToggleBtn.addEventListener('click', () => {
-        applyOrbitPauseState(!isOrbitPaused);
-      });
-    }
-
-    if (orbitSpeedBtn) {
-      orbitSpeedBtn.addEventListener('click', () => {
-        currentSpeedIndex = (currentSpeedIndex + 1) % speedPresets.length;
-        const sp = speedPresets[currentSpeedIndex];
-        if (orbitSpeedLabel) orbitSpeedLabel.textContent = sp.label;
-        if (solarStage) {
-          solarStage.style.setProperty('--orbit-t1-duration', sp.t1);
-          solarStage.style.setProperty('--orbit-t2-duration', sp.t2);
-          solarStage.style.setProperty('--orbit-t3-duration', sp.t3);
-        }
-      });
-    }
-
-    // Keyboard accessibility for toggle button
-    if (orbitToggleBtn) {
-      orbitToggleBtn.addEventListener('keydown', (e) => {
-        if (e.key === ' ' || e.key === 'Enter') {
-          e.preventDefault();
-          applyOrbitPauseState(!isOrbitPaused);
-        }
-      });
-    }
-
-    // Respect initial reduced motion if detected, but allow user to resume anytime
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      applyOrbitPauseState(true, 'Reduced Motion');
-    }
 
   </script>
 

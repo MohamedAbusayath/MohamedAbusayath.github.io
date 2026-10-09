@@ -377,98 +377,13 @@ header {
 }
 
 /* ==========================================================
-   ORBIT HUD CONTROLS
-   ========================================================== */
-.orbit-hud-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 6px auto 14px auto;
-  z-index: 10;
-  flex-wrap: wrap;
-}
-
-.orbit-hud-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 14px;
-  background: rgba(14, 18, 34, 0.85);
-  border: 1px solid rgba(0, 243, 255, 0.28);
-  border-radius: 20px;
-  font-size: 0.72rem;
-  letter-spacing: 1.2px;
-  color: #00f3ff;
-  text-transform: uppercase;
-  font-weight: 600;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.hud-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #00f3ff;
-  box-shadow: 0 0 8px #00f3ff;
-  animation: hudPulseDot 1.8s ease-in-out infinite alternate;
-}
-
-.hud-pulse-dot.paused {
-  background: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
-  animation: none;
-}
-
-@keyframes hudPulseDot {
-  0% { transform: scale(0.85); opacity: 0.7; }
-  100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 12px #00f3ff; }
-}
-
-.orbit-hud-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 5px 14px;
-  background: rgba(22, 28, 52, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 20px;
-  color: #e2e8f0;
-  font-size: 0.74rem;
-  font-weight: 600;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.25s ease;
-  user-select: none;
-}
-
-.orbit-hud-btn:hover {
-  background: rgba(233, 30, 99, 0.25);
-  border-color: rgba(233, 30, 99, 0.6);
-  color: #ffffff;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.3);
-}
-
-.orbit-hud-btn:active {
-  transform: translateY(0);
-}
-
-.hud-btn-icon {
-  font-size: 0.8rem;
-  line-height: 1;
-}
-
 /* ==========================================================
-   SOLAR SYSTEM STAGE
+   SOLAR SYSTEM STAGE (ALWAYS RUNS AT 1.5x SPEED)
    ========================================================== */
 .solar-stage {
-  --orbit-t1-duration: 18s;
-  --orbit-t2-duration: 26s;
-  --orbit-t3-duration: 36s;
+  --orbit-t1-duration: 12s;
+  --orbit-t2-duration: 17.3s;
+  --orbit-t3-duration: 24s;
   position: relative;
   width: 700px;
   height: 640px;
@@ -478,12 +393,6 @@ header {
   justify-content: center;
   margin: 10px 0 20px 0;
   z-index: 1;
-}
-
-/* Programmatic / HUD Pause State */
-.solar-stage.is-paused .planet-orbit,
-.solar-stage.is-paused .planet-item {
-  animation-play-state: paused !important;
 }
 
 /* Subtle Cosmic Stardust Background Halo */
@@ -666,55 +575,55 @@ header {
   outline: none;
 }
 
-/* TRACK 1 (INNER ORBIT: R = 155px, Period = 18s) */
+/* TRACK 1 (INNER ORBIT: R = 155px, Period = 12s at 1.5x speed) */
 /* FRONTEND at 12 o'clock / Top */
 .orbit-frontend {
-  animation: orbitSpin-0 var(--orbit-t1-duration, 18s) linear infinite;
+  animation: orbitSpin-0 var(--orbit-t1-duration, 12s) linear infinite;
 }
 .planet-frontend {
-  animation: counterOrbit-t1-0 var(--orbit-t1-duration, 18s) linear infinite;
+  animation: counterOrbit-t1-0 var(--orbit-t1-duration, 12s) linear infinite;
 }
 
 /* INTEGRATIONS at 6 o'clock / Bottom */
 .orbit-integrations {
-  animation: orbitSpin-180 var(--orbit-t1-duration, 18s) linear infinite;
+  animation: orbitSpin-180 var(--orbit-t1-duration, 12s) linear infinite;
 }
 .planet-integrations {
-  animation: counterOrbit-t1-180 var(--orbit-t1-duration, 18s) linear infinite;
+  animation: counterOrbit-t1-180 var(--orbit-t1-duration, 12s) linear infinite;
 }
 
-/* TRACK 2 (MIDDLE ORBIT: R = 225px, Period = 26s) */
+/* TRACK 2 (MIDDLE ORBIT: R = 225px, Period = 17.3s at 1.5x speed) */
 /* BACKEND at ~2 o'clock / Top-Right */
 .orbit-backend {
-  animation: orbitSpin-60 var(--orbit-t2-duration, 26s) linear infinite;
+  animation: orbitSpin-60 var(--orbit-t2-duration, 17.3s) linear infinite;
 }
 .planet-backend {
-  animation: counterOrbit-t2-60 var(--orbit-t2-duration, 26s) linear infinite;
+  animation: counterOrbit-t2-60 var(--orbit-t2-duration, 17.3s) linear infinite;
 }
 
 /* DATABASE at ~8 o'clock / Bottom-Left */
 .orbit-database {
-  animation: orbitSpin-240 var(--orbit-t2-duration, 26s) linear infinite;
+  animation: orbitSpin-240 var(--orbit-t2-duration, 17.3s) linear infinite;
 }
 .planet-database {
-  animation: counterOrbit-t2-240 var(--orbit-t2-duration, 26s) linear infinite;
+  animation: counterOrbit-t2-240 var(--orbit-t2-duration, 17.3s) linear infinite;
 }
 
-/* TRACK 3 (OUTER ORBIT: R = 295px, Period = 36s) */
+/* TRACK 3 (OUTER ORBIT: R = 295px, Period = 24s at 1.5x speed) */
 /* TOOLS at ~10 o'clock / Top-Left */
 .orbit-tools {
-  animation: orbitSpin-300 var(--orbit-t3-duration, 36s) linear infinite;
+  animation: orbitSpin-300 var(--orbit-t3-duration, 24s) linear infinite;
 }
 .planet-tools {
-  animation: counterOrbit-t3-300 var(--orbit-t3-duration, 36s) linear infinite;
+  animation: counterOrbit-t3-300 var(--orbit-t3-duration, 24s) linear infinite;
 }
 
 /* REST APIs at ~4 o'clock / Bottom-Right */
 .orbit-restapi {
-  animation: orbitSpin-120 var(--orbit-t3-duration, 36s) linear infinite;
+  animation: orbitSpin-120 var(--orbit-t3-duration, 24s) linear infinite;
 }
 .planet-restapi {
-  animation: counterOrbit-t3-120 var(--orbit-t3-duration, 36s) linear infinite;
+  animation: counterOrbit-t3-120 var(--orbit-t3-duration, 24s) linear infinite;
 }
 
 /* ORBIT ARM SPIN KEYFRAMES (Clockwise) */
@@ -1138,8 +1047,8 @@ header {
 @media (max-width: 640px) {
   #About.hero-section-frame {
     max-width: calc(100% - 20px);
-    padding: 24px 14px 36px 14px;
-    margin: 15px auto 40px auto;
+    padding: 28px 14px 36px 14px;
+    margin: 20px auto 40px auto;
     border-radius: 20px;
   }
 
@@ -1161,18 +1070,7 @@ header {
     margin-bottom: 8px;
   }
 
-  .orbit-hud-controls {
-    gap: 8px;
-    margin: 4px auto 10px auto;
-  }
-  .orbit-hud-badge {
-    padding: 4px 10px;
-    font-size: 0.68rem;
-  }
-  .orbit-hud-btn {
-    padding: 4px 10px;
-    font-size: 0.70rem;
-  }
+
 
   /* Compact Solar Stage with Sun & Orbiting Orbs on Mobile */
   .solar-stage {
@@ -1342,18 +1240,7 @@ header {
   }
 }
 
-/* Accessibility: Respect Reduced Motion (allow explicit Resume toggle) */
-@media (prefers-reduced-motion: reduce) {
-  .solar-stage:not(.force-motion) .planet-orbit,
-  .solar-stage:not(.force-motion) .planet-item {
-    animation-play-state: paused !important;
-  }
-  .solar-stage:not(.force-motion) .sun-corona,
-  .solar-stage:not(.force-motion) .name-spark,
-  .solar-stage:not(.force-motion) .status-pulse {
-    animation: none !important;
-  }
-}
+
 
 
 
